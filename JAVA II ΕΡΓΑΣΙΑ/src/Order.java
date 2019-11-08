@@ -1,79 +1,92 @@
-import java.util.Random;
-import java.util.Scanner;
-import java.util.ArrayList;
+mport java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Order {
-	private ArrayList<Order> Orders = new ArrayList<Order> ();
-	private int code;
-	private String name;
-	private int quantity;
-	private String location;
-	private String namecustomer;
-	private String surnamecustomer;
-	Stock a = new Stock();
-	
-	public Order() {
-		this.code = a.codes[setCoNa()];
-		this.name = a.names[setCoNa()];
-		this.quantity = setQ();
-		this.location = setL();
-		this.namecustomer = setNamecustomer();
-		this.surnamecustomer = setSurnamecustomer();
-		Orders.add(this);
-	}
-	Scanner in = new Scanner(System.in);
-	Random r = new Random();
-	
-	public int setCoNa() {
-		return r.nextInt(2);
-	}
-	
-	public int setQ() {
-		return r.nextInt(1000);
-	}
-	
-	public String setL() {
-		return in.nextLine();
-	}
-	
 
-	public int getCode() {
-		return code;
+	// έστω πως id, location είναι μοναδικά (αυτοαυξανόμενα) και πως ο customer μπαίνει από το πληκτρολόγιο
+	int id; //id αυτοαυξανόμενο
+	static int counter = 1;
+	int location;//location αυτοαυξανόμενο
+	static int counter2 = 1;
+	int customer; //
+	java.util.Date date;
+	
+	
+	ArrayList<Stock> order = new ArrayList<Stock>(); // an arrayList of all stocks of an order
+	static ArrayList<Order> orders = new ArrayList<Order>(); // an arrayList of all orders
+	static ArrayList<Order> goodOrders = new ArrayList<Order>(); // an arrayList of all orders that CAN we fulfilled 
+	static ArrayList<Order> BlackList = new ArrayList<Order>(); // an arrayList of all orders that CANT be fulfilled
+	static ArrayList<Integer> numberOfProducts = new ArrayList<Integer>();// an arrayList of number of products per order px. orderId=1 number=2,orderId=2 number=3
+	// SOSSSS numberOfProducts = 2 = banana + orange = NOT 2 bananas
+	
+	
+	public Order(int customer) {
+		super();
+		this.id = counter++;
+		this.location = counter2++;
+		this.customer = customer;
+		this.date = setDate();
+		this.order = setOrder();
+		orders.add(this);
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public int getQuantity() {
-		return quantity;
+	// method that fills arrayList order with stocks
+	public ArrayList<Stock> setOrder() {
+		
+		int id;
+		double price = 0;
+		int quantity;
+		int minQuantity = 0;
+		for (int i = 0 ; i < 2 ; i ++) {//default! customer can order max 2 products per order
+			id = getRandomIntBetweenRange(1 , Stock.stocks.size());// id between 1-stocks.size(). max = as many as the stocks are
+			quantity = getRandomIntBetweenRange (1 , 10000);// quantity is between 1 and 10000(big number)
+			for (int k = 0 ; k < Stock.stocks.size() ; k++) {// goes through arrayList stocks of Stock and finds the object of the arrayList 
+				if (Stock.stocks.get(k).id == id) {			//where object.id=id given and sets price= price of object with id
+					price = Stock.stocks.get(k).price;
+					minQuantity = Stock.stocks.get(k).minQuantity;
+				}
+			}
+			order.add(new Stock (id , price , quantity , minQuantity ));
+		}
+		return order;
 	}
 	
-	public String getLocation() {
-		return location;
+	// method that sets a random date form january to march of 2019
+	public java.util.Date setDate(){
+		return new GregorianCalendar(2019, getRandomIntBetweenRange(0, 2), getRandomIntBetweenRange(0, 28)).getTime();
 	}
 	
-	public String getNamecustomer() {
-		return namecustomer;
+	// method that creates random numbers from min-max
+	public static int getRandomIntBetweenRange(int min, int max){
+	    int x = (int) ((Math.random()*((max-min)+1))+min);
+	    return x;
 	}
-
-	public String setNamecustomer() {
-		return in.nextLine();
+	
+	//prints all elements of ArrayList orders
+	public static void printAllOrders() {
+		for (int i=0; i<orders.size(); i++) {
+			System.out.println(orders.get(i));
+		}
 	}
-
-	public String getSurnamecustomer() {
-		return surnamecustomer;
-	}
-
-	public String setSurnamecustomer() {
-		return in.nextLine();
+	
+	//prints average number of products per order
+	public static void printAverageNumberProductsPerOrder() {
+		int sum = 0;
+		for (int i=0; i<orders.size(); i++) {// goes through all elements of arrayList Orders and sums the number of the products of each order
+			sum = sum + orders.get(i).order.size();
+		}
+		System.out.println(sum / orders.size());
 	}
 
 	@Override
 	public String toString() {
-		return "Orders [code=" + code + ", name=" + name + ", quantity=" + quantity + ", location=" + location
-				+ ", namecustomer=" + namecustomer + ", surnamecustomer=" + surnamecustomer + "]";
+		return "Order [id=" + id + ", location=" + location + ", customer=" + customer + ", date=" + date + ", order="
+				+ order + "]";
 	}
 	
+	
+	
+	
+	
 }
-
