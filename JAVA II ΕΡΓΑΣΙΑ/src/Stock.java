@@ -7,7 +7,7 @@ public class Stock {
 	static ArrayList<Stock> stocks = new ArrayList<Stock>(); // an arrayList of all stocks
 	int minQuantity; // minimun quantity of each product or stock
 	
-//constructor that constructs a stock for Stock
+	//constructor that constructs a stock for Stock
 	public Stock(double price, int quantity, int minQuantity) {
 		super();
 		this.id = counter++;
