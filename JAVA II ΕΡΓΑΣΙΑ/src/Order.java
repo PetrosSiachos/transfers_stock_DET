@@ -29,9 +29,6 @@ public class Order {
 	// SOSSSS numberOfProducts = 2 = banana + orange = NOT 2 bananas
 	static ArrayList<Integer> idproducts =new ArrayList<Integer>();
 	
-	
-	
-	
 	public Order(int customer) {
 		super();
 		this.idcust = counter++;
