@@ -2,15 +2,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Date;
 import java.util.GregorianCalendar;
-
 public class Order {
-
-	// Ξ­ΟƒΟ„Ο‰ Ο€Ο‰Ο‚ id, location ΞµΞ―Ξ½Ξ±ΞΉ ΞΌΞΏΞ½Ξ±Ξ΄ΞΉΞΊΞ¬ (Ξ±Ο…Ο„ΞΏΞ±Ο…ΞΎΞ±Ξ½ΟΞΌΞµΞ½Ξ±) ΞΊΞ±ΞΉ Ο€Ο‰Ο‚ ΞΏ customer ΞΌΟ€Ξ±Ξ―Ξ½ΞµΞΉ Ξ±Ο€Ο Ο„ΞΏ Ο€Ξ»Ξ·ΞΊΟ„ΟΞΏΞ»ΟΞ³ΞΉΞΏ
-	int idcust; //id Ξ±Ο…Ο„ΞΏΞ±Ο…ΞΎΞ±Ξ½ΟΞΌΞµΞ½ΞΏ
+	int idcust; 
 	static int counter = 1;
-	int location;//location Ξ±Ο…Ο„ΞΏΞ±Ο…ΞΎΞ±Ξ½ΟΞΌΞµΞ½ΞΏ
+	int location;
 	static int counter2 = 1;
-	int customer; //
+	int customer; /
 	java.util.Date date;
 	Scanner in = new Scanner(System.in);
 	static int numberofproducts;

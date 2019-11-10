@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 public class Stock {
-	int id; //id Ξ±Ο…Ο„ΞΏΞ±Ο…ΞΎΞ±Ξ½ΟΞΌΞµΞ½ΞΏ
+	int id; 
 	static int counter = 1;
 	double price;
 	int quantity;
