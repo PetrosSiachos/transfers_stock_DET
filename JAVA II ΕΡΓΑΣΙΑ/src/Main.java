@@ -1,3 +1,4 @@
+//this is the class where we control the programm
 public class Main {
 public static void main (String [] args) {
 		Stock a1 = new Stock(3.5 , 1400 , 10);
