@@ -27,5 +27,6 @@ public static void main (String [] args) {
 		System.out.println();
 		Order.printAverageNumberOfProducts();
 		System.out.println();
+		System.out.println();
 		}
 }
