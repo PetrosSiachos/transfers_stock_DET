@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 import java.util.Scanner;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -7,7 +9,7 @@ public class Order {
 	static int counter = 1;
 	int location;
 	static int counter2 = 1;
-	int customer; /
+	int customer; 
 	java.util.Date date;
 	Scanner in = new Scanner(System.in);
 	static int numberofproducts;
@@ -34,8 +36,10 @@ public class Order {
 		this.date = setDate();
 		numberoforders++;//metraw paraggelies
 		do {
-			System.out.println("Please tell me how much products do you want to buy;");
-			numberofproducts = in.nextInt();//mou dinei o xrhsths posa thelei na agorasei
+			String fn = JOptionPane.showInputDialog("Please tell me how many products do you want to buy:");
+			int numberofproducts = Integer.parseInt(fn);
+			
+			//mou dinei o xrhsths posa thelei na agorasei
 			if (numberofproducts > Stock.stocks.size()) {
 				System.out.println(" Please buy until: " + (Stock.stocks.size()) + " products ");//tou vazo periorismo mexri osa exw sta stocks
 			}

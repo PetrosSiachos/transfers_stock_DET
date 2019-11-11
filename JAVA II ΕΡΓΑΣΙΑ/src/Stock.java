@@ -38,7 +38,7 @@ public class Stock {
 			System.out.println(stocks.get(i));
 		}
 	}
-	
+//giota ;	
 //prints the highest quantity of the stock and the id to which the quantity belongs to
 	public static void printHighestQuantity() {
 		int max = 0;
