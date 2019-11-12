@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+
 public class Stock {
 	int id; 
 	static int counter = 1;
@@ -38,9 +39,9 @@ public class Stock {
 			System.out.println(stocks.get(i));
 		}
 	}
-//giota ;	
+	
 //prints the highest quantity of the stock and the id to which the quantity belongs to
-	public static void printHighestQuantity() {
+	public static int printHighestQuantity() {
 		int max = 0;
 		int id = 0;
 		for (int i = 0; i < stocks.size(); i++) {
@@ -49,11 +50,11 @@ public class Stock {
 				id = stocks.get(i).id;
 			}
 		}
-		System.out.println("The highest quantity of all stocks is " + max + " and belongs to the product with id " + id);
+		return max;
 	}
 	
 //prints the lowest quantity of the stock and the id to which the quantity belongs to
-	public static void printLowestQuantity() {
+	public static int printLowestQuantity() {
 		int min = 1000000000;
 		int id = 0;
 		for (int i = 0; i < stocks.size(); i++) {
@@ -62,7 +63,7 @@ public class Stock {
 				id = stocks.get(i).id;
 			}
 		}
-		System.out.println("The lowest quantity of all stocks is " + min + " and belongs to the product with id " + id);
+	return min;	
 	}
 	
 // checks if quantity given is smaller than minQuantity then sets quantity=minQuantity!
