@@ -83,9 +83,7 @@ public class Order {
 		
 		orders.add(this);
 		sumproducts = sumproducts + numberofproducts;
-		
-		
-		}
+	}
 	
 
 	// method that fills arrayList order with stocks

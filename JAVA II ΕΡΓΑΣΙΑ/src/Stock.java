@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-
 public class Stock {
 	int id; 
 	static int counter = 1;

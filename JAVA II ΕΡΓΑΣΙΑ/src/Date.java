@@ -1,5 +1,3 @@
-//This is a usefull class for our project
-//LETS PLAY WITH DATES
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
