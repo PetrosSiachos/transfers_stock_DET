@@ -4,7 +4,7 @@
 	public class GFG { 
 
 		
-		public GFG() {
+		public GFG(){
 			super();
 			// TODO Auto-generated constructor stub
 		}

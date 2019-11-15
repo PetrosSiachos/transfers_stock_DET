@@ -11,13 +11,14 @@ public class VolumeSet {
 	int idcust;
 	int location;
 	int volume;
-	static int sumcust = Order.customer;
+	static int sumcust = Order.numberofcustomers();
 	static int numDromologia;
 	static int c = 820;
 	static int[][] SortArray;
+	int SUMvol;
 	
 	
-	public ArrayList<Integer> volumes = new ArrayList<Integer> (); // arraylist typou int me idcust, location kai ogkoys
+	static ArrayList<Integer> volumes = new ArrayList<Integer> (); // arraylist typou int me idcust, location kai ogkoys
 
 	
 	
@@ -48,15 +49,18 @@ public class VolumeSet {
 			int volumeSize;
 			int metritis;
 			int best_i;
+			
 						
 			
 
 			for (int i=0; i<Order.goodOrders.size(); i++) {
-				quantity = Order.goodorders.order.quantity.get(i);
-				prodid = Order.goodorders.order.id.get(i);
-				location = Order.goodorders.location.get(i);
-				idcust = Order.goodorders.idcust.get(i);
-				
+				location = Order.goodOrders.get(i).location;
+				idcust = Order.goodOrders.get(i).idcust;
+			
+			for (int y=0; y < Order.order.size();y++) {
+				quantity = Order.goodOrders.get(i).order.get(y).quantity;
+				prodid = Order.goodOrders.get(i).order.get(y).id;
+			
 				Connection con = getConnection();
 				String query = "SELECT * FROM prodvolumes";
 
@@ -76,12 +80,14 @@ public class VolumeSet {
 			    }
 			    volume = numVolume*quantity;
 			// thelei na ftiaksoyme allh mia for loop
-			    int SUMvol=SUMvol + volume; // to sinolo tou ogkoy olhs ths paragelias toy enos pelati
-			    
+			    SUMvol=SUMvol + volume; // to sinolo tou ogkoy olhs ths paragelias toy enos pelati
+			}
 			    //arraylist me ton ogko tis paragelias toy kathe pelati
 			    volumes.add(SUMvol, idcust);
-			    volumeSize = volumes.size();
+			  
+			    
 			}
+			volumeSize = volumes.size();
 			
 			SortArray = new int[volumeSize][2];
 			
@@ -89,13 +95,13 @@ public class VolumeSet {
 			while (volumes.size() != 0) {
 			int currentMax =0;
 			for (int i=0; i<volumes.size()-1; i++){
-				if(currentMax < volumes.SUMvol.get(i)){
-					currentMax = volumes.SUMvol.get(i);
+				if(currentMax < volumes.get(i).SUMvol){
+					currentMax = volumes.get(i).SUMvol;
 					best_i=i;
 				}				
 				}
 				SortArray [metritis][0] = currentMax;
-				SortArray [metritis][1] = volumes.idcust.get(best_i);
+				SortArray [metritis][1] = volumes.get(best_i).idcust;
 				metritis++;
 				volumes.remove(best_i);
 			}
@@ -103,7 +109,7 @@ public class VolumeSet {
 			return volumes;
 			int sumVolume = 0;
 			for (int i=0; i<volumes.size(); i++) 
-				sumVolume= sumVolume + volumes.SUMvol.get(i);
+				sumVolume= sumVolume + volumes.get(i).SUMvol;
 			numDromologia = sumVolume / c;
 			
 			
