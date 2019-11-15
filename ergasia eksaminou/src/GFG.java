@@ -29,7 +29,7 @@
 		        // of best bin 
 		        int min = c + 1, bi = 0; 
 		  
-		        for (j = 0; j < res; j++) { 
+		        for (j = 0; j < weight.length; j++) { 
 		            if (bin_rem[j] >= weight[i][0] && bin_rem[j] - weight[i][0] < min) { 
 		                bi = j; 
 		                min = bin_rem[j] - weight[i][0]; 
