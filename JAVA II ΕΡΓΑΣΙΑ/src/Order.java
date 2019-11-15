@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import java.util.Scanner;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -7,7 +8,7 @@ public class Order {
 	static int counter = 1;
 	int location;
 	static int counter2 = 1;
-	int customer; /
+	int customer; 
 	java.util.Date date;
 	Scanner in = new Scanner(System.in);
 	static int numberofproducts;
@@ -34,21 +35,24 @@ public class Order {
 		this.date = setDate();
 		numberoforders++;//metraw paraggelies
 		do {
-			System.out.println("Please tell me how much products do you want to buy;");
-			numberofproducts = in.nextInt();//mou dinei o xrhsths posa thelei na agorasei
+			String fn = JOptionPane.showInputDialog("Please tell me how many products do you want to buy:");
+			numberofproducts = Integer.parseInt(fn);
+			
+			//mou dinei o xrhsths posa thelei na agorasei
 			if (numberofproducts > Stock.stocks.size()) {
 				System.out.println(" Please buy until: " + (Stock.stocks.size()) + " products ");//tou vazo periorismo mexri osa exw sta stocks
 			}
 		} while (numberofproducts > Stock.stocks.size());
 		
 			this.order = setOrder();
+			JOptionPane.showMessageDialog(null,this.order);
 			FIND = "FALSE";
 		for (int y = 0 ; y < order.size() ; y++) {
 		for(int i = 0; i < Stock.stocks.size() ; i++) {
 			if (order.get(y).id == Stock.stocks.get(i).id) {
 				if (order.get(y).quantity > Stock.stocks.get(i).quantity) {
 					FIND = "TRUE";
-					System.out.println("We need more of this product me id: " +  order.get(y).id );
+					JOptionPane.showMessageDialog(null,"We need more of this product me id: " +  order.get(y).id );
 				//Estw oti o xrhsths thelei na agorasei 3 proionta.Vlepo an kapoio apo ayta yparxei eleima.tote Olh h paraggelia tha bei blacklist
 				} 
 			}
@@ -60,13 +64,13 @@ public class Order {
 		for (int y = 0 ; y < order.size() ; y++) {
 			for(int i = 0; i < Stock.stocks.size() ; i++){
 			if (order.get(y).id == Stock.stocks.get(i).id) {
-				System.out.println("FOR " +  order.get(y));
-				System.out.println("Before");
-		System.out.println(Stock.stocks.get(i).quantity);
+				JOptionPane.showMessageDialog(null,"FOR " +  order.get(y));
+				JOptionPane.showMessageDialog(null,"Before");
+				JOptionPane.showMessageDialog(null,Stock.stocks.get(i).quantity);
 		Stock.stocks.get(i).quantity = Stock.stocks.get(i).quantity - order.get(y).quantity ;
-		System.out.println("After");
-		System.out.println(Stock.stocks.get(i).quantity);
-		System.out.println();//ENHMERONO TA STOCKS EFOSON DO OTI H PARGGELIA EINAI GOOD
+		JOptionPane.showMessageDialog(null,"After");
+		JOptionPane.showMessageDialog(null,Stock.stocks.get(i).quantity);
+		//ENHMERONO TA STOCKS EFOSON DO OTI H PARGGELIA EINAI GOOD
 			}
 		}
 	}
@@ -79,9 +83,7 @@ public class Order {
 		
 		orders.add(this);
 		sumproducts = sumproducts + numberofproducts;
-		
-		
-		}
+	}
 	
 
 	// method that fills arrayList order with stocks
@@ -94,7 +96,6 @@ public class Order {
 		
 		for (int i = 0 ; i < numberofproducts  ; i ++) {
 			l++;
-			
 					idpr = getRandomIntBetweenRange(1 , Stock.stocks.size() );
 					idproducts.add(i,idpr);
 					//de thelw na dvsei idio id proiontos o idios pelaths opote apaitw na einai diaforetika, to l xrhsimopoieitai opws kai meta
@@ -109,10 +110,6 @@ public class Order {
 					 }
 			}
 			order.add(l,new Stock (idpr , price , quantity , minQuantity ));
-			System.out.println(order);
-			
-				
-			
 		}
 		return order;
 	}
@@ -129,29 +126,30 @@ public class Order {
 	}
 	
 	//prints all elements of ArrayList orders
-	public static void printAllOrders() {
+	public static int printAllOrders() {
 		for (int i=0; i<orders.size(); i++) {
 			System.out.println(orders.get(i));
 		}
+		return numberoforders;
 	}
 	
 	//prints average number of products per order
-	public static void printAverageNumberOfProducts() {
-		System.out.println(sumproducts/numberoforders);
+	public static double printAverageNumberOfProducts() {
+		return sumproducts/numberoforders;
 	}
 	
-	public static void printGoodOrders() {
+	public static int printGoodOrders() {
 		for (int i=0; i<goodOrders.size(); i++) {
 			System.out.println(goodOrders.get(i));
 		}
-		System.out.println(numberofgoodorders);
+		return numberofgoodorders;
 	}
 	
-	public static void printBlackList() {
+	public static int printBlackList() {
 		for (int i=0; i<BlackList.size(); i++) {
 			System.out.println(BlackList.get(i));
 		}
-		System.out.println(numberofBlackList);
+		return numberofBlackList;
 	}
 		
 	
