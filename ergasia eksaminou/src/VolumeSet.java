@@ -13,9 +13,9 @@ public class VolumeSet {
 	int volume;
 	static int sumcust = Order.numberofcustomers();
 	static int numDromologia;
-	static int c = 820;
+	static final int c = 820;
 	static int[][] SortArray;
-	int SUMvol;
+	int SUMvol=0;
 	
 	
 	static ArrayList<Integer> volumes = new ArrayList<Integer> (); // arraylist typou int me idcust, location kai ogkoys
@@ -30,10 +30,10 @@ public class VolumeSet {
 		this.idcust = idcust;
 		this.location = location;
 		this.volume = volume;
-		this.sumcust = sumcust;
-		this.numDromologia = numDromologia;
+		VolumeSet.sumcust = sumcust;
+		VolumeSet.numDromologia = numDromologia;
 		SortArray = sortArray;
-		this.volumes = volumes;
+		VolumeSet.volumes = volumes;
 		FinalBins = finalBins;
 	}
 
@@ -125,7 +125,7 @@ public class VolumeSet {
 				System.out.print("Το δρομολόγιο " + FinalBins [i][0] + "θα ικανοποιήσει τους πελάτες με id:" ); 
 			
 			
-	            for (int j = 0; j <  FinalBins.length; j++) {
+	            for (int j = 0; j <  FinalBins[i].length; j++) {
 	            	if (FinalBins [i][j]!=0)
 	                System.out.println(FinalBins [i][j]);
 	            	}
@@ -138,7 +138,4 @@ public class VolumeSet {
 		}
 		
 }
-//8
-//https://www.geeksforgeeks.org/multidimensional-arrays-in-java/
-//https://www.cs.amherst.edu/alglab/exactbinpacklab/index.html
-//https://www.geeksforgeeks.org/bin-packing-problem-minimize-number-of-used-bins/
+
