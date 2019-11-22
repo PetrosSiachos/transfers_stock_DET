@@ -1,5 +1,5 @@
 	// Java program to find number
-	// of bins required using
+	// of bins required v  using
 	// best fit algorithm.
 	public class GFG {
 

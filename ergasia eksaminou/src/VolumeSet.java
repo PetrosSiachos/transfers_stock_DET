@@ -11,7 +11,7 @@ public class VolumeSet {
 	int idcust;
 	int location;
 	int volume;
-	static int sumcust = Order.numberofcustomers();
+	static int sumcust ;
 	static int numDromologia;
 	static final int c = 820;
 	static int[][] SortArray;
