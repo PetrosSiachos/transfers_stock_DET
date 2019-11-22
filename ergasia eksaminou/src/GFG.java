@@ -1,7 +1,7 @@
 	// Java program to find number
 	// of bins required v  using
 	// best fit algorithm.
-	public class GFG {
+	public class GFG  {
 
 
 		public GFG(){
