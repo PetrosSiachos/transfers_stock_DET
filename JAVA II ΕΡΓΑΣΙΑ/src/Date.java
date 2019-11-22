@@ -11,14 +11,14 @@ public class Date {
 	public static void main(String args[]){
 		Calendar myCalendar = new GregorianCalendar(2014, 2, 11);
 		java.util.Date myDate = myCalendar.getTime();
-		System.out.println(myDate); //Tue Mar 11 00:00:00 EET 2014
+		System.out.println(myDate);		//Tue Mar 11 00:00:00 EET 2014
 		
 		java.util.Date date = new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime();
-		System.out.println(date);//Tue Feb 11 00:00:00 EET 2014
+		System.out.println(date);		//Tue Feb 11 00:00:00 EET 2014
 		
-		System.out.println(parseDate("2014-2-11"));//Tue Feb 11 00:00:00 EET 2014
+		System.out.println(parseDate("2014-2-11"));		//Tue Feb 11 00:00:00 EET 2014
 		
-		System.out.println(getRandomIntBetweenRange(1, 3));//px 2
+		System.out.println(getRandomIntBetweenRange(1, 3));		//px 2
 		
 		System.out.println(parseDate("2014-" + getRandomIntBetweenRange(1, 3) + "-" +getRandomIntBetweenRange(1, 28) + ""));//RANDOM: Tue Feb 11 00:00:00 EET 2014
 		System.out.println();
@@ -35,7 +35,7 @@ public class Date {
 		dates.add(myDate3);
 		dates.add(new GregorianCalendar(2014, getRandomIntBetweenRange(0, 2), getRandomIntBetweenRange(0, 28)).getTime());//RANDOM: Tue Feb 11 00:00:00 EET 2014
 		
-		for (int x=0; x<dates.size(); x++) {
+		for (int x = 0; x < dates.size(); x++) {
 		    System.out.println(dates.get(x));
 		}
 	}

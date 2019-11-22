@@ -1,11 +1,12 @@
 import java.util.ArrayList;
+
 public class Stock {
-	int id; 
+	int id;		//id αυτοαυξανόμενο
 	static int counter = 1;
 	double price;
 	int quantity;
 	static ArrayList<Stock> stocks = new ArrayList<Stock>(); // an arrayList of all stocks
-	int minQuantity; // minimun quantity of each product or stock
+	int minQuantity;		//minimum quantity of each product or stock
 	
 	//constructor that constructs a stock for Stock
 	public Stock(double price, int quantity, int minQuantity) {
@@ -15,13 +16,13 @@ public class Stock {
 		this.quantity = quantity;
 		this.minQuantity = minQuantity;
 		checkMinQuantity();
-		// if quantity given is smaller than minQuantity then quantity=minQuantity!
-		// In order to create a stock we are going to set quantity to a specific amount = minQuantity
-		//LATER, IF IT GETS LOWER THAN MIN WE MAKE A PUCHASE AND USE METHOD "checkMinQuantity"!!!!! 
+		//if quantity given is smaller than minQuantity then quantity=minQuantity!
+		//In order to create a stock we are going to set quantity to a specific amount = minQuantity
+		//LATER, IF IT GETS LOWER THAN MIN WE MAKE A PURCHASE AND USE METHOD "checkMinQuantity"!!!!! 
 		stocks.add(this);
 	}
 	
-//constructor that constructs a stock for Order
+	//constructor that constructs a stock for Order
 		public Stock(int id, double price, int quantity, int minQuantity) {
 			super();
 			this.id = id;
@@ -30,17 +31,17 @@ public class Stock {
 			this.minQuantity = minQuantity;
 			checkMinQuantity();
 		}
-//we have a method that checks if quantity is smaller than minQuantity.Is this situation, quantity=minQuantity
+	//we have a method that checks if quantity is smaller than minQuantity.Is this situation, quantity=minQuantity
 		
-//prints all elements of ArrayList stocks
+	//prints all elements of ArrayList stocks
 	public static void printAllStocks() {
 		for (int i=0; i<stocks.size(); i++) {
 			System.out.println(stocks.get(i));
 		}
 	}
 	
-//prints the highest quantity of the stock and the id to which the quantity belongs to
-	public static int printHighestQuantity() {
+	//prints the highest quantity of the stock and the id to which the quantity belongs to
+	public static void printHighestQuantity() {
 		int max = 0;
 		int id = 0;
 		for (int i = 0; i < stocks.size(); i++) {
@@ -49,23 +50,23 @@ public class Stock {
 				id = stocks.get(i).id;
 			}
 		}
-		return max;
+		System.out.println("The highest quantity of all stocks is " + max + " and belongs to the product with id " + id);
 	}
 	
-//prints the lowest quantity of the stock and the id to which the quantity belongs to
-	public static int printLowestQuantity() {
-		int min = 1000000000;
-		int id = 0;
-		for (int i = 0; i < stocks.size(); i++) {
+	//prints the lowest quantity of the stock and the id to which the quantity belongs to
+	public static void printLowestQuantity() {
+		int min = stocks.get(0).quantity;
+		int id = 1;
+		for (int i = 1; i < stocks.size(); i++) {
 			if (stocks.get(i).quantity < min) {
-				min= stocks.get(i).quantity;
+				min = stocks.get(i).quantity;
 				id = stocks.get(i).id;
 			}
 		}
-	return min;	
+		System.out.println("The lowest quantity of all stocks is " + min + " and belongs to the product with id " + id);
 	}
 	
-// checks if quantity given is smaller than minQuantity then sets quantity=minQuantity!
+	// checks if quantity given is smaller than minQuantity then sets quantity=minQuantity!
 	public void checkMinQuantity() {
 		if (this.quantity < minQuantity) {
 			this.quantity = minQuantity;
@@ -75,6 +76,6 @@ public class Stock {
 
 	@Override
 	public String toString() {
-		return "Stock [id=" + id + ", price=" + price + ", quantity=" + quantity + ", minQuantity=" + minQuantity + "]";
+		return "Stock [id=" + id + ", price=" + price + ", quantity=" + quantity + ", minQuantity=" + minQuantity + "] ";
 	}
 }
