@@ -8,7 +8,7 @@ public class ConnectMySQL {
 	private final String dbusername = "ismgroup28";
 	private final String dbpassword = "v9c5dm";
 
-	private Connection conn = null;
+	private Connection conn = null; 
 	
 	
 	public Connection getConnection() throws Exception {		
