@@ -6,15 +6,14 @@ public class Stock {
 	int quantity;
 	static ArrayList<Stock> stocks = new ArrayList<Stock>(); // an arrayList of all stocks
 	int minQuantity; // minimun quantity of each product or stock
-	static int purquantity=0;
+	
 //constructor that constructs a stock for Stock
 	public Stock(double price, int quantity, int minQuantity) {
 		super();
-		this.id = counter++; 
+		this.id = counter++;
 		this.price = price;
 		this.quantity = quantity;
 		this.minQuantity = minQuantity;
-		this.purquantity = purquantity;
 		checkMinQuantity();
 		// if quantity given is smaller than minQuantity then quantity=minQuantity!
 		// In order to create a stock we are going to set quantity to a specific amount = minQuantity
@@ -67,16 +66,11 @@ public class Stock {
 	}
 	
 // checks if quantity given is smaller than minQuantity then sets quantity=minQuantity!
-	public static boolean checkMinQuantity() {
-		for (int i = 0; i < stocks.size(); i++) {
-			if (stocks.get(i).quantity< stocks.get(i).minQuantity) {
-				stocks.get(i).quantity = stocks.get(i).minQuantity;
-				stocks.get(i).purquantity= stocks.get(i).minQuantity - stocks.get(i).quantity;
-				return false;
-				//SOS!!! CREATE A PURCHASE WITH QUANTITY = minQuantity - this.quantity;
-			}
+	public void checkMinQuantity() {
+		if (this.quantity < minQuantity) {
+			this.quantity = minQuantity;
+			//SOS!!! CREATE A PURCHASE WITH QUANTITY = minQuantity - this.quantity;
 		}
-		return true;
 	}
 
 	@Override
