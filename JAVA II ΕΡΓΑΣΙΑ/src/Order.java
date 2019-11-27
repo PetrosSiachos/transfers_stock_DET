@@ -4,11 +4,11 @@ import java.util.GregorianCalendar;
 
 public class Order {
 
-	//έστω πως id, location είναι μοναδικά (αυτοαυξανόμενα) και πως ο customer μπαίνει από το πληκτρολόγιο
-	int idcust;		//id αυτοαυξανόμενο
-	static int counter = 1;
-	int location;		//location αυτοαυξανόμενο
-	static int counter2 = 1;
+	//οΏ½οΏ½οΏ½οΏ½ οΏ½οΏ½οΏ½ id, location οΏ½οΏ½οΏ½οΏ½οΏ½ οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½ (οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½) οΏ½οΏ½οΏ½ οΏ½οΏ½οΏ½ οΏ½ customer οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½ οΏ½οΏ½οΏ½ οΏ½οΏ½ οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½
+	int idcust;		//id οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½
+	static int counter = 2;
+	int location;		//location οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½οΏ½
+	static int counter2 = 2;
 	int customer;
 	java.util.Date date;
 	Scanner in = new Scanner(System.in);
