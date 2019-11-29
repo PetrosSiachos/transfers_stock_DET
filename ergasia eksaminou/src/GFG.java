@@ -7,7 +7,7 @@
 /** Places with the right and best way the orders on the routes through the method bestFit that returns the array pbbArray in the class VolumeSet. 
  * 
  * @version 
- * @author Petros Siachos, Melpomeni Konstantinou
+ * @author Petros Siachos, Melpomeni Konstantinou 
  */
 
 public class GFG {

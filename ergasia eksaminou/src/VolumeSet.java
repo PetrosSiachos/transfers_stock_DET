@@ -15,7 +15,7 @@ import java.util.*;
 /** Calculates the volume of each order and places the orders on the appropriate route according to their volume in descending order through the method bestFit of class GFG.
  * 
  * @version  
- * @author Petros Siachos, Melpomeni Konstantinou
+ * @author Petros Siachos, Melpomeni Konstantinou 
  */
 
 public class VolumeSet {
