@@ -1,67 +1,58 @@
-	// Java program to find number
-	// of bins required v  using
-	// best fit algorithm.
-	public class GFG   {
+/*
+ * GFG
+ * 
+ * Copyright 2019 
+ */
 
+/** Places with the right and best way the orders on the routes through the method bestFit that returns the array pbbArray in the class VolumeSet. 
+ * 
+ * @version 
+ * @author Petros Siachos, Melpomeni Konstantinou
+ */
 
-		public GFG(){
-			super();
-			// TODO Auto-generated constructor stub
-		}
+public class GFG {
 
-		static int[][] bestFit(int weight[][], int n, int c, int k) {
+	public GFG() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-			int[][] BppArray = new int[n][k];
-		    // Initialize result (Count of bins)
-		   /* int res = 0; */    //MALLON AXRISTO         !!MENIA          DES TO
+	static int[][] bestFit(int volume[][], int numberOfRoutes, int c, int k) {
 
-		    // Create an array to store remaining space in bins
-		    // there can be at most n bins
-		    int bin_rem[] = new  int [n];
+		int[][] BppArray = new int[numberOfRoutes][k];
 
-		    // Place items one by one
-		    for (int i = 0; i <weight.length; i++) {
-		        // Find the best bin that ca\n accomodate
-		        // weight[i]
-		        int j;
-		        int counter=1;
-		        // Initialize minimum space left and index
-		        // of best bin
-		        int min = c + 1, bi = 0;
+		// Create an array to store remaining space in routes there can be at most numberOfRoutes routes
+		int bin_rem[] = new  int [numberOfRoutes];
 
-		        for (j = 0; j < n; j++) {
-		            if (bin_rem[j] >= weight[i][0] && bin_rem[j] - weight[i][0] < min) {
-		                bi = j;
-		                min = bin_rem[j] - weight[i][0];
-		                BppArray[j][counter]= weight[i][1];
-		                counter++;
-			        	BppArray [j][0] = j;
-		            }
-		        }
+		// Place orders one by one
+		for (int i = 1; i <= numberOfRoutes; i++) {
+		    	
+		     int counter=2;
+		     // Initialize minimum space left and index of best bin
+		     int min = c + 1, bi = 0;
 
-		        // If no bin could accommodate weight[i], 	/KODIKAS
-		        // create a new bin    						/////////POY DEN
-		       /* if (min == c + 1) { 						/////////////////XREIAZETAI MALLON!!!!
-		            bin_rem[res] = c - weight[i][0]; 		//////////////////////////////////////NA DIAGARAFEI
-		            res++;									///////////////////////////////////////////////////STO TELOS
-		            counter=1;								////////////////////////////////////////////////////////////STH PARADOSH
-		            BppArray[i][counter]= weight[i][1];		/////////////
-		        	BppArray [i][0] = n;					/////////////
-		        } 											////////////       MALLON
-		        else // Assign the item to best bin         ///////////
-		            bin_rem[bi] = bin_rem [bi] - weight[i][0]; ///////
-		        	BppArray[i][counter]= weight[i][1]; ////////////////
-		        	BppArray [i][0] = n;				///////////////
-		        	counter++;	*/						//////////////////
-		    }
-		    return BppArray;
-		}
+		     for (int j = 0; j < volume.length; j++) {
+		         if (bin_rem[i] >= volume[j][0] && bin_rem[i] - volume[j][0] < min) {
+		            bi = i;
+		            min = bin_rem[i] - volume[j][0];
+		            BppArray[i][counter] = volume[j][1];
+		            counter++;
+			        BppArray [i][0] = i;
+			        BppArray [i][1] = 1;
+			        BppArray [i][k-1] = 1;
+		         }
+		     }
 
 		 }
+		 return BppArray;
+		 
+	}
+
+}
 
 
+	
 
-
-
+	
 
 //

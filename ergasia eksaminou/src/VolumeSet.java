@@ -1,4 +1,9 @@
-import java.sql.Connection; 
+/*
+ * VolumeSet
+ * 
+ * Copyright 2019
+ */
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -7,38 +12,37 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.*;
 
+/** Calculates the volume of each order and places the orders on the appropriate route according to their volume in descending order through the method bestFit of class GFG.
+ * 
+ * @version  
+ * @author Petros Siachos, Melpomeni Konstantinou
+ */
+
 public class VolumeSet {
-	int idcust;
-	int location;
-	int volume;
-	static int sumcust ;
-	static int numDromologia;
-	static final int c = 820;
-	static int[][] SortArray;
-	int SUMvol=0;
-
-
-	static ArrayList<Integer> volumes = new ArrayList<Integer> (); // arraylist typou int me idcust, location kai ogkoys
-
-
-
-
-
-	public VolumeSet(int idcust, int location, int volume, int sumcust, int numDromologia, int[][] sortArray,
-			ArrayList<Integer> volumes, int[][] finalBins) {
+	
+	static int sumcust = Order.numberofcustomers();
+	static int numRoutes;
+	static final int CAPACITY_OF_ROUTE = 820;
+	static int[][] sortArray; 
+	static ArrayList<Integer> volumes = new ArrayList<Integer> (); // Î‘rraylist of data type int with customers' id, locations' id and volume
+	int sumVolume = 0;
+	private int idcust;
+	private int location;
+	private int volume;
+	 
+	public VolumeSet(int idcust, int location, int volume, int sumcust, int numRoutes, int[][] sortArray,
+			ArrayList<Integer> volumes) {
 		super();
 		this.idcust = idcust;
 		this.location = location;
 		this.volume = volume;
 		VolumeSet.sumcust = sumcust;
-		VolumeSet.numDromologia = numDromologia;
-		SortArray = sortArray;
+		VolumeSet.numRoutes = numRoutes;
+		VolumeSet.sortArray = sortArray;
 		VolumeSet.volumes = volumes;
-		FinalBins = finalBins;
 	}
 
-
-	// method that fills arrayList volumes with idcust,location,volume
+	// method that fills the arrayList volumes with idcust, location and volume
 		public ArrayList<Integer> volumes() {
 			int location;
 			int volume;
@@ -50,87 +54,78 @@ public class VolumeSet {
 			int metritis;
 			int best_i;
 
-
-
-
-			for (int i=0; i<Order.goodOrders.size(); i++) {
+			for (int i = 0; i < Order.goodOrders.size(); i++) {
 				location = Order.goodOrders.get(i).location;
 				idcust = Order.goodOrders.get(i).idcust;
 
-			for (int y=0; y < Order.order.size();y++) {
-				quantity = Order.goodOrders.get(i).order.get(y).quantity;
-				prodid = Order.goodOrders.get(i).order.get(y).id;
+				for (int y = 0; y < Order.order.size(); y++) {
+					quantity = Order.goodOrders.get(i).order.get(y).quantity;
+					prodid = Order.goodOrders.get(i).order.get(y).id;
 
-				Connection con = getConnection();
-				String query = "SELECT * FROM prodvolumes";
+					Connection con = getConnection();
+					String query = "SELECT * FROM prodvolumes";
 
-			      // create the java statement
-			      Statement st = con.createStatement();
+					// create the java statement
+					Statement st = con.createStatement();
 
-			      // execute the query, and get a java resultset
-			      ResultSet rs = st.executeQuery(query);
+					// execute the query, and get a java resultset
+					ResultSet rs = st.executeQuery(query);
 
-			      while (rs.next())
-			      {
-			        int id = rs.getInt("idprod");
-			        if (prodid == id) {
-			        	numVolume = rs.getInt("volume");
-			        }
-			      st.close();
-			    }
-			    volume = numVolume*quantity;
-			// thelei na ftiaksoyme allh mia for loop
-			    SUMvol=SUMvol + volume; // to sinolo tou ogkoy olhs ths paragelias toy enos pelati
-			}
-			    //arraylist me ton ogko tis paragelias toy kathe pelati
-			    volumes.add(SUMvol, idcust);
-
+					while (rs.next()) {
+						int id = rs.getInt("idprod");
+						if (prodid == id) {
+							numVolume = rs.getInt("volume");
+						}
+						st.close();
+					}
+					volume = numVolume*quantity; 
+					sumVolume = sumVolume + volume; // The total volume of a customer's entire order 
+				}
+			
+				// Arraylist with the volume of each customer's order and the corresponding id
+				volumes.add(sumVolume, idcust);
 
 			}
 			volumeSize = volumes.size();
-
-			SortArray = new int[volumeSize][2];
-
+			sortArray = new int[volumeSize][2];
 			metritis = 0;
+			
 			while (volumes.size() != 0) {
-			int currentMax =0;
-			for (int i=0; i<volumes.size()-1; i++){
-				if(currentMax < volumes.get(i).SUMvol){
-					currentMax = volumes.get(i).SUMvol;
-					best_i=i;
+			int currentMax = 0;
+				for (int i = 0; i < volumes.size() - 1; i++){
+					if(currentMax < volumes.get(i).sumVolume){
+						currentMax = volumes.get(i).sumVolume;
+						best_i = i;
+					}
 				}
-				}
-				SortArray [metritis][0] = currentMax;
-				SortArray [metritis][1] = volumes.get(best_i).idcust;
+				sortArray [metritis][0] = currentMax;
+				sortArray [metritis][1] = volumes.get(best_i).idcust;
 				metritis++;
 				volumes.remove(best_i);
 			}
 
 			return volumes;
-			int sumVolume = 0;
-			for (int i=0; i<volumes.size(); i++)
-				sumVolume= sumVolume + volumes.get(i).SUMvol;
-			numDromologia = sumVolume / c;
+			for (int i = 0; i < volumes.size(); i++)
+				sumVolume = sumVolume + volumes.get(i).sumVolume;
+			
+				numRoutes = sumVolume / CAPACITY_OF_ROUTE;
+
+		}
+		
+		//int[][] bppArray = new int[numRoutes][sumcust+3];   
+		static int  finalRoutes [][] = GFG.bestFit(sortArray, numRoutes, CAPACITY_OF_ROUTE, sumcust+3);
+
+		public static void printRoutes () {
+			for (int i = 1; i <= numRoutes; i++) {
+				System.out.print("Î¤Î¿ Î´ÏÎ¿Î¼Î¿Î»ÏŒÎ³Î¹Î¿  " + finalRoutes [i][0] + "Î¸Î± Î¹ÎºÎ±Î½Î¿Ï€Î¿Î¹Î®ÏƒÎµÎ¹ Ï„Î¿Ï…Ï‚ Ï€ÎµÎ»Î¬Ï„ÎµÏ‚ Î¼Îµa id:" );
 
 
-
-
-}
-		//int[][] BppArray = new int[numDromologia][sumcust+1];   F
-
-		static int  FinalBins [][] = GFG.bestFit(SortArray, numDromologia, c, sumcust+1);
-
-		public static void DromologiaPrint () {
-			for (int i = 0; i <= numDromologia; i++) {
-				System.out.print("Ôï äñïìïëüãéï " + FinalBins [i][0] + "èá éêáíïðïéÞóåé ôïõò ðåëÜôåò ìå id:" );
-
-
-	            for (int j = 0; j <  FinalBins[i].length; j++) {
-	            	if (FinalBins [i][j]!=0)
-	                System.out.println(FinalBins [i][j]);
-	            	}
+	            for (int j = 1; j <  finalRoutes[i].length; j++) {
+	            	if (finalRoutes [i][j] != 0)
+	                System.out.println(finalRoutes [i][j]);
+	            }
 			}
-			}
+		}
 
 		private Connection getConnection() {
 			// TODO Auto-generated method stub
