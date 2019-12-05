@@ -1,6 +1,12 @@
+import java.sql.SQLException;
+
 import javax.swing.JOptionPane ;
+
 public class Main {
-	public static void main (String [] args) {
+	public static void main (String [] args) throws IllegalAccessException, InstantiationException, ClassNotFoundException, SQLException {
+		ConnectMySQL.now();
+		
+		
 		JOptionPane.showMessageDialog(null,"Hello Man");
 		String fn = JOptionPane.showInputDialog("Could you control the orders");
 		for(;;) { 
@@ -31,5 +37,10 @@ public class Main {
 		JOptionPane.showMessageDialog(null,"good orders:" +Order.printGoodOrders());
 		JOptionPane.showMessageDialog(null,"bad orders:" +Order.printBlackList());
 		JOptionPane.showMessageDialog(null,"the average number of products is:"+ Order.printAverageNumberOfProducts());
-		}	
+		}
+
+	private static void ConnectMySQL() {
+		// TODO Auto-generated method stub
+		
+	}	
 }
