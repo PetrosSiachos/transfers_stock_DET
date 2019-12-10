@@ -1,9 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.GregorianCalendar;
-
 public class Order {
-
 	//���� ��� id, location ����� �������� (��������������) ��� ��� � customer ������� ��� �� ������������
 	int idcust;		//id ��������������
 	static int counter = 2;

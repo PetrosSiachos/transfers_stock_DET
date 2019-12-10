@@ -5,8 +5,6 @@ import javax.swing.JOptionPane ;
 public class Main {
 	public static void main (String [] args) throws IllegalAccessException, InstantiationException, ClassNotFoundException, SQLException {
 		ConnectMySQL.now();
-		
-		
 		JOptionPane.showMessageDialog(null,"Hello Man");
 		String fn = JOptionPane.showInputDialog("Could you control the orders");
 		for(;;) { 
@@ -16,10 +14,7 @@ public class Main {
 			} 
 			break;
 		}
-		Stock a1 = new Stock(3.5 , 14000 , 10);
-		Stock a2 = new Stock(4.5 , 12000, 10);
-		Stock a3 = new Stock (3.4 , 4000 , 9);
-		Stock a4 = new Stock (4.5 , 12200 , 10);
+		
 		for (int i = 0 ; i < Stock.stocks.size() ; i++) {
 			JOptionPane.showMessageDialog(null,"new product: " + Stock.stocks.get(i));
 		}
