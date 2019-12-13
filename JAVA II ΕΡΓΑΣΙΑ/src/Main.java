@@ -15,4 +15,3 @@ public class Main {
 		JOptionPane.showMessageDialog(null,"the average number of products is:"+ Order.printAverageNumberOfProducts());
 	}		
 }	
-
