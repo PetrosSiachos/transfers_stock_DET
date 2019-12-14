@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.GregorianCalendar;
 
+//klasi pou periexei oles tis paraggelies pou ginontai
 public class Order {
 
 	//έστω πως id, location είναι μοναδικά (αυτοαυξανόμενα) και πως ο customer μπαίνει από το πληκτρολόγιο
@@ -18,8 +19,6 @@ public class Order {
 	static int numberofgoodorders = 0;
 	static int numberofBlackList = 0;
 	static String FIND = "FALSE";
-	
-	
 	ArrayList<Stock> order = new ArrayList<Stock>();		// an arrayList of all stocks of an order
 	static ArrayList<Order> orders = new ArrayList<Order>();		// an arrayList of all orders
 	static ArrayList<Order> goodOrders = new ArrayList<Order>();		// an arrayList of all orders that CAN we fulfilled 
