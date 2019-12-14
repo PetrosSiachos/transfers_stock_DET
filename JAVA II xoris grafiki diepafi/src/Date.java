@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 //klasi pou periexei tis imerominies gia tis paraggelies
+
 public class Date {
 	
 	static ArrayList <java.util.Date> dates = new ArrayList<java.util.Date> ();

@@ -3,6 +3,7 @@ import java.util.Scanner;
 import java.util.GregorianCalendar;
 
 //klasi pou periexei oles tis paraggelies pou ginontai
+
 public class Order {
 
 	//έστω πως id, location είναι μοναδικά (αυτοαυξανόμενα) και πως ο customer μπαίνει από το πληκτρολόγιο

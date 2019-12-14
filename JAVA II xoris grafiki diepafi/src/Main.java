@@ -1,5 +1,7 @@
 public class Main {
-	//klasi pou periexei tin dimiourgia ton proionton
+	
+//klasi pou periexei tin dimiourgia ton proionton
+	
 	public static void main (String [] args) {
 		Stock a1 = new Stock(3 , 1400 , 10);
 		Stock a2 = new Stock(4 , 60000, 10);

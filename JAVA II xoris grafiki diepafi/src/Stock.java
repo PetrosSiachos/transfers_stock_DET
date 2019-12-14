@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 //klasi pou periexei to apothema tis epixeirisis
+
 public class Stock {
 	int id;		//id αυτοαυξανόμενο
 	static int counter = 1;
