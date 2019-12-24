@@ -45,7 +45,14 @@ public class Stock {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 
+	public int getNeed() {
+		return need;
+	}
+	public void setNeed(int need) {
+		this.need = need;
+	}
 	public String getName() {
 		return name;
 	}

@@ -96,7 +96,7 @@ public class Order {
 	public void setDate_of_order(String date_of_order) {
 		this.date_of_order = date_of_order;
 	}
-
+	
 	public int getIdproduct1() {
 		return idproduct1;
 	}
