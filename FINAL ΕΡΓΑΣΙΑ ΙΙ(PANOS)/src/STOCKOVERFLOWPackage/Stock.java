@@ -12,9 +12,16 @@ public class Stock {
 	int minQuantity;
 	int stock;
 	double price;
+	int need;
 	//constructor that constructs a stock for Stock
 	public Stock(){
 	}
+	public Stock(int id, String name, int need) {
+		this.id = id;
+		this.name = name;
+		this.need = need;
+	}
+	
 	public Stock(int id, String name, String description, int volume, int minQuantity, int stock, double price) {
 		super();
 		this.id = id;
