@@ -5,24 +5,24 @@ import java.sql.*;
 public class Stock {
 
 
-	int id;
+	Integer id;
 	String name;
 	String description;
-	int volume;
-	int minQuantity;
-	int stock;
-	double price;
-	int need;
+	Integer volume;
+	Integer minQuantity;
+	Integer stock;
+	Float price;
+	Integer need;
 	//constructor that constructs a stock for Stock
 	public Stock(){
 	}
-	public Stock(int id, String name, int need) {
+	public Stock(Integer id, String name, Integer need) {
 		this.id = id;
 		this.name = name;
 		this.need = need;
 	}
 	
-	public Stock(int id, String name, String description, int volume, int minQuantity, int stock, double price) {
+	public Stock(Integer id, String name, String description, Integer volume, Integer minQuantity, Integer stock, Float price) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -38,19 +38,19 @@ public class Stock {
 	}
 //we have a method that checks if quantity is smaller than minQuantity.Is this situation, quantity=minQuantity
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
 
-	public int getNeed() {
+	public Integer getNeed() {
 		return need;
 	}
-	public void setNeed(int need) {
+	public void setNeed(Integer need) {
 		this.need = need;
 	}
 	public String getName() {
@@ -69,35 +69,35 @@ public class Stock {
 		this.description = description;
 	}
 
-	public int getVolume() {
+	public Integer getVolume() {
 		return volume;
 	}
 
-	public void setVolume(int volume) {
+	public void setVolume(Integer volume) {
 		this.volume = volume;
 	}
 
-	public int getMinQuantity() {
+	public Integer getMinQuantity() {
 		return minQuantity;
 	}
 
-	public void setMinQuantity(int minQuantity) {
+	public void setMinQuantity(Integer minQuantity) {
 		this.minQuantity = minQuantity;
 	}
 
-	public int getStock() {
+	public Integer getStock() {
 		return stock;
 	}
 
-	public void setStock(int stock) {
+	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
 
-	public double getPrice() {
+	public Float getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(Float price) {
 		this.price = price;
 	}
 

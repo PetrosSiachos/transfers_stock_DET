@@ -6,18 +6,18 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class Customer {
-	int idcustomer;
+	Integer idcustomer;
 	String namecustomer;
 	String phone;
 	String address;
-	int years_of_cooperation;
-	double percent_of_stock;
-	int creaditworthiness;
+	Integer years_of_cooperation;
+	Float percent_of_stock;
+	Integer creaditworthiness;
 	public Customer() {
 	}
 	
-	public Customer(int idcustomer, String namecustomer, String phone, String address, int years_of_cooperation,
-			double percent_of_stock, int creaditworthiness) {
+	public Customer(Integer idcustomer, String namecustomer, String phone, String address, Integer years_of_cooperation,
+			Float percent_of_stock, Integer creaditworthiness) {
 		super();
 		this.idcustomer = idcustomer;
 		this.namecustomer = namecustomer;
@@ -28,11 +28,11 @@ public class Customer {
 		this.creaditworthiness = creaditworthiness;
 	}
 	
-	public int getIdcustomer() {
+	public Integer getIdcustomer() {
 		return idcustomer;
 	}
 
-	public void setIdcustomer(int idcustomer) {
+	public void setIdcustomer(Integer idcustomer) {
 		this.idcustomer = idcustomer;
 	}
 
@@ -60,27 +60,27 @@ public class Customer {
 		this.address = address;
 	}
 
-	public int getYears_of_cooperation() {
+	public Integer getYears_of_cooperation() {
 		return years_of_cooperation;
 	}
 
-	public void setYears_of_cooperation(int years_of_cooperation) {
+	public void setYears_of_cooperation(Integer years_of_cooperation) {
 		this.years_of_cooperation = years_of_cooperation;
 	}
 
-	public double getPercent_of_stock() {
+	public Float getPercent_of_stock() {
 		return percent_of_stock;
 	}
 
-	public void setPercent_of_stock(double percent_of_stock) {
+	public void setPercent_of_stock(Float percent_of_stock) {
 		this.percent_of_stock = percent_of_stock;
 	}
 
-	public int getCreaditworthiness() {
+	public Integer getCreaditworthiness() {
 		return creaditworthiness;
 	}
 
-	public void setCreaditworthiness(int creaditworthiness) {
+	public void setCreaditworthiness(Integer creaditworthiness) {
 		this.creaditworthiness = creaditworthiness;
 	}
 

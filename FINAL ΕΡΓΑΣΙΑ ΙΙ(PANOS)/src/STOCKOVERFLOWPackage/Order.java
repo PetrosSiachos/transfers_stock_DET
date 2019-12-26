@@ -3,40 +3,40 @@ import java.util.ArrayList;
 import java.sql.*;
 
 public class Order {
-	int idorder;
-	int idcustomer;
+	Integer idorder;
+	Integer idcustomer;
 	String namecustomer;
 	String date_of_order;
-	int idproduct1;
+	Integer idproduct1;
 	String nameproduct1;
-	int quantity1;
-	double price1;
-	int idproduct2;
+	Integer quantity1;
+	Float price1;
+	Integer idproduct2;
 	String nameproduct2;
-	int quantity2;
-	double price2;
-	int idproduct3;
+	Integer quantity2;
+	Float price2;
+	Integer idproduct3;
 	String nameproduct3;
-	int quantity3;
-	double price3;
-	int idproduct4;
+	Integer quantity3;
+	Float price3;
+	Integer idproduct4;
 	String nameproduct4;
-	int quantity4;
-	double price4;
-	int idproduct5;
+	Integer quantity4;
+	Float price4;
+	Integer idproduct5;
 	String nameproduct5;
-	int quantity5;
-	double price5;
-	int a;
-	int b;
+	Integer quantity5;
+	Float price5;
+	Integer a;
+	Integer b;
 
 	public Order(){
 	}
 
-	public Order(int idorder, int idcustomer, String namecustomer, String date_of_order, int idproduct1, String nameproduct1, int quantity1, double price1,
-			int idproduct2, String nameproduct2, int quantity2, double price2, int idproduct3,
-			String nameproduct3, int quantity3, double price3, int idproduct4, String nameproduct4,
-			int quantity4, double price4, int idproduct5, String nameproduct5, int quantity5, double price5) {
+	public Order(Integer idorder, Integer idcustomer, String namecustomer, String date_of_order, Integer idproduct1, String nameproduct1, Integer quantity1, Float price1,
+			Integer idproduct2, String nameproduct2, Integer quantity2, Float price2, Integer idproduct3,
+			String nameproduct3, Integer quantity3, Float price3, Integer idproduct4, String nameproduct4,
+			Integer quantity4, Float price4, Integer idproduct5, String nameproduct5, Integer quantity5, Float price5) {
 		super();
 		this.idorder = idorder;
 		this.idcustomer = idcustomer;
@@ -65,19 +65,19 @@ public class Order {
 	}
 
 
-	public int getIdorder() {
+	public Integer getIdorder() {
 		return idorder;
 	}
 
-	public void setIdorder(int idorder) {
+	public void setIdorder(Integer idorder) {
 		this.idorder = idorder;
 	}
 
-	public int getIdcustomer() {
+	public Integer getIdcustomer() {
 		return idcustomer;
 	}
 
-	public void setIdcustomer(int idcustomer) {
+	public void setIdcustomer(Integer idcustomer) {
 		this.idcustomer = idcustomer;
 	}
 
@@ -97,11 +97,11 @@ public class Order {
 		this.date_of_order = date_of_order;
 	}
 	
-	public int getIdproduct1() {
+	public Integer getIdproduct1() {
 		return idproduct1;
 	}
 
-	public void setIdproduct1(int idproduct1) {
+	public void setIdproduct1(Integer idproduct1) {
 		this.idproduct1 = idproduct1;
 	}
 
@@ -113,27 +113,27 @@ public class Order {
 		this.nameproduct1 = nameproduct1;
 	}
 
-	public int getQuantity1() {
+	public Integer getQuantity1() {
 		return quantity1;
 	}
 
-	public void setQuantity1(int quantity1) {
+	public void setQuantity1(Integer quantity1) {
 		this.quantity1 = quantity1;
 	}
 
-	public double getPrice1() {
+	public Float getPrice1() {
 		return price1;
 	}
 
-	public void setPrice1(double price1) {
+	public void setPrice1(Float price1) {
 		this.price1 = price1;
 	}
 
-	public int getIdproduct2() {
+	public Integer getIdproduct2() {
 		return idproduct2;
 	}
 
-	public void setIdproduct2(int idproduct2) {
+	public void setIdproduct2(Integer idproduct2) {
 		this.idproduct2 = idproduct2;
 	}
 
@@ -145,27 +145,27 @@ public class Order {
 		this.nameproduct2 = nameproduct2;
 	}
 
-	public int getQuantity2() {
+	public Integer getQuantity2() {
 		return quantity2;
 	}
 
-	public void setQuantity2(int quantity2) {
+	public void setQuantity2(Integer quantity2) {
 		this.quantity2 = quantity2;
 	}
 
-	public double getPrice2() {
+	public Float getPrice2() {
 		return price2;
 	}
 
-	public void setPrice2(double price2) {
+	public void setPrice2(Float price2) {
 		this.price2 = price2;
 	}
 
-	public int getIdproduct3() {
+	public Integer getIdproduct3() {
 		return idproduct3;
 	}
 
-	public void setIdproduct3(int idproduct3) {
+	public void setIdproduct3(Integer idproduct3) {
 		this.idproduct3 = idproduct3;
 	}
 
@@ -177,27 +177,27 @@ public class Order {
 		this.nameproduct3 = nameproduct3;
 	}
 
-	public int getQuantity3() {
+	public Integer getQuantity3() {
 		return quantity3;
 	}
 
-	public void setQuantity3(int quantity3) {
+	public void setQuantity3(Integer quantity3) {
 		this.quantity3 = quantity3;
 	}
 
-	public double getPrice3() {
+	public Float getPrice3() {
 		return price3;
 	}
 
-	public void setPrice3(double price3) {
+	public void setPrice3(Float price3) {
 		this.price3 = price3;
 	}
 
-	public int getIdproduct4() {
+	public Integer getIdproduct4() {
 		return idproduct4;
 	}
 
-	public void setIdproduct4(int idproduct4) {
+	public void setIdproduct4(Integer idproduct4) {
 		this.idproduct4 = idproduct4;
 	}
 
@@ -209,27 +209,27 @@ public class Order {
 		this.nameproduct4 = nameproduct4;
 	}
 
-	public int getQuantity4() {
+	public Integer getQuantity4() {
 		return quantity4;
 	}
 
-	public void setQuantity4(int quantity4) {
+	public void setQuantity4(Integer quantity4) {
 		this.quantity4 = quantity4;
 	}
 
-	public double getPrice4() {
+	public Float getPrice4() {
 		return price4;
 	}
 
-	public void setPrice4(double price4) {
+	public void setPrice4(Float price4) {
 		this.price4 = price4;
 	}
 
-	public int getIdproduct5() {
+	public Integer getIdproduct5() {
 		return idproduct5;
 	}
 
-	public void setIdproduct5(int idproduct5) {
+	public void setIdproduct5(Integer idproduct5) {
 		this.idproduct5 = idproduct5;
 	}
 
@@ -241,22 +241,21 @@ public class Order {
 		this.nameproduct5 = nameproduct5;
 	}
 
-	public int getQuantity5() {
+	public Integer getQuantity5() {
 		return quantity5;
 	}
 
-	public void setQuantity5(int quantity5) {
+	public void setQuantity5(Integer quantity5) {
 		this.quantity5 = quantity5;
 	}
 
-	public double getPrice5() {
+	public Float getPrice5() {
 		return price5;
 	}
 
-	public void setPrice5(double price5) {
+	public void setPrice5(Float price5) {
 		this.price5 = price5;
 	}
-
 	public static ArrayList<Order> getOrders() throws Exception {
 		Connection con = null;
 
@@ -280,7 +279,6 @@ public class Order {
 
 			// execute the SQL statement (QUERY - SELECT) and get the results in a ResultSet)
 			ResultSet rs3 = stmt.executeQuery();
-
 			while (rs3.next()) {
 				Order st = new Order( Integer.parseInt(rs3.getString("IDORDER")),
 				 Integer.parseInt(rs3.getString("IDCUSTOMER")),
