@@ -444,30 +444,7 @@ public class Order {
 			ResultSet rs3 = stmt.executeQuery();
 
 			while (rs3.next()) {
-				Order st = new Order( Integer.parseInt(rs3.getString("IDORDER")),
-				 Integer.parseInt(rs3.getString("IDCUSTOMER")),
-				 rs3.getString("NAMECUSTOMER"),
-				 rs3.getString("DATE_OF_ORDER"),
-				Integer.parseInt(rs3.getString("IDPRODUCT1")),
-				rs3.getString("NAMEPRODUCT1"),
-				Integer.parseInt(rs3.getString("QUANTITY1")),
-				 Float.parseFloat(rs3.getString("PRICE1")),
-				 Integer.parseInt(rs3.getString("IDPRODUCT2")),
-				 rs3.getString("NAMEPRODUCT2"),
-				 Integer.parseInt(rs3.getString("QUANTITY2")),
-				Float.parseFloat(rs3.getString("PRICE2")),
-				 Integer.parseInt(rs3.getString("IDPRODUCT3")),
-				 rs3.getString("NAMEPRODUCT3"),
-			Integer.parseInt(rs3.getString("QUANTITY3")),
-				 Float.parseFloat(rs3.getString("PRICE3")),
-				Integer.parseInt(rs3.getString("IDPRODUCT4")),
-				 rs3.getString("NAMEPRODUCT4"),
-				Integer.parseInt(rs3.getString("QUANTITY4")),
-				Float.parseFloat(rs3.getString("PRICE4")),
-				Integer.parseInt(rs3.getString("IDPRODUCT5")),
-				 rs3.getString("NAMEPRODUCT5"),
-				Integer.parseInt(rs3.getString("QUANTITY5")),
-				 Float.parseFloat(rs3.getString("PRICE5")));
+				
 			for (int w = 0; w < Stock.getStocks().size(); w++) {
 				if (Integer.parseInt(rs3.getString("IDPRODUCT1")) == Stock.getStocks().get(w).id) {
 					if (Integer.parseInt(rs3.getString("QUANTITY1")) > Stock.getStocks().get(w).stock -  Stock.getStocks().get(w).minQuantity) {
