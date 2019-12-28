@@ -28,7 +28,7 @@ public class Main {
    		Object [] possibleValues = { "PEN BLUE", "PEN RED", "PEN BLACK", "PEN GREEN", "PEN PINK", 
 				"HIGHLIGHTER YELLOW", "HIGHLIGHTER PINK", "HIGHLIGHTER GREEN", "SHARPENER", 
 				"RUBBER FOR PENCILS",  "RUBBER FOR PENS", 
-				"RULER BLACK",  "RULER WHITE", "PENCIL", "MECHANICAL PENCIL",  "COMPASSES"};
+				"RULER BLACK",  "RULER WHITE", "PENCIL", "MECHANICAL PENCIL"};
    		Object [] a1 = new Object[5];
    		Object [] a2 = new Object[5];
 		/*ADD AND THE OTHERS PRODUCTS*/
