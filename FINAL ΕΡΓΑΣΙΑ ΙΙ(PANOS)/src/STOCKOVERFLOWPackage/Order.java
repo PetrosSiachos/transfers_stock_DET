@@ -504,15 +504,20 @@ public class Order {
 		ArrayList<Order> GoodOrders =  new ArrayList<Order>();
 
 		try {
+			
 			// open connection and get Connection object
 			con = db.getConnection();
+			
 
 			PreparedStatement stmt = con.prepareStatement(sql);
+			
 
 			// execute the SQL statement (QUERY - SELECT) and get the results in a ResultSet)
 			ResultSet rs3 = stmt.executeQuery();
+			
 
 			while (rs3.next()) {
+			
 				Order st = new Order( Integer.parseInt(rs3.getString("IDORDER")),
 				 Integer.parseInt(rs3.getString("IDCUSTOMER")),
 				 rs3.getString("NAMECUSTOMER"),
@@ -537,6 +542,7 @@ public class Order {
 				 rs3.getString("NAMEPRODUCT5"),
 				Integer.parseInt(rs3.getString("QUANTITY5")),
 				 Float.parseFloat(rs3.getString("PRICE5")));
+				
 				boolean Flag = false;
 			for (int w = 0; w < Stock.getStocks().size(); w++) {
 				if (Integer.parseInt(rs3.getString("IDPRODUCT1")) == Stock.getStocks().get(w).id) {
@@ -566,13 +572,18 @@ public class Order {
 				}
 			}
 			if (Flag == false) {
+				System.out.println("SUCCESS");
 				GoodOrders.add(st);
 			}
 		}
+			
  			rs3.close(); //closing ResultSet
+ 		
 			stmt.close(); //closing PreparedStatement
+			
 	return GoodOrders;
 	} catch (Exception e) {
+		System.out.println("mpainei");
 
 				throw new Exception(e.getMessage());
 

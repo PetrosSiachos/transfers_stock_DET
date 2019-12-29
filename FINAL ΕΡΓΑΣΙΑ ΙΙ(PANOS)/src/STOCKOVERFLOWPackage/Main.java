@@ -1,61 +1,43 @@
 package STOCKOVERFLOWPackage;
-
 import java.awt.Desktop;
-import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-
 import javax.swing.*;
 
-
 public class Main {
-    public static void main(String[] args) throws IOException, URISyntaxException {
+    public static void main(String[] args) throws Exception {
+    	
     	int l = 0;
     	do {
     	String  y = JOptionPane.showInputDialog(null, "Press: " + " 1 : to make an order " + " or "
     			+ " 2 : to control the apotheke");
     	if ( y.equals("1")) {
+    		
     		l = 1;
     		Object[] options = { "OK", "CANCEL" };
    		 JOptionPane.showOptionDialog(null, "Hello to our ERP ", " MESSAGE",
    		JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
    		null, options, options[0]);
-   		
+   		JOptionPane.showMessageDialog(null, "Choose please from 1 until 5 products");
+   		int id = Customer.getCustomers().size()+2;
+   		String name = JOptionPane.showInputDialog("Please input your name");
+   		String phone = JOptionPane.showInputDialog("Please input your phone");
+   		String address = JOptionPane.showInputDialog("Please input your address");
+   		int years = Integer.parseInt(JOptionPane.showInputDialog("Please input the years of cooperation with us"));
+   		Float perc =Float.parseFloat(JOptionPane.showInputDialog("Please input if you have percent of stock in our firm"));
+   		int creadit;
+   		if (years > 1) {
+   			 creadit = 1;
+   		}	else {
+   			 creadit = 0;
+   		}
+   		/*add the others products*/
    		Object [] possibleValues = { "PEN BLUE", "PEN RED", "PEN BLACK", "PEN GREEN", "PEN PINK", 
 				"HIGHLIGHTER YELLOW", "HIGHLIGHTER PINK", "HIGHLIGHTER GREEN", "SHARPENER", 
 				"RUBBER FOR PENCILS",  "RUBBER FOR PENS", 
 				"RULER BLACK",  "RULER WHITE", "PENCIL", "MECHANICAL PENCIL"};
-   		Object [] a1 = new Object[5];
-   		Object [] a2 = new Object[5];
-		/*ADD AND THE OTHERS PRODUCTS*/
-   		JOptionPane.showMessageDialog(null, "Choose please from 1 until 5 products");
-   		String X;
-   		int i = 0;
-		do {
-		Object selectedValue = JOptionPane.showInputDialog(null,
-		"Choose one", "Input",
-		JOptionPane.INFORMATION_MESSAGE, null,
-		possibleValues, possibleValues[0]);
-		a1[i] = selectedValue;
-		i++;
-		String inputValue = JOptionPane.showInputDialog("Please input a value");
-		a1[i-1] = inputValue;
-		do {
-		 X = JOptionPane.showInputDialog(null,"Do you want an other product? Answer YES or NO");
-		 
-		 if ( (X.equals("YES") || X.equals("NO")) == false) {
-			  JOptionPane.showMessageDialog(null,"Wrong answer");
-		 }
-		} while ((X.equals("YES") || X.equals("NO")) == false);
-		
-			 
-		} while ( X.equals("YES"));
-		
-		String inputValue = JOptionPane.showInputDialog("Please input a value");
+   		
 		
 		Connection con = null;
 		DB db = new DB();
@@ -65,32 +47,62 @@ public class Main {
 			// open connection and get Connection object
 			con = db.getConnection();
 
-			PreparedStatement stmt1 = con.prepareStatement("INSERT INTO CUSTOMERS (IDCUSTOMER " + 
-					"NAMECUSTOMER" + 
-					"PHONE " + 
-					"ADDRESS " + 
-					"YEARS_OF_COOPERATION" + 
-					"PERCENT_OF_STOCK DECIMAL" + 
-					"CREADITWORTHINESS ");
-			
-			PreparedStatement stmt2 = con.prepareStatement("INSERT INTO ORDERS (IDCUSTOMER " + 
-					"NAMECUSTOMER" + 
-					"PHONE " + 
-					"ADDRESS " + 
-					"YEARS_OF_COOPERATION" + 
-					"PERCENT_OF_STOCK DECIMAL" + 
-					"CREADITWORTHINESS ");
-
-			// execute the SQL statement (QUERY - SELECT) and get the results in a ResultSet)
+			PreparedStatement stmt1 = con.prepareStatement("INSERT INTO CUSTOMERS VALUES ('" + id + "', '"+ name +"', '"+ phone +"', '"+ address +"', '"+ years +"', '"+ perc + "', '"+ creadit +"')") ; 
+		
 			stmt1.executeUpdate();
-			stmt2.executeUpdate();
+			System.out.println("success");
 		} catch(Exception e) {
 			JOptionPane.showMessageDialog(null, e);
 		} finally {
 			JOptionPane.showMessageDialog(null, "Insert Completed");
 		}
-	
-    
+		String [] nameprod = {"", "", "","", "", ""};
+		Integer [] x = {0, 0, 0, 0, 0};
+		Float [] o = {null, null, null, null, null};
+		Integer [] n = {0, 0, 0, 0, 0};
+		int i = 0;
+		String X;
+		do {
+			nameprod[i] = (String) JOptionPane.showInputDialog(null,
+					"Choose one", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleValues, possibleValues[0]);
+			for (int a = 0; a < Stock.getStocks().size(); a++) {
+				if (Stock.getStocks().get(a).name.equals(nameprod)) {
+					 x[i] = Stock.getStocks().get(a).id;
+					 o[i] = Stock.getStocks().get(a).price;
+			}
+			}
+				 n[i] = Integer.parseInt(JOptionPane.showInputDialog(null, "Input the quantity"));
+
+				 
+				 do {
+		X = JOptionPane.showInputDialog(null,"Do you want an other product? Answer YES or NO");
+		 
+		 if ( (X.equals("YES") || X.equals("NO")) == false) {
+			  JOptionPane.showMessageDialog(null,"Wrong answer");
+		 }
+		 
+		} while ((X.equals("YES") || X.equals("NO")) == false);
+		
+			 i++;
+		} while ( X.equals("YES"));
+		
+
+		try {
+			// open connection and get Connection object
+			con = db.getConnection();
+		PreparedStatement stmt2 = con.prepareStatement("INSERT INTO ORDERS VALUES ('"+ nameprod[0] + "','"+ x[0] +"','" + o[0] +"', '"+ n[0] +"','"+ nameprod[1] + "', '"+ x[1] +"','" + o[1] +"', '"+ n[1] +"','"+ nameprod[2] + "', '"+ x[2] +"','" + o[2] +"', '"+ n[2] +"','"+ nameprod[3] + "', '"+ x[3] +"','" + o[3] +"', '"+ n[3] +"', '" + nameprod[4] + "', '"+ x[4] +"','" + o[4] +"', '"+ n[4] + "')"); 
+						stmt2.executeUpdate();
+				stmt2.executeUpdate();
+				System.out.println("success");
+		} catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+		} finally {
+			JOptionPane.showMessageDialog(null, "Insert Completed");
+		}
+		
+				
     	} else if ( y.equals("2")) {
     		l = 1;
     		int k = 0;
@@ -118,13 +130,6 @@ public class Main {
     	}
     	
     } while  ( l == 0);
-  }
+   }
 }
-    		
-			
-				
-				
-	    
-    		
-    	
-    		  
+
