@@ -139,6 +139,7 @@ public static ArrayList<Stock> getStocks() throws Exception {
 
 	 			rs.close(); //closing ResultSet
 				stmt.close(); //closing PreparedStatement
+				db.close();
 		return stocks;
 		} catch (Exception e) {
 

@@ -310,7 +310,8 @@ public class Order {
 			}
 
  			rs3.close(); //closing ResultSet
-			stmt.close(); //closing PreparedStatement
+			stmt.close();
+			db.close();//closing PreparedStatement
 	return orders;
 	} catch (Exception e) {
 
@@ -406,7 +407,8 @@ public class Order {
 			}
 		}
  			rs3.close(); //closing ResultSet
-			stmt.close(); //closing PreparedStatement
+			stmt.close();
+			db.close();//closing PreparedStatement
 	return BlackList;
 	} catch (Exception e) {
 
@@ -475,7 +477,8 @@ public class Order {
 			
 			}
  			rs3.close(); //closing ResultSet
-			stmt.close(); //closing PreparedStatement
+			stmt.close();
+			db.close();//closing PreparedStatement
 		return a;
 	} catch (Exception e) {
 
@@ -572,18 +575,19 @@ public class Order {
 				}
 			}
 			if (Flag == false) {
-				System.out.println("SUCCESS");
+				
 				GoodOrders.add(st);
 			}
 		}
 			
  			rs3.close(); //closing ResultSet
  		
-			stmt.close(); //closing PreparedStatement
+			stmt.close();
+			db.close();//closing PreparedStatement
 			
 	return GoodOrders;
 	} catch (Exception e) {
-		System.out.println("mpainei");
+		
 
 				throw new Exception(e.getMessage());
 

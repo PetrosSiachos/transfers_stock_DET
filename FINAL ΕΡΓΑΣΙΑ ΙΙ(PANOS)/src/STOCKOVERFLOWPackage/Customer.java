@@ -122,7 +122,8 @@ public class Customer {
 					}
 
 		 			rs.close(); //closing ResultSet
-					stmt.close(); //closing PreparedStatement
+					stmt.close(); 
+					db.close();//closing PreparedStatement
 				
 			return customers;
 				

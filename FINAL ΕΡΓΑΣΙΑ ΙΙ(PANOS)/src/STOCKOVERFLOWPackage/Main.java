@@ -7,6 +7,14 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+    	/*System.out.println(Order.getOrders().size());
+    	System.out.println(Order.getGoodOrders().size());
+    	System.out.println(Order.getBlackList().size());
+    	System.out.println(Stock.getStocks().size());
+    	System.out.println(Customer.getCustomers());*/
+    	
+    	
+    	
     	
     	int l = 0;
     	do {
