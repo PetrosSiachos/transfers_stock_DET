@@ -99,7 +99,7 @@ public class Main {
 		Integer idorder = Order.getOrders().size() +1 ;
 		String Date = JOptionPane.showInputDialog(null, "PLease insert the date");
 		try {
-			// open connection and get Connection object
+			
 			con = db.getConnection();
 		PreparedStatement stmt2 = con.prepareStatement("INSERT INTO ORDERS VALUES ('"+ idorder + "', '"+ id +"','" + name +"', '"+ Date +"','"+  x[0] + "','"+ nameprod[0] +"','" + n[0] +"', '"+ o[0] +"','"+ x[1] + "', '"+ nameprod[1] +"','" + n[1] +"', '"+ o[1] +"','"+ x[2] + "', '"+ nameprod[2] +"','" + n[2] +"', '"+ o[2] +"','"+ x[3] + "', '"+ nameprod[3] +"','" + n[3] +"', '"+ o[3] +"', '" + x[4] + "', '"+ nameprod[4] +"','" + n[4] +"', '"+ o[4] + "')"); 
 						stmt2.executeUpdate();
