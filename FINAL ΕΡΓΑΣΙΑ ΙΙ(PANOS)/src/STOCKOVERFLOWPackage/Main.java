@@ -66,7 +66,7 @@ public class Main {
 		}
 		String [] nameprod = {"", "", "","", "", ""};
 		Integer [] x = {0, 0, 0, 0, 0};
-		Float [] o = {null, null, null, null, null};
+		Float [] o = {(float)9.4, (float)0.3, (float)0.46, (float) 0.92, (float)0.98};
 		Integer [] n = {0, 0, 0, 0, 0};
 		int i = 0;
 		String X;
@@ -96,11 +96,12 @@ public class Main {
 			 i++;
 		} while ( X.equals("YES"));
 		
-
+		Integer idorder = Order.getOrders().size() +1 ;
+		String Date = JOptionPane.showInputDialog(null, "PLease insert the date");
 		try {
 			// open connection and get Connection object
 			con = db.getConnection();
-		PreparedStatement stmt2 = con.prepareStatement("INSERT INTO ORDERS VALUES ('"+ nameprod[0] + "','"+ x[0] +"','" + o[0] +"', '"+ n[0] +"','"+ nameprod[1] + "', '"+ x[1] +"','" + o[1] +"', '"+ n[1] +"','"+ nameprod[2] + "', '"+ x[2] +"','" + o[2] +"', '"+ n[2] +"','"+ nameprod[3] + "', '"+ x[3] +"','" + o[3] +"', '"+ n[3] +"', '" + nameprod[4] + "', '"+ x[4] +"','" + o[4] +"', '"+ n[4] + "')"); 
+		PreparedStatement stmt2 = con.prepareStatement("INSERT INTO ORDERS VALUES ('"+ idorder + "', '"+ id +"','" + name +"', '"+ Date +"','"+  x[0] + "','"+ nameprod[0] +"','" + n[0] +"', '"+ o[0] +"','"+ x[1] + "', '"+ nameprod[1] +"','" + n[1] +"', '"+ o[1] +"','"+ x[2] + "', '"+ nameprod[2] +"','" + n[2] +"', '"+ o[2] +"','"+ x[3] + "', '"+ nameprod[3] +"','" + n[3] +"', '"+ o[3] +"', '" + x[4] + "', '"+ nameprod[4] +"','" + n[4] +"', '"+ o[4] + "')"); 
 						stmt2.executeUpdate();
 				stmt2.executeUpdate();
 				System.out.println("success");
