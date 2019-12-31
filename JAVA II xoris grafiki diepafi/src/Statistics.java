@@ -149,5 +149,20 @@ public class Statistics {
 		return array;
 	}		
 	
+/* 11) Array of Value of customers || λίστα με αξία πελατών*/
+	public static double[] ValueOfCustomers() {
+		int i = 0;
+		double [] array = new double [Customer.customers.size()];
+		for (Customer cust : Customer.customers) {
+			int y = cust.getYears_of_cooperation();
+			int c = cust.getCreditworthiness();
+			double p = cust.getPercent_of_stock();
+			array[i] = ((double)y/ 30.0)*0.4 + ((double)c/ 100.0)*0.5 + p *0.1;
+			i++;
+		}
+		return array;
+	}
+	
+	
 	
 }
