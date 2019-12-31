@@ -47,7 +47,15 @@ public class Statistics {
 		}
 		return array;
 	}
-	
+/* 4) Satisfactory average creditworthiness or not || ικανοποιητική μέση πιστολιπτική ικανότητα ή όχι?*/
+	public static boolean SatisfactoryAverageCreditworthiness() {
+		boolean sat = false;
+		if (Statistics.AverageCreditworthiness() > 0.7) {
+			sat = true;
+		}
+		return sat;
+	}
+		
 	
 
 }
