@@ -103,6 +103,15 @@ public class Statistics {
 		return array;
 	}
 
+/* 8) AveragePercent_of_stock of Customers|| μέσο ποσοστό μετοχών*/
+	public static double AveragePercent_of_stock() {
+		double sum = 0;
+		for (Customer cust : Customer.customers) {
+			sum = (double) (sum + cust.getPercent_of_stock());
+		}
+		return (double) sum/Customer.customers.size();
+	}
+	
 	
 	
 }
