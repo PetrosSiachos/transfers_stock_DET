@@ -205,6 +205,21 @@ public class Statistics {
 		}
 		return array2;
 	}
-		
+	
+/* 14) HealthyDoingBusiness: if 60% of customers have creditworthiness above 0.6 then we are ok/else not || αν το 60% των πελατών έχουν πιστοληπτική ικανότητα πάνω από 0.6 είμαστε καλά*/
+	public static boolean HealthyDoingBusiness() {
+		int count = 0;
+		for(Customer cust : Customer.customers) {
+			if (cust.getCreditworthiness() > 0.6) {
+				count++;
+			}
+		}
+		double per = count / Customer.customers.size();
+		if (per > 0.6) {
+			return true;
+		}
+		return false;
+	}
+			
 	
 }
