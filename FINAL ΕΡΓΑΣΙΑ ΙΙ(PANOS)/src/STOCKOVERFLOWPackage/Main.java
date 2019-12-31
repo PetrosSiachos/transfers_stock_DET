@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import javax.swing.*;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception {
     	/*System.out.println(Order.getOrders().size());
     	System.out.println(Order.getGoodOrders().size());
     	System.out.println(Order.getBlackList().size());
@@ -23,10 +23,7 @@ public class Main {
     	if ( y.equals("1")) {
     		
     		l = 1;
-    		Object[] options = { "OK", "CANCEL" };
-   		 JOptionPane.showOptionDialog(null, "Hello to our ERP ", " MESSAGE",
-   		JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
-   		null, options, options[0]);
+   		 JOptionPane.showMessageDialog(null, "Hello to our ERP ");
    		JOptionPane.showMessageDialog(null, "Choose please from 1 until 5 products");
    		int id = Customer.getCustomers().size()+2;
    		String name = JOptionPane.showInputDialog("Please input your name");
@@ -64,9 +61,9 @@ public class Main {
 		} finally {
 			JOptionPane.showMessageDialog(null, "Insert Completed");
 		}
-		String [] nameprod = {"", "", "","", "", ""};
+		String [] nameprod  = {"","","","",""};
 		Integer [] x = {0, 0, 0, 0, 0};
-		Float [] o = {(float)9.4, (float)0.3, (float)0.46, (float) 0.92, (float)0.98};
+		Float [] o = {(float) 0, (float) 0, (float) 0, (float) 0, (float) 0};
 		Integer [] n = {0, 0, 0, 0, 0};
 		int i = 0;
 		String X;
@@ -76,7 +73,7 @@ public class Main {
 					JOptionPane.INFORMATION_MESSAGE, null,
 					possibleValues, possibleValues[0]);
 			for (int a = 0; a < Stock.getStocks().size(); a++) {
-				if (Stock.getStocks().get(a).name.equals(nameprod)) {
+				if (Stock.getStocks().get(a).name.equals(nameprod[i])) {
 					 x[i] = Stock.getStocks().get(a).id;
 					 o[i] = Stock.getStocks().get(a).price;
 			}
@@ -103,7 +100,6 @@ public class Main {
 			con = db.getConnection();
 		PreparedStatement stmt2 = con.prepareStatement("INSERT INTO ORDERS VALUES ('"+ idorder + "', '"+ id +"','" + name +"', '"+ Date +"','"+  x[0] + "','"+ nameprod[0] +"','" + n[0] +"', '"+ o[0] +"','"+ x[1] + "', '"+ nameprod[1] +"','" + n[1] +"', '"+ o[1] +"','"+ x[2] + "', '"+ nameprod[2] +"','" + n[2] +"', '"+ o[2] +"','"+ x[3] + "', '"+ nameprod[3] +"','" + n[3] +"', '"+ o[3] +"', '" + x[4] + "', '"+ nameprod[4] +"','" + n[4] +"', '"+ o[4] + "')"); 
 						stmt2.executeUpdate();
-				stmt2.executeUpdate();
 				System.out.println("success");
 		} catch(Exception e) {
 			JOptionPane.showMessageDialog(null, e);
@@ -129,7 +125,7 @@ public class Main {
     		
     		} while (k == 0);
     		
-    		/* connect to url*/
+    		
     		Desktop d = Desktop.getDesktop();
     		d.browse(new URI("http://ism.dmst.aueb.gr/ismgroup28/JAVA%20II/index.html"));	
     	} else {
