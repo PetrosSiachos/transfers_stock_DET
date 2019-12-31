@@ -1,83 +1,168 @@
-import java.util.ArrayList;
 
-//klasi pou periexei to apothema tis epixeirisis
+import java.util.ArrayList;
+import java.sql.*;
 
 public class Stock {
-	int id;		//id αυτοαυξανόμενο
-	static int counter = 1;
+
+
+	int id;
+	String name;
+	String description;
+	int volume;
+	int minQuantity;
+	int stock;
 	double price;
-	int quantity;
-	static ArrayList<Stock> stocks = new ArrayList<Stock>(); // an arrayList of all stocks
-	int minQuantity;		//minimum quantity of each product or stock
+	int need;
+
+	public static ArrayList<Stock> stocks =  new ArrayList<Stock>();
+
 	
 	//constructor that constructs a stock for Stock
-	public Stock(double price, int quantity, int minQuantity) {
+	public Stock(){
+	}
+	public Stock(int id, String name, int need) {
+		this.id = id;
+		this.name = name;
+		this.need = need;
+	}
+	
+	public Stock(int id, String name, String description, int volume, int minQuantity, int stock, double price) {
 		super();
-		this.id = counter++;
-		this.price = price;
-		this.quantity = quantity;
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.volume = volume;
 		this.minQuantity = minQuantity;
-		checkMinQuantity();
-		//if quantity given is smaller than minQuantity then quantity=minQuantity!
-		//In order to create a stock we are going to set quantity to a specific amount = minQuantity
-		//LATER, IF IT GETS LOWER THAN MIN WE MAKE A PURCHASE AND USE METHOD "checkMinQuantity"!!!!! 
-		stocks.add(this);
+		this.stock = stock;
+		this.price = price;
+
+		// if quantity given is smaller than minQuantity then quantity=minQuantity!
+		// In order to create a stock we are going to set quantity to a specific amount = minQuantity
+		//LATER, IF IT GETS LOWER THAN MIN WE MAKE A PUCHASE AND USE METHOD "checkMinQuantity"!!!!!
 	}
-	
-	//constructor that constructs a stock for Order
-		public Stock(int id, double price, int quantity, int minQuantity) {
-			super();
-			this.id = id;
-			this.price = price;
-			this.quantity = quantity;
-			this.minQuantity = minQuantity;
-			checkMinQuantity();
-		}
-	//we have a method that checks if quantity is smaller than minQuantity.Is this situation, quantity=minQuantity
-		
-	//prints all elements of ArrayList stocks
-	public static void printAllStocks() {
-		for (int i=0; i<stocks.size(); i++) {
-			System.out.println(stocks.get(i));
-		}
-	}
-	
-	//prints the highest quantity of the stock and the id to which the quantity belongs to
-	public static void printHighestQuantity() {
-		int max = 0;
-		int id = 0;
-		for (int i = 0; i < stocks.size(); i++) {
-			if (stocks.get(i).quantity > max) {
-				max = stocks.get(i).quantity;
-				id = stocks.get(i).id;
-			}
-		}
-		System.out.println("The highest quantity of all stocks is " + max + " and belongs to the product with id " + id);
-	}
-	
-	//prints the lowest quantity of the stock and the id to which the quantity belongs to
-	public static void printLowestQuantity() {
-		int min = stocks.get(0).quantity;
-		int id = 1;
-		for (int i = 1; i < stocks.size(); i++) {
-			if (stocks.get(i).quantity < min) {
-				min = stocks.get(i).quantity;
-				id = stocks.get(i).id;
-			}
-		}
-		System.out.println("The lowest quantity of all stocks is " + min + " and belongs to the product with id " + id);
-	}
-	
-	// checks if quantity given is smaller than minQuantity then sets quantity=minQuantity!
-	public void checkMinQuantity() {
-		if (this.quantity < minQuantity) {
-			this.quantity = minQuantity;
-			//SOS!!! CREATE A PURCHASE WITH QUANTITY = minQuantity - this.quantity;
-		}
+//we have a method that checks if quantity is smaller than minQuantity.Is this situation, quantity=minQuantity
+
+	public int getId() {
+		return id;
 	}
 
-	@Override
-	public String toString() {
-		return "Stock [id=" + id + ", price=" + price + ", quantity=" + quantity + ", minQuantity=" + minQuantity + "] ";
+	public void setId(int id) {
+		this.id = id;
 	}
+	
+
+	public int getNeed() {
+		return need;
+	}
+	public void setNeed(int need) {
+		this.need = need;
+	}
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getVolume() {
+		return volume;
+	}
+
+	public void setVolume(int volume) {
+		this.volume = volume;
+	}
+
+	public int getMinQuantity() {
+		return minQuantity;
+	}
+
+	public void setMinQuantity(int minQuantity) {
+		this.minQuantity = minQuantity;
+	}
+
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+public static ArrayList<Stock> getStocks() throws Exception {
+	Connection con = null;
+
+			/*
+			 * Builds the sql query
+			 */
+			String sql = "SELECT * FROM Products ";
+
+			/*if (orderByColumn != null && orderByDirection != null) {
+				sql += " ORDER BY " + orderByColumn + " " + orderByDirection;
+			}*/
+
+			DB db = new DB();
+			try {
+				// open connection and get Connection object
+				con = db.getConnection();
+
+				PreparedStatement stmt = con.prepareStatement(sql);
+
+				// execute the SQL statement (QUERY - SELECT) and get the results in a ResultSet)
+				ResultSet rs = stmt.executeQuery();
+
+				while (rs.next()) {
+					Stock st = new Stock( Integer.parseInt(rs.getString("IDPRODUCT")),
+										rs.getString("NAMEPRODUCT"),
+										rs.getString("DESCRIPTION"),
+										Integer.parseInt(rs.getString("VOLUME")),
+										Integer.parseInt(rs.getString("MINQUANTITY")),
+										Integer.parseInt(rs.getString("STOCK")), Float.parseFloat(rs.getString("PRICE")) );
+
+					stocks.add( st );
+
+				}
+
+	 			rs.close(); //closing ResultSet
+				stmt.close(); //closing PreparedStatement
+		return stocks;
+		} catch (Exception e) {
+
+					throw new Exception(e.getMessage());
+
+				} finally {
+
+					if(con != null) // if connection is still open, then close.
+						con.close();
+
+				}
+
+	} //End of getStudents
+@Override
+public String toString() {
+	return "Stock [id=" + id + ", name=" + name + ", description=" + description + ", volume=" + volume
+			+ ", minQuantity=" + minQuantity + ", stock=" + stock + ", price=" + price + ", need=" + need + "]";
 }
+
+
+
+
+}
+
+
