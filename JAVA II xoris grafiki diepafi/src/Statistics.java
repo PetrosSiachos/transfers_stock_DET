@@ -29,6 +29,25 @@ public class Statistics {
 		}
 		return array;
 	}
-
+/* 3) Customer with min creditworthiness || πελάτης με ελάχιστη πιστολιπτική ικανότητα*/
+	public static int[] CustomerMinCreaditworthiness() {
+		int cred = 0;
+		int i = 0; 
+		int [] array = new int [Customer.customers.size()];
+		for (Customer cust : Customer.customers) {
+			if (cust.getCreditworthiness() < cred) {
+				cred = cust.getCreditworthiness();
+			}
+		}
+		for (Customer cust : Customer.customers) {
+			if (cust.getCreditworthiness() == cred) {
+				array[i] = cust.getIdcustomer();
+				i++;
+			}
+		}
+		return array;
+	}
+	
+	
 
 }
