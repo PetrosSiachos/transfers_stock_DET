@@ -5,7 +5,7 @@ import java.util.ArrayList;
 //klasi pou periexei to apothema tis epixeirisis
 
 public class Stock {
-	int id;		//id αυτοαυξανόμενο
+	int id;		//id autoauxanomena
 	static int counter = 1;
 	double price;
 	int quantity;
