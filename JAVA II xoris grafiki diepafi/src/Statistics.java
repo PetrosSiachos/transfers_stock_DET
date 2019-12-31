@@ -234,6 +234,28 @@ public class Statistics {
 		}
 		return array;
 	}
+/* 23) Customer with max Orders || πελάτης με τις περισσότερες παραγγελίες*/
+	public static int[] CustomerMaxOrders() {
+		int max = 0;
+		int k = 0 ;
+		int [] arr = CustomerSumOrders();
+		int [] array = new int [Customer.customers.size()];
+		for(int i = 0 ; i < arr.length ; i++) {
+			if (arr[i] > max) {
+				max = arr[i];
+			}
+		}
+		
+		for (Customer cust : Customer.customers) {
+			int idCust = cust.getIdcustomer();
+			if (arr[idCust -2] == max) {
+				array[k] = cust.getIdcustomer();
+				k++;
+			}
+		}
+		return array;
+	}
+	
 	
 				
 	
