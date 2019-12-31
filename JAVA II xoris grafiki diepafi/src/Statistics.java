@@ -56,6 +56,13 @@ public class Statistics {
 		return sat;
 	}
 		
-	
+/* 5) AverageYears_of_cooperation of Customers|| μέση τιμή χρόνων συνεργασίας με πελάτες*/
+	public static double AverageYears_of_cooperation() {
+		int sum = 0;
+		for (Customer cust : Customer.customers) {
+			sum = sum + cust.getYears_of_cooperation();
+		}
+		return (double) sum/Customer.customers.size();
+	}
 
 }
