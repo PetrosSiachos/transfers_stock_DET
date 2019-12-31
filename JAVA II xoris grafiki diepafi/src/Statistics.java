@@ -111,7 +111,25 @@ public class Statistics {
 		}
 		return (double) sum/Customer.customers.size();
 	}
-	
+/* 9) Customer with max Percent_of_stock || πελάτης με τις περισσότερες μετοχές*/
+	public static int[] CustomerMaxPercent_of_stock() {
+		double stock = 0;
+		int i = 0; 
+		int [] array = new int [Customer.customers.size()];
+		for (Customer cust : Customer.customers) {
+			if ((double)cust.getPercent_of_stock() > stock) {
+				stock = (double) cust.getPercent_of_stock();
+			}
+		}
+		for (Customer cust : Customer.customers) {
+			if ((double)cust.getPercent_of_stock() == stock) {
+				array[i] = cust.getIdcustomer();
+				i++;
+			}
+		}
+		return array;
+	}
+		
 	
 	
 }
