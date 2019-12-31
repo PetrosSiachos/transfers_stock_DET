@@ -277,7 +277,18 @@ public class Statistics {
 		}
 		return array;
 	}
+/*---------------------------------------------------------------------*/
 	
+/* Ποσοστό επιτυχημένων παραγγελιών */
+	public static double rateofgoodorders() throws Exception {
+		double rate;
+		System.out.println(Order.GoodOrders.size());
+		System.out.println(Order.orders.size());
+		rate = ((double)Order.GoodOrders.size())/((double)Order.orders.size());
+		return rate;
+	}
+	
+
 	
 	
 	
