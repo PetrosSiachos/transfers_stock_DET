@@ -129,7 +129,25 @@ public class Statistics {
 		}
 		return array;
 	}
-		
+	
+/* 10) Customer with min Percent_of_stock || πελάτης με τις λιγότερες μετοχές*/
+	public static int[] CustomerMinPercent_of_stock() {
+		double stock = 1000.0;
+		int i = 0; 
+		int [] array = new int [Customer.customers.size()];
+		for (Customer cust : Customer.customers) {
+			if ((double)cust.getPercent_of_stock() < stock) {
+				stock = (double) cust.getPercent_of_stock();
+			}
+		}
+		for (Customer cust : Customer.customers) {
+			if ((double)cust.getPercent_of_stock() == stock) {
+				array[i] = cust.getIdcustomer();
+				i++;
+			}
+		}
+		return array;
+	}		
 	
 	
 }
