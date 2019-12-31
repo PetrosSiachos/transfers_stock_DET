@@ -220,6 +220,21 @@ public class Statistics {
 		}
 		return false;
 	}
-			
+/*-------------------Statistics of Class Order-------------------------*/
+	
+/* 22) CustomerSumOrders || άθροισμα παραγγελιών κάθε πελάτη */
+	public static int[] CustomerSumOrders() {
+		int [] array = new int [Customer.customers.size()];
+		for (int i  = 0 ; i < array.length ; i++) {
+			array[i] = 0 ;
+		}
+		for(Order o : Order.orders) {
+			int idCust = o.getIdcustomer();
+			array[idCust -2]++; 
+		}
+		return array;
+	}
+	
+				
 	
 }
