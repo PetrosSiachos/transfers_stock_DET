@@ -184,6 +184,27 @@ public class Statistics {
 		}
 		return array2;
 	}
+/* 13) Customer with min value || λιγότερο χρήσιμος πελάτης*/
+	public static double[] CustomerLessValuable() {
+		double MinValue = 0;
+		int i = 0; 
+		double [] array = Statistics.ValueOfCustomers();
+		double [] array2 = new double [Customer.customers.size()];
+		for (int k = 0 ; k < array.length ; k ++) {
+			if (array[k] < MinValue ) {
+				MinValue = array[k];
+			}
+		}
+		
+		for (Customer cust : Customer.customers) {
+			int id = cust.getIdcustomer();
+			if (array[id - 2] == MinValue) {
+				array2[i] = cust.getIdcustomer();
+				i++;
+			}
+		}
+		return array2;
+	}
 		
 	
 }
