@@ -3,6 +3,7 @@ package tryant;
 public class Main {
 	
 	//klasi pou periexei tin dimiourgia ton proionton
+	
 	//iparxoun dinatotita dimiourgias mono 3 proionton, prepei na prostethoun kai alla
 		
 		public static void main (String [] args) {

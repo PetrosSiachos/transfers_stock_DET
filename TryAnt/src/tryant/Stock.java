@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 //klasi pou periexei to apothema tis epixeirisis
 
+//prosoxi me to quantity kai to minQuantity
+
 public class Stock {
 	int id;		//id autoauxanomena
 	static int counter = 1;

@@ -28,7 +28,7 @@ public class Order {
 	static ArrayList<Order> goodOrders = new ArrayList<Order>();		// an arrayList of all orders that CAN we fulfilled 
 	static ArrayList<Order> BlackList = new ArrayList<Order>();		// an arrayList of all orders that CANT be fulfilled
 	static ArrayList<Integer> numberOfProducts = new ArrayList<Integer>();		// an arrayList of number of products per order px. orderId=1 number=2,orderId=2 number=3
-																				// SOSSSS numberOfProducts = 2 = banana + orange = NOT 2 bananas
+																		// SOSSSS numberOfProducts = 2 = banana + orange = NOT 2 bananas
 	static ArrayList<Integer> idproducts = new ArrayList<Integer>();
 	
 	public Order(int customer) {
