@@ -320,8 +320,7 @@ public class Statistics {
 		return rate;
 	}
 	
-	/* The product that has the most orders */
-	public static int[] popularpr() throws Exception {
+	public static int popularpr() throws Exception {
 		int k[] = new int [Stock.getStocks().size()];
 		int id = 0;
 		for (int i = 0; i < Order.getOrders().size(); i++) {
@@ -347,19 +346,15 @@ public class Statistics {
 		for (int s = 0; s < k.length; s++) {
 			if (k[s] > max) {
 				max = k[s];
+				id = s;
 			}
 		}
-		int array [] = new int[k.length];
-		for (int i = 0; i < k.length; i++) {
-			if(k[i] == max) {
-				array[i] = i;
-			}
-		}
-		return array;
+		
+		return id;
 	}
 	
 	/* The product that has the least amount of orders */
-	public static int[] notpoppr() throws Exception {
+	public static int notpoppr() throws Exception {
 		int id = 0;
 		int min = 100000;
 		int k[] = new int [Stock.getStocks().size()];
@@ -386,19 +381,14 @@ public class Statistics {
 		for (int i = 0; i < k.length; i++) {
 			if(k[i] < min) {
 				min = k[i];
+				id = i;
 			}
 		}
-		int array [] = new int[k.length];
-		for (int i = 0; i < k.length; i++) {
-			if(k[i] == min) {
-				array[i] = i;
-			}
-		}
-		return array;
+		return id;
 	}
 	
 	/* Product with the highest income */
-	public static int[] maxincpr() throws Exception {
+	public static int maxincpr() throws Exception {
 		double a[] = new double[Stock.getStocks().size()];
 		int id = 0;
 		for (int i = 0; i < Order.getOrders().size(); i++) {
@@ -412,19 +402,14 @@ public class Statistics {
 		for(int i = 0; i < a.length; i++) {
 			if(a[i] > max) {
 				max = a[i];
+				id = i;
 			}
 		}
-		int array [] = new int[a.length];
-		for (int i = 0; i < a.length; i++) {
-			if(a[i] == max) {
-				array[i] = i;
-			}
-		}
-		return array;
+		return id;
 	}
 	
 	/* Product with the lowest income */
-	public static int[] minincpr() throws Exception {
+	public static int minincpr() throws Exception {
 		int id = 0;
 		double a[] = new double[Stock.getStocks().size()];
 		for (int i = 0; i < Order.getOrders().size(); i++) {
@@ -450,16 +435,12 @@ public class Statistics {
 		for (int i = 0; i < a.length; i++) {
 			if(a[i] < min) {
 				min = a[i];
+				id = i;
 			}
 		}
-		int array [] = new int[a.length];
-		for (int i = 0; i < a.length; i++) {
-			if(a[i] == min) {
-				array[i] = i;
-			}
-		}
-		return array;
+		return id;
 	}
+
 
 	/* -----------------------------------------C u s t o m e r s-------------------------------------------- */
 	/* The Customer who haw the most orders */
