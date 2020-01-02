@@ -105,7 +105,6 @@ public class Customer {
 			
 			con = db.getConnection();
 			PreparedStatement stmt = con.prepareStatement(sql);
-
 			// execute the SQL statement (QUERY - SELECT) and get the results in a ResultSet)
 			ResultSet rs = stmt.executeQuery();
 			
