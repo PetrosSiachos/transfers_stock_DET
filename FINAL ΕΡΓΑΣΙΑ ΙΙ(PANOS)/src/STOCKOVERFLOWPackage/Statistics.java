@@ -1,9 +1,10 @@
+package STOCKOVERFLOWPackage;
 
 public class Statistics {
 	
 	/*---------------------------------------------------------------------*/
 	
-	/* Ποσοστό επιτυχημένων παραγγελιών */
+	/* successful Orders */
 	public static double rateofgoodorders() throws Exception {
 		double rate;
 		System.out.println(Order.getGoodOrders().size());
@@ -306,13 +307,7 @@ public class Statistics {
 	}
 	
 	/* -----------------------------------------O r d e r s-------------------------------------------- */
-	/* Rate of successful orders */
-	public static double rateofgoodorders() throws Exception {
-		double rate;
-		rate = ((double)Order.getGoodOrders().size())/((double)Order.getOrders().size());
-		return rate;
-	}
-	
+
 	/* Rate of failed orders */
 	public static double rateofblackorders() throws Exception {
 		double rate;
