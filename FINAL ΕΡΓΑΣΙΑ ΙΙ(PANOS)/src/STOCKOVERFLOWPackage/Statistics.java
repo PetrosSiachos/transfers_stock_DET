@@ -241,6 +241,29 @@ public class Statistics {
 		}
 		return array;
 	}
+		
+	 /*12) Customer with max value || πιο χρήσιμος πελάτης*/
+	public static double[] CustomerMostValuable() throws Exception {
+		double MaxValue = 0;
+		int i = 0; 
+		double [] array = Statistics.ValueOfCustomers();
+		double [] array2 = new double [Customer.getCustomers().size()];
+		for (int k = 0 ; k < array.length ; k ++) {
+			if (array[k] > MaxValue) {
+				MaxValue = array[k];
+			}
+		}
+		
+		for (Customer cust : Customer.getCustomers()) {
+			int id = cust.getIdcustomer();
+			if (array[id - 2] == MaxValue) {
+				array2[i] = cust.getIdcustomer();
+				i++;
+			}
+		}
+		return array2;
+	}
+	
 	
 	
 	 
