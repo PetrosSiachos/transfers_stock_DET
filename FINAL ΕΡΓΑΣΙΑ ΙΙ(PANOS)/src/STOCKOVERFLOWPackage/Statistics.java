@@ -117,6 +117,16 @@ public class Statistics {
 	}
 	
 	
+	 /*4) Satisfactory average creditworthiness or not || ικανοποιητική μέση πιστολιπτική ικανότητα ή όχι?*/
+	public static boolean SatisfactoryAverageCreditworthiness() throws Exception {
+		boolean sat = false;
+		if (Statistics.AverageCreditworthiness() > 70) {
+			sat = true;
+		}
+		return sat;
+	}
+	
+	 
 	 
 	
 	 	
