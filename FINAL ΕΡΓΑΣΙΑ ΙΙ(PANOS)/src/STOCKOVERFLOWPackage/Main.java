@@ -8,12 +8,7 @@ import javax.swing.*;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
-    /*	System.out.println(Order.getOrders().size());
-    	System.out.println(Order.getGoodOrders().size());
-    	System.out.println(Order.getBlackList().size());
-    	System.out.println(Stock.getStocks().size());
-    	System.out.println(Customer.getCustomers());*/
-    	for(;;) {
+		for(;;) {
     		int l = 0;
     		do {
     			String  y = JOptionPane.showInputDialog(null, "Press: " + " 1 : to make an order " + " or "
@@ -23,7 +18,17 @@ public class Main {
     				JOptionPane.showMessageDialog(null, "Hello to our ERP ");
     				JOptionPane.showMessageDialog(null, "Please choose from 1 until 5 products");
     				int id = Customer.getCustomers().size()+2;
-    				String name = JOptionPane.showInputDialog("Please input your name");
+    				boolean Flag = true;
+    				String name;
+    				do {
+    				name = JOptionPane.showInputDialog("Please input your name");
+    					for (int p = 0 ; p < Customer.getCustomers().size() ; p++) {
+    						if (Customer.getCustomers().get(p).namecustomer.equals(name) == true) {
+    							Flag = false;
+    							JOptionPane.showMessageDialog(null,"Invalid name, please give an other name");
+    						}
+    					}
+    				} while (Flag == false);
     				String phone;
     				for (;;) {
     					phone = JOptionPane.showInputDialog("Please input your phone");
