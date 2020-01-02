@@ -1,18 +1,19 @@
+
 public class Main {
 	public static void main (String [] args) throws Exception {
 		System.out.println(Stock.getStocks().size());
 		System.out.println(Order.getOrders().size());
 		System.out.println(Customer.getCustomers().size());
-		System.out.println("ε");
-		/*
+		/*System.out.println("ε");
+		
 		System.out.println(Order.getNeedProduct(Order.getA()));
 		System.out.println("ε");*/
-		System.out.println(Order.getGoodOrders().size());
-		System.out.println("ε");/*
+		/*System.out.println(Order.getGoodOrders().size());*/
+		/*System.out.println("ε");
 		System.out.println(Order.getBlackList().size());
 		System.out.println("ε");*/
 		
-		System.out.println(Statistics.rateofgoodorders());
+		/*System.out.println(Statistics.rateofgoodorders());*/
 		
 		int [] arr22 = Statistics.CustomerSumOrders();//22
 		for (int i = 0 ; i < arr22.length ; i++) {
@@ -46,10 +47,10 @@ public class Main {
 			System.out.println(0);
 		}
 		
-		/*------------------------------------------------------------------------------
-		*/
+		/*------------------------------------------------------------------------------*/
 		
-		System.out.println("1ο στατ: " +Statistics.AverageCreditworthiness());//1 check
+		
+		System.out.println("1ο στατ: " + Statistics.AverageCreditworthiness());//1 check
 		
 		System.out.println("2ο στατ: ");
 		int [] arr01 = Statistics.CustomerMaxCreaditworthiness();//2 check
@@ -180,12 +181,8 @@ public class Main {
 		
 		System.out.println("14ο στατ: ");
 		System.out.println(Statistics.HealthyDoingBusiness());
-		
-		
-		
-		
-		
-		
+			
 	}
 }
+
 
