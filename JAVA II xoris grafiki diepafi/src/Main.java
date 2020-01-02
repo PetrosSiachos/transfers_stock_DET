@@ -14,17 +14,17 @@ public class Main {
 		System.out.println("ε");*/
 		
 		/*System.out.println(Statistics.rateofgoodorders());*/
-			
+		
 		System.out.println("22ο στατ: ");
-		int [] arr22 = Statistics.CustomerSumOrders();//22
+		int [] arr22 = Statistics.CustomerSumOrders();//22 check
 		for (int i = 0 ; i < arr22.length ; i++) {
 			System.out.println(arr22[i]);
 		}
 		System.out.println("23ο στατ: ");
-		int [] arr23 = Statistics.CustomerMaxOrders();//23
+		String [] arr23 = Statistics.CustomerMaxOrders();//23 check 
 		int k23 = 0;
 		for( int i = 0 ; i < arr23.length ; i++) {
-			if (arr23[i] == 0) {
+			if (arr23[i] == null) {
 				break;
 			}
 			System.out.println(arr23[i]);
@@ -35,10 +35,10 @@ public class Main {
 		}
 		
 		System.out.println("24ο στατ: ");
-		int [] arr24 = Statistics.CustomerMinOrders();//24
+		String [] arr24 = Statistics.CustomerMinOrders();//24 check 
 		int k24 = 0;
 		for( int i = 0 ; i < arr24.length ; i++) {
-			if (arr24[i] == 0) {
+			if (arr24[i] == null) {
 				break;
 			}
 			System.out.println(arr24[i]);
@@ -47,16 +47,17 @@ public class Main {
 		if (k24 == 0) {
 			System.out.println(0);
 		}
+		
 		/*------------------------------------------------------------------------------*/
 		
 		
 		System.out.println("1ο στατ: " + Statistics.AverageCreditworthiness());//1 check
 		
 		System.out.println("2ο στατ: ");
-		int [] arr01 = Statistics.CustomerMaxCreaditworthiness();//2 check
+		String [] arr01 = Statistics.CustomerMaxCreaditworthiness();//2 check 
 		int k1 = 0;
 		for( int i = 0 ; i < arr01.length ; i++) {
-			if (arr01[i] == 0) {
+			if (arr01[i] == null) {
 				break;
 			}
 			System.out.println(arr01[i]);
@@ -67,10 +68,10 @@ public class Main {
 		}
 		
 		System.out.println("3ο στατ: ");
-		int [] arr02 = Statistics.CustomerMinCreaditworthiness();//3 check
+		String [] arr02 = Statistics.CustomerMinCreaditworthiness();//3 check
 		int n1 = 0;
 		for( int i = 0 ; i < arr02.length ; i++) {
-			if (arr02[i] == 0) {
+			if (arr02[i] == null) {
 				break;
 			}
 			System.out.println(arr02[i]);
@@ -86,10 +87,10 @@ public class Main {
 		System.out.println("5ο στατ: " +Statistics.AverageYears_of_cooperation());//5 check
 		
 		System.out.println("6ο στατ: ");
-		int [] arr1 = Statistics.CustomerMaxYears_of_cooperation();//6 check
+		String [] arr1 = Statistics.CustomerMaxYears_of_cooperation();//6 check onoma
 		int k = 0;
 		for( int i = 0 ; i < arr1.length ; i++) {
-			if (arr1[i] == 0) {
+			if (arr1[i] == null) {
 				break;
 			}
 			System.out.println(arr1[i]);
@@ -100,10 +101,10 @@ public class Main {
 		}
 		
 		System.out.println("7ο στατ: ");
-		int [] arr2 = Statistics.CustomerMinYears_of_cooperation();//7 check
+		String [] arr2 = Statistics.CustomerMinYears_of_cooperation();//7 check onoma
 		int n = 0;
 		for( int i = 0 ; i < arr2.length ; i++) {
-			if (arr2[i] == 0) {
+			if (arr2[i] == null) {
 				break;
 			}
 			System.out.println(arr2[i]);
@@ -117,10 +118,10 @@ public class Main {
 		System.out.println(Statistics.AveragePercent_of_stock());//8 check
 		
 		System.out.println("9ο στατ: ");
-		int [] arr3 = Statistics.CustomerMaxPercent_of_stock();//9 check
+		String [] arr3 = Statistics.CustomerMaxPercent_of_stock();//9 check onoma
 		int l = 0;
 		for( int i = 0 ; i < arr3.length ; i++) {
-			if (arr3[i] == 0) {
+			if (arr3[i] == null) {
 				break;
 			}
 			System.out.println(arr3[i]);
@@ -131,10 +132,10 @@ public class Main {
 		}
 		System.out.println();
 		System.out.println("10ο στατ: ");
-		int [] arr4 = Statistics.CustomerMinPercent_of_stock();//10 check
+		String [] arr4 = Statistics.CustomerMinPercent_of_stock();//10 check onoma
 		int m = 0;
 		for( int i = 0 ; i < arr4.length ; i++) {
-			if (arr4[i] == 0) {
+			if (arr4[i] == null) {
 				break;
 			}
 			System.out.println(arr4[i]);
@@ -151,13 +152,13 @@ public class Main {
 		}
 		
 		System.out.println("12ο στατ: ");
-		double [] arr5 = Statistics.CustomerMostValuable();//12 check
+		String [] arr5 = Statistics.CustomerMostValuable();//12 check ονομα
 		int n2 = 0;
 		for( int i = 0 ; i < arr3.length ; i++) {
-			if (arr5[i] == 0) {
+			if (arr5[i] == null) {
 				break;
 			}
-			System.out.println((int)arr5[i]);
+			System.out.println(arr5[i]);
 			n2++;
 		}
 		if (n2 == 0) {
@@ -166,13 +167,13 @@ public class Main {
 		
 		
 		System.out.println("13ο στατ: ");
-		double [] arr6 = Statistics.CustomerLessValuable();//13 check
+		String [] arr6 = Statistics.CustomerLessValuable();//13 check ονομα
 		int n3 = 0;
 		for( int i = 0 ; i < arr6.length ; i++) {
-			if (arr6[i] == 0) {
+			if (arr6[i] == null) {
 				break;
 			}
-			System.out.println((int)arr6[i]);
+			System.out.println(arr6[i]);
 			n3++;
 		}
 		if (n3 == 0) {
@@ -180,7 +181,7 @@ public class Main {
 		}
 		
 		System.out.println("14ο στατ: ");
-		System.out.println(Statistics.HealthyDoingBusiness());
+		System.out.println(Statistics.HealthyDoingBusiness());//14 check  
 			
 	}
 }
