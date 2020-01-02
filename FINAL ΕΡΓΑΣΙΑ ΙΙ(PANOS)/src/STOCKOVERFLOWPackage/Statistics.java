@@ -178,6 +178,16 @@ public class Statistics {
 	}
 
 
+	/* 8) AveragePercent_of_stock of Customers|| μέσο ποσοστό μετοχών*/
+	public static double AveragePercent_of_stock() throws Exception {
+		double sum = 0;
+		for (Customer cust : Customer.getCustomers()) {
+			sum = (double) (sum + cust.getPercent_of_stock());
+		}
+		return (double) sum/Customer.getCustomers().size();
+	}
+	
+	
  
 	 
 	
