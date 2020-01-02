@@ -63,6 +63,19 @@ public class Statistics {
 	}
 	
 	
+	
+	 /*-------------------Statistics of Class Customer-------------------------*/
+	
+	/* 1) AverageCreditworthiness of Customers|| μέση πιστολιπτική ικανότητα πελατών*/
+	public static double AverageCreditworthiness() throws Exception {
+		int sum = 0;
+		for (Customer cust : Customer.getCustomers()) {
+			sum = sum + cust.getCreditworthiness();
+		}
+		return (double) sum/Customer.getCustomers().size();
+	}
+	
+	
 	 	
 
 }
