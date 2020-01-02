@@ -305,5 +305,231 @@ public class Statistics {
 		return false;
 	}
 	
+	/* -----------------------------------------O r d e r s-------------------------------------------- */
+	/* Rate of successful orders */
+	public static double rateofgoodorders() throws Exception {
+		double rate;
+		rate = ((double)Order.getGoodOrders().size())/((double)Order.getOrders().size());
+		return rate;
+	}
+	
+	/* Rate of failed orders */
+	public static double rateofblackorders() throws Exception {
+		double rate;
+		rate = ((double)Order.getBlackList().size())/((double)Order.getOrders().size());
+		return rate;
+	}
+	
+	/* The product that has the most orders */
+	public static int[] popularpr() throws Exception {
+		int k[] = new int [Stock.getStocks().size()];
+		int id = 0;
+		for (int i = 0; i < Order.getOrders().size(); i++) {
+			for (int j = 0; j < Stock.getStocks().size(); j++ ) {
+				if (Order.getOrders().get(i).idproduct1 == Stock.getStocks().get(j).id) {
+					k[j] = k[j] + 1;
+				}
+				if (Order.getOrders().get(i).idproduct2 == Stock.getStocks().get(j).id) {
+					k[j] = k[j] + 1;
+				}
+				if (Order.getOrders().get(i).idproduct3 == Stock.getStocks().get(j).id) {
+					k[j] = k[j] + 1;
+				}
+				if (Order.getOrders().get(i).idproduct4 == Stock.getStocks().get(j).id) {
+					k[j] = k[j] + 1;
+				}
+				if (Order.getOrders().get(i).idproduct5 == Stock.getStocks().get(j).id) {
+					k[j] = k[j] + 1;
+				}
+			}
+		}
+		int max = -1;
+		for (int s = 0; s < k.length; s++) {
+			if (k[s] > max) {
+				max = k[s];
+			}
+		}
+		int array [] = new int[k.length];
+		for (int i = 0; i < k.length; i++) {
+			if(k[i] == max) {
+				array[i] = i;
+			}
+		}
+		return array;
+	}
+	
+	/* The product that has the least amount of orders */
+	public static int[] notpoppr() throws Exception {
+		int id = 0;
+		int min = 100000;
+		int k[] = new int [Stock.getStocks().size()];
+		for (int i = 0; i < Order.getOrders().size(); i++) {
+			for (int j = 0; j < Stock.getStocks().size(); j++ ) {
+				if (Order.getOrders().get(i).idproduct1 == Stock.getStocks().get(j).id) {
+					k[j] = k[j] + 1;
+				}
+				if (Order.getOrders().get(i).idproduct2 == Stock.getStocks().get(j).id) {
+					k[j] = k[j] + 1;
+				}
+				if (Order.getOrders().get(i).idproduct3 == Stock.getStocks().get(j).id) {
+					k[j] = k[j] + 1;
+				}
+				if (Order.getOrders().get(i).idproduct4 == Stock.getStocks().get(j).id) {
+					k[j] = k[j] + 1;
+				}
+				if (Order.getOrders().get(i).idproduct5 == Stock.getStocks().get(j).id) {
+					k[j] = k[j] + 1;
+				}
+			}
+			
+		}
+		for (int i = 0; i < k.length; i++) {
+			if(k[i] < min) {
+				min = k[i];
+			}
+		}
+		int array [] = new int[k.length];
+		for (int i = 0; i < k.length; i++) {
+			if(k[i] == min) {
+				array[i] = i;
+			}
+		}
+		return array;
+	}
+	
+	/* Product with the highest income */
+	public static int[] maxincpr() throws Exception {
+		double a[] = new double[Stock.getStocks().size()];
+		int id = 0;
+		for (int i = 0; i < Order.getOrders().size(); i++) {
+			for (int j = 0; j < Stock.getStocks().size(); j++ ) {
+				if (Order.getOrders().get(i).idproduct1 == Stock.getStocks().get(j).id) {
+					a[j] = a[j] + Stock.getStocks().get(j).price;
+				}
+			}
+		}
+		double max = -1;
+		for(int i = 0; i < a.length; i++) {
+			if(a[i] > max) {
+				max = a[i];
+			}
+		}
+		int array [] = new int[a.length];
+		for (int i = 0; i < a.length; i++) {
+			if(a[i] == max) {
+				array[i] = i;
+			}
+		}
+		return array;
+	}
+	
+	/* Product with the lowest income */
+	public static int[] minincpr() throws Exception {
+		int id = 0;
+		double a[] = new double[Stock.getStocks().size()];
+		for (int i = 0; i < Order.getOrders().size(); i++) {
+			for (int j = 0; j < Stock.getStocks().size(); j++ ) {
+				if (Order.getOrders().get(i).idproduct1 == Stock.getStocks().get(j).id) {
+					a[j] = a[j] + Stock.getStocks().get(j).price;
+				}
+				if (Order.getOrders().get(i).idproduct2 == Stock.getStocks().get(j).id) {
+					a[j] = a[j] + Stock.getStocks().get(j).price;
+				}
+				if (Order.getOrders().get(i).idproduct3 == Stock.getStocks().get(j).id) {
+					a[j] = a[j] + Stock.getStocks().get(j).price;
+				}
+				if (Order.getOrders().get(i).idproduct4 == Stock.getStocks().get(j).id) {
+					a[j] = a[j] + Stock.getStocks().get(j).price;
+				}
+				if (Order.getOrders().get(i).idproduct5 == Stock.getStocks().get(j).id) {
+					a[j] = a[j] + Stock.getStocks().get(j).price;
+				}
+			}
+		}
+		double min = 10000000;
+		for (int i = 0; i < a.length; i++) {
+			if(a[i] < min) {
+				min = a[i];
+			}
+		}
+		int array [] = new int[a.length];
+		for (int i = 0; i < a.length; i++) {
+			if(a[i] == min) {
+				array[i] = i;
+			}
+		}
+		return array;
+	}
+
+	/* -----------------------------------------C u s t o m e r s-------------------------------------------- */
+	/* The Customer who haw the most orders */
+	public static int popcustomer() throws Exception {
+		int idcust = 0;
+		int a[] = new int[Customer.getCustomers().size()];
+		for (int i=0; i < Order.getOrders().size(); i++) {
+			for (int j = 0; j < Customer.getCustomers().size(); j++) {
+				if (Order.getOrders().get(i).namecustomer == Customer.getCustomers().get(j).namecustomer) {
+					a[j] = a[j] + 1;
+				}
+			}
+		}
+		int max = -1;
+		for (int s = 0; s < a.length; s++) {
+			if (a[s] > max) {
+				max = a[s];
+				idcust = Customer.getCustomers().get(s).idcustomer;
+			}
+		}
+		return idcust;
+	}
+	/* -----------------------------------------S t o c k s-------------------------------------------- */
+	/* Highest stock */
+	public static int Higheststock() throws Exception {
+		int highq = 0;
+		int id = 0;
+		for (int i = 0; i < Stock.getStocks().size(); i++) {
+			if (Stock.getStocks().get(i).stock > highq) {
+				highq = Stock.getStocks().get(i).stock;
+			}
+		}
+		return highq;
+	}
+	
+	/* Lowest stock */
+	public static int Loweststock() throws Exception {
+		int lowq = 1000000000;
+		int id = 0;
+		for (int i = 0; i < Stock.getStocks().size(); i++) {
+			if (Stock.getStocks().get(i).stock < lowq) {
+				lowq= Stock.getStocks().get(i).stock;
+			}
+		}
+		return lowq;
+		
+	}
+	
+	/* Lowest price on stocks */
+	public static double minprice() throws Exception {
+		double minp = 10000000;
+		for (int i=0; i < Stock.getStocks().size(); i++) {
+			if (Stock.getStocks().get(i).price < minp) {
+				minp = Stock.getStocks().get(i).price;
+			}
+		}
+		return minp;
+	}
+	
+	/* Highest price on stocks */
+	public static double maxprice() throws Exception {
+		double maxp = -1;
+		for (int i=0; i < Stock.getStocks().size(); i++) {
+			if (Stock.getStocks().get(i).price > maxp) {
+				maxp = Stock.getStocks().get(i).price;
+			}
+		}
+		return maxp;
+	}
+	
+
 }
 
