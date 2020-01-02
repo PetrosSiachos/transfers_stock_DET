@@ -13,7 +13,6 @@ public class Main {
     	System.out.println(Order.getBlackList().size());
     	System.out.println(Stock.getStocks().size());
     	System.out.println(Customer.getCustomers());*/
-    	
     	for(;;) {
     		int l = 0;
     		do {
