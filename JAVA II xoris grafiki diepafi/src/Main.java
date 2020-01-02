@@ -14,12 +14,13 @@ public class Main {
 		System.out.println("ε");*/
 		
 		/*System.out.println(Statistics.rateofgoodorders());*/
-		
+			
+		System.out.println("22ο στατ: ");
 		int [] arr22 = Statistics.CustomerSumOrders();//22
 		for (int i = 0 ; i < arr22.length ; i++) {
 			System.out.println(arr22[i]);
 		}
-		
+		System.out.println("23ο στατ: ");
 		int [] arr23 = Statistics.CustomerMaxOrders();//23
 		int k23 = 0;
 		for( int i = 0 ; i < arr23.length ; i++) {
@@ -33,8 +34,8 @@ public class Main {
 			System.out.println(0);
 		}
 		
-		
-		int [] arr24 = Statistics.CustomerMaxOrders();//24
+		System.out.println("24ο στατ: ");
+		int [] arr24 = Statistics.CustomerMinOrders();//24
 		int k24 = 0;
 		for( int i = 0 ; i < arr24.length ; i++) {
 			if (arr24[i] == 0) {
@@ -46,7 +47,6 @@ public class Main {
 		if (k24 == 0) {
 			System.out.println(0);
 		}
-		
 		/*------------------------------------------------------------------------------*/
 		
 		
