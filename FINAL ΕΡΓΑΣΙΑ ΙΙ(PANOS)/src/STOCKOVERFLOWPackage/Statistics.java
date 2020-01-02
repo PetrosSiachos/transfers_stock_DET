@@ -76,6 +76,27 @@ public class Statistics {
 	}
 	
 	
+	 /*2) Customer with max creditworthiness || πελάτης με μέγιστη πιστολιπτική ικανότητα*/
+	public static int[] CustomerMaxCreaditworthiness() throws Exception {
+		int cred = 0;
+		int i = 0; 
+		int [] array = new int [Customer.getCustomers().size()];
+		for (Customer cust : Customer.getCustomers()) {
+			if (cust.getCreditworthiness() > cred) {
+				cred = cust.getCreditworthiness();
+			}
+		}
+		for (Customer cust : Customer.getCustomers()) {
+			if (cust.getCreditworthiness() == cred) {
+				array[i] = cust.getIdcustomer();
+				i++;
+			}
+		}
+		return array;
+	}
+	
+	
+	
 	 	
 
 }
