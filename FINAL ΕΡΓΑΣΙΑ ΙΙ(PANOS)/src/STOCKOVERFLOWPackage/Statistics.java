@@ -136,7 +136,28 @@ public class Statistics {
 		return (double) sum/Customer.getCustomers().size();
 	}
 	
-	 
+		
+	/*6) Customer with max Years_of_cooperation || πελάτης με μέγιστη τιμή χρόνων συνεργασίας*/
+	public static int[] CustomerMaxYears_of_cooperation() throws Exception {
+		int years = 0;
+		int i = 0; 
+		int [] array = new int [Customer.getCustomers().size()];
+		for (Customer cust : Customer.getCustomers()) {
+			if (cust.getYears_of_cooperation() > years) {
+				years = cust.getYears_of_cooperation();
+			}
+		}
+		for (Customer cust : Customer.getCustomers()) {
+			if (cust.getYears_of_cooperation() == years) {
+				array[i] = cust.getIdcustomer();
+				i++;
+			}
+		}
+		return array;
+	}
+	
+	
+ 
 	 
 	
 	 	
