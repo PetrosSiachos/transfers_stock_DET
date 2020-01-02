@@ -40,5 +40,29 @@ public class Statistics {
 	}
 	
 	 	
+	/* 24) Customer with min Orders || πελάτης με τις λιγότερες παραγγελίες*/
+	public static int[] CustomerMinOrders() throws Exception {
+		int min = 0;
+		int k = 0 ;
+		int [] arr = CustomerSumOrders();
+		int [] array = new int [Customer.getCustomers().size()];
+		for(int i = 0 ; i < arr.length ; i++) {
+			if (arr[i] < min) {
+				min = arr[i];
+			}
+		}
+		
+		for (Customer cust : Customer.getCustomers()) {
+			int idCust = cust.getIdcustomer();
+			if (arr[idCust -2] == min) {
+				array[k] = cust.getIdcustomer();
+				k++;
+			}
+		}
+		return array;
+	}
+	
+	
+	 	
 
 }
