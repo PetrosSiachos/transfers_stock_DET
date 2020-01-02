@@ -264,6 +264,28 @@ public class Statistics {
 		return array2;
 	}
 	
+		
+	 /*13) Customer with min value || λιγότερο χρήσιμος πελάτης*/
+	public static double[] CustomerLessValuable() throws Exception {
+		double MinValue = 0;
+		int i = 0; 
+		double [] array = Statistics.ValueOfCustomers();
+		double [] array2 = new double [Customer.getCustomers().size()];
+		for (int k = 0 ; k < array.length ; k ++) {
+			if (array[k] < MinValue ) {
+				MinValue = array[k];
+			}
+		}
+		
+		for (Customer cust : Customer.getCustomers()) {
+			int id = cust.getIdcustomer();
+			if (array[id - 2] == MinValue) {
+				array2[i] = cust.getIdcustomer();
+				i++;
+			}
+		}
+		return array2;
+	}
 	
 	
 	 
