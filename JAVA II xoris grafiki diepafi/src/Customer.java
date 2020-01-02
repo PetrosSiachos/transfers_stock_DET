@@ -13,7 +13,7 @@ public class Customer {
 	double percent_of_stock;
 	int creditworthiness;
 	
-	static ArrayList<Customer> customers =  new ArrayList<Customer>();
+	
 	public Customer() {
 	}
 	
@@ -98,7 +98,7 @@ public class Customer {
 				}*/
 
 				DB db = new DB();
-				
+				ArrayList<Customer> customers =  new ArrayList<Customer>();
 				
 				try {
 					// open connection and get Connection object
@@ -139,16 +139,5 @@ public class Customer {
 				
 
 		} 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
