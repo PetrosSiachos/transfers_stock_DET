@@ -1,10 +1,10 @@
 package STOCKOVERFLOWPackage;
+
 import java.util.ArrayList;
 import java.sql.*;
 
 public class Stock {
-
-
+	
 	Integer id;
 	String name;
 	String description;
@@ -13,9 +13,11 @@ public class Stock {
 	Integer stock;
 	Float price;
 	Integer need;
+	
 	//constructor that constructs a stock for Stock
-	public Stock(){
-	}
+	
+	public Stock() {}
+	
 	public Stock(Integer id, String name, Integer need) {
 		this.id = id;
 		this.name = name;
@@ -41,18 +43,19 @@ public class Stock {
 	public Integer getId() {
 		return id;
 	}
-
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}
 	
-
 	public Integer getNeed() {
 		return need;
 	}
+	
 	public void setNeed(Integer need) {
 		this.need = need;
 	}
+	
 	public String getName() {
 		return name;
 	}
@@ -101,58 +104,48 @@ public class Stock {
 		this.price = price;
 	}
 
-public static ArrayList<Stock> getStocks() throws Exception {
-	Connection con = null;
+	public static ArrayList<Stock> getStocks() throws Exception {
+		Connection con = null;
+		
+		/*
+		* Builds the sql query
+		*/
+		String sql = "SELECT * FROM Products ";
+		
+		/*if (orderByColumn != null && orderByDirection != null) {
+			sql += " ORDER BY " + orderByColumn + " " + orderByDirection;
+		}*/
 
-			/*
-			 * Builds the sql query
-			 */
-			String sql = "SELECT * FROM Products ";
+		DB db = new DB();
+		ArrayList<Stock> stocks =  new ArrayList<Stock>();
+		
+		try {
+			// open connection and get Connection object
+			
+			con = db.getConnection();
+			PreparedStatement stmt = con.prepareStatement(sql);
 
-			/*if (orderByColumn != null && orderByDirection != null) {
-				sql += " ORDER BY " + orderByColumn + " " + orderByDirection;
-			}*/
-
-			DB db = new DB();
-			ArrayList<Stock> stocks =  new ArrayList<Stock>();
-
-			try {
-				// open connection and get Connection object
-				con = db.getConnection();
-
-				PreparedStatement stmt = con.prepareStatement(sql);
-
-				// execute the SQL statement (QUERY - SELECT) and get the results in a ResultSet)
-				ResultSet rs = stmt.executeQuery();
-
-				while (rs.next()) {
-					Stock st = new Stock( Integer.parseInt(rs.getString("IDPRODUCT")),
-										rs.getString("NAMEPRODUCT"),
-										rs.getString("DESCRIPTION"),
-										Integer.parseInt(rs.getString("VOLUME")),
-										Integer.parseInt(rs.getString("MINQUANTITY")),
-										Integer.parseInt(rs.getString("STOCK")), Float.parseFloat(rs.getString("PRICE")) );
-
-					stocks.add( st );
-
-				}
-
-	 			rs.close(); //closing ResultSet
-				stmt.close(); //closing PreparedStatement
-				db.close();
-		return stocks;
+			// execute the SQL statement (QUERY - SELECT) and get the results in a ResultSet)
+			ResultSet rs = stmt.executeQuery();
+		
+			while (rs.next()) {
+				Stock st = new Stock( Integer.parseInt(rs.getString("IDPRODUCT")),
+									rs.getString("NAMEPRODUCT"),
+									rs.getString("DESCRIPTION"),
+									Integer.parseInt(rs.getString("VOLUME")),
+									Integer.parseInt(rs.getString("MINQUANTITY")),
+									Integer.parseInt(rs.getString("STOCK")), Float.parseFloat(rs.getString("PRICE")) );
+				stocks.add(st);
+			}
+	 		rs.close(); //closing ResultSet
+			stmt.close(); //closing PreparedStatement
+			db.close();
+			return stocks;
 		} catch (Exception e) {
-
-					throw new Exception(e.getMessage());
-
-				} finally {
-
-					if(con != null) // if connection is still open, then close.
-						con.close();
-
-				}
-
+				throw new Exception(e.getMessage());
+		} finally {
+			if(con != null) // if connection is still open, then close.
+			con.close();
+		}
 	} //End of getStudents
 }
-
-

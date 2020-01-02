@@ -13,8 +13,8 @@ public class Customer {
 	Integer years_of_cooperation;
 	Float percent_of_stock;
 	Integer creaditworthiness;
-	public Customer() {
-	}
+	
+	public Customer() {}
 	
 	public Customer(Integer idcustomer, String namecustomer, String phone, String address, Integer years_of_cooperation,
 			Float percent_of_stock, Integer creaditworthiness) {
@@ -86,58 +86,51 @@ public class Customer {
 
 	public static ArrayList<Customer> getCustomers() throws Exception {
 		Connection con = null;
+		
+		/*
+		* Builds the sql query
+		*/
+		
+		String sql = "SELECT * FROM Customers ";
+		
+		/*if (orderByColumn != null && orderByDirection != null) {
+			sql += " ORDER BY " + orderByColumn + " " + orderByDirection;
+		}*/
 
-				/*
-				 * Builds the sql query
-				 */
-				String sql = "SELECT * FROM Customers ";
+		DB db = new DB();
+		ArrayList<Customer> customers =  new ArrayList<Customer>();
+		
+		try {
+			// open connection and get Connection object
+			
+			con = db.getConnection();
+			PreparedStatement stmt = con.prepareStatement(sql);
 
-				/*if (orderByColumn != null && orderByDirection != null) {
-					sql += " ORDER BY " + orderByColumn + " " + orderByDirection;
-				}*/
-
-				DB db = new DB();
-				ArrayList<Customer> customers =  new ArrayList<Customer>();
-
-				try {
-					// open connection and get Connection object
-					con = db.getConnection();
-
-					PreparedStatement stmt = con.prepareStatement(sql);
-
-					// execute the SQL statement (QUERY - SELECT) and get the results in a ResultSet)
-					ResultSet rs = stmt.executeQuery();
-
-					while (rs.next()) {
-						Customer st = new Customer( Integer.parseInt(rs.getString("IDCUSTOMER")),
-											rs.getString("NAMECUSTOMER"),
-											rs.getString("PHONE"),
-											rs.getString("ADDRESS"),
-											Integer.parseInt(rs.getString("YEARS_OF_COOPERATION")),
-											Float.parseFloat(rs.getString("PERCENT_OF_STOCK")),
-											Integer.parseInt(rs.getString("CREADITWORTHINESS")));
-
-						customers.add( st );
-
-					}
-
-		 			rs.close(); //closing ResultSet
-					stmt.close(); 
-					db.close();//closing PreparedStatement
+			// execute the SQL statement (QUERY - SELECT) and get the results in a ResultSet)
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				Customer st = new Customer( Integer.parseInt(rs.getString("IDCUSTOMER")),
+									rs.getString("NAMECUSTOMER"),
+									rs.getString("PHONE"),
+									rs.getString("ADDRESS"),
+									Integer.parseInt(rs.getString("YEARS_OF_COOPERATION")),
+									Float.parseFloat(rs.getString("PERCENT_OF_STOCK")),
+									Integer.parseInt(rs.getString("CREADITWORTHINESS")));
+				
+				customers.add(st);
+			}
+			
+		 	rs.close(); //closing ResultSet
+			stmt.close(); 
+			db.close();//closing PreparedStatement
 				
 			return customers;
-				
-			} catch (Exception e) {
-
-						throw new Exception(e.getMessage());
-
-					} finally {
-
-						if(con != null) // if connection is still open, then close.
-							con.close();
-
-					}
-
-		} 
-	
+		} catch (Exception e) {
+			throw new Exception(e.getMessage());
+		} finally {
+			if(con != null) // if connection is still open, then close.
+			con.close();
+		}
+	}
 }
