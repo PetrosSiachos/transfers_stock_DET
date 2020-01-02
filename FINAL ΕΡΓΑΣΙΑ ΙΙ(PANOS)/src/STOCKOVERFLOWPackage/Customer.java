@@ -12,7 +12,7 @@ public class Customer {
 	String address;
 	Integer years_of_cooperation;
 	Float percent_of_stock;
-	Integer creaditworthiness;
+	Integer creditworthiness;
 	
 	public Customer() {}
 	
@@ -25,7 +25,7 @@ public class Customer {
 		this.address = address;
 		this.years_of_cooperation = years_of_cooperation;
 		this.percent_of_stock = percent_of_stock;
-		this.creaditworthiness = creaditworthiness;
+		this.creditworthiness = creaditworthiness;
 	}
 	
 	public Integer getIdcustomer() {
@@ -76,12 +76,12 @@ public class Customer {
 		this.percent_of_stock = percent_of_stock;
 	}
 
-	public Integer getCreaditworthiness() {
-		return creaditworthiness;
+	public Integer getCreditworthiness() {
+		return creditworthiness;
 	}
 
-	public void setCreaditworthiness(Integer creaditworthiness) {
-		this.creaditworthiness = creaditworthiness;
+	public void setCreditworthiness(Integer creditworthiness) {
+		this.creditworthiness = creditworthiness;
 	}
 
 	public static ArrayList<Customer> getCustomers() throws Exception {
