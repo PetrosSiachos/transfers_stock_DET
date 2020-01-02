@@ -14,7 +14,7 @@ public class Stock {
 	double price;
 	int need;
 
-	public static ArrayList<Stock> stocks =  new ArrayList<Stock>();
+	
 
 	
 	//constructor that constructs a stock for Stock
@@ -118,6 +118,7 @@ public static ArrayList<Stock> getStocks() throws Exception {
 			}*/
 
 			DB db = new DB();
+			ArrayList<Stock> stocks =  new ArrayList<Stock>();
 			try {
 				// open connection and get Connection object
 				con = db.getConnection();
