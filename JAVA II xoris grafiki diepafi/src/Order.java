@@ -7,10 +7,6 @@ public class Order {
 	int idcustomer;
 	String namecustomer;
 	String date_of_order;
-	public static ArrayList<Order> orders =  new ArrayList<Order>();
-	public static ArrayList<Order> GoodOrders =  new ArrayList<Order>();
-	public static ArrayList<Order> BlackList =  new ArrayList<Order>();
-	public static ArrayList<Stock> NeedProduct =  new ArrayList<Stock>();
 	
 	int idproduct1;
 	String nameproduct1;
@@ -275,7 +271,8 @@ public class Order {
 		}*/
 
 		DB db = new DB();
-		
+
+		ArrayList<Order> orders =  new ArrayList<Order>();
 
 		try {
 			// open connection and get Connection object
@@ -345,7 +342,8 @@ public class Order {
 		}*/
 
 		DB db = new DB();
-		
+
+		ArrayList<Order> BlackList =  new ArrayList<Order>();
 		try {
 			// open connection and get Connection object
 			con = db.getConnection();
@@ -532,6 +530,7 @@ public class Order {
 
 		DB db = new DB();
 
+		ArrayList<Order> GoodOrders =  new ArrayList<Order>();
 		try {
 			// open connection and get Connection object
 			con = db.getConnection();
@@ -615,6 +614,8 @@ public class Order {
 	
 	public static ArrayList<Stock> getNeedProduct( ArrayList<Stock> a){
 		int	count;
+
+		ArrayList<Stock> NeedProduct =  new ArrayList<Stock>();
 		for (int i = 0 ; i < a.size() ; i++) {
 			count = 0;
 			for( int x = 0 ; x < a.size() ; x++) {
