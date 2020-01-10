@@ -1,15 +1,14 @@
+package transfers_stock_DET;
 import java.util.ArrayList;
 
-public class Purchase {
+public class Purchase3 {
 
 	static ArrayList<Stock> PurchaseStocks = new ArrayList<Stock>();
 	static ArrayList<Stock> sumPurchaseStocks = new ArrayList<Stock>();
 	static ArrayList<Integer> quantities = new ArrayList<Integer>();
 
-	/*
-	 * Ξ�Ξ―Ξ± Ξ»Ξ―ΟƒΟ„Ξ± Ο�Ο€ΞΏΟ… ΞΏΞΉ orders Ξ­Ο‡ΞΏΟ…Ξ½ Ο‡Ο‰Ο�ΞΉΟƒΟ„ΞµΞ― ΟƒΞµ
-	 * stocks, Ξ±Ο€Ο� Ο„Ξ± ΞΏΟ€ΞΏΞ―Ξ± ΞΊΞ±ΞΉ Ξ±Ο€ΞΏΟ„ΞµΞ»ΞΏΟ�Ξ½Ο„Ξ±Ξ½
-	 */
+	/*With this methdod we create a list, where the orders have been divided in stocks*/
+	
 	public static void createPurchaseStocks() {
 		for (int i = 0; i < Order.BlackList.size(); i++) {
 			for (int k = 0; k < Order.BlackList.get(i).order.size(); k++) {
@@ -18,11 +17,8 @@ public class Purchase {
 		}
 	}
 
-	/*
-	 * Ξ”Ξ·ΞΌΞΉΞΏΟ…Ο�Ξ³ΞµΞ―Ο„Ξ±ΞΉ ΞΌΞ―Ξ± Ξ½ΞµΞ± Ξ»Ξ―ΟƒΟ„Ξ± Ο�Ο€ΞΏΟ… Ξ³ΞΉΞ± ΞΊΞ¬ΞΈΞµ
-	 * id Ξ­Ο‡ΞµΞΉ Ο„ΞΉΟ‚ Ο€ΞΏΟƒΟ�Ο„Ξ·Ο„ΞµΟ‚ Ο€ΞΏΟ… Ξ±Ο€Ξ±ΞΉΟ„ΞΏΟ�Ξ½Ο„Ξ±ΞΉ Ξ±Ο€Ο�
-	 * Ο„ΞΏΞ½ Ο€Ο�ΞΏΞΌΞ·ΞΈΞµΟ…Ο„Ξ®
-	 */
+	/*With this methdod we create a list, that includes the quantities of every product id, which are required from the supplier*/
+	
 	public static ArrayList<Stock> sumPurchaseStocks() {
 		for (int i = 0; i < Stock.stocks.size(); i++) {
 			quantities.add(0);
@@ -42,11 +38,8 @@ public class Purchase {
 
 	}
 
-	/*
-	 * Ξ“ΞΉΞ± ΞΊΞ¬ΞΈΞµ Ο€Ο�ΞΏΟ�Ο�Ξ½ Ο„ΟƒΞµΞΊΞ¬Ο�Ο‰ Ο„ΞΏ minQuantity ΞΊΞ±ΞΉ
-	 * Ξ²Ο�Ξ―ΟƒΞΊΟ‰ Ο„Ξ·Ξ½ Ο„ΞµΞ»ΞΉΞΊΞ® Ο€ΞΏΟƒΟ�Ο„Ξ·Ο„Ξ± Ο€ΞΏΟ… Ξ¶Ξ·Ο„Ο� Ξ±Ο€Ο�
-	 * Ο„ΞΏΞ½ Ο€Ο�ΞΏΞΌΞ·ΞΈΞµΟ…Ο„Ξ®
-	 */
+	/*With this method, we check the minimum stock's Quantity for every product  and we find the final quantity, that is required from the supplier*/
+	
 	public static ArrayList<Stock> finalQuantities() {
 		for (int i = 0; i < Stock.stocks.size(); i++) {
 			if (sumPurchaseStocks.get(i).quantity > Stock.stocks.get(i).quantity) {
@@ -65,27 +58,20 @@ public class Purchase {
 		}
 		return sumPurchaseStocks;
 	}
+	/*With this method we send messages to the supplier , which include the final required quantities and we refresh the stocks*/
 
-	/*
-	 * Ξ£Ο„ΞµΞ»Ξ½ΞµΞΉ Ο„Ξ± ΞΌΞ·Ξ½Ο�ΞΌΞ±Ο„Ξ± ΟƒΟ„ΞΏΞ½ Ο€Ο�ΞΏΞΌΞ·ΞΈΞµΟ…Ο„Ξ® ΞΌΞµ
-	 * Ο„ΞΉΟ‚ Ο„ΞµΞ»ΞΉΞΊΞ­Ο‚ Ξ¶Ξ·Ο„ΞΏΟ�ΞΌΞµΞ½ΞµΟ‚ Ο€ΞΏΟƒΟ�Ο„Ξ·Ο„ΞµΟ‚ ΞΊΞ±ΞΉ
-	 * Ξ±Ξ½Ξ±Ξ½ΞµΟ�Ξ½ΞµΟ„Ξ±ΞΉ Ξ· Stocks
-	 */
 	public static void messages() {
 
 		for (int i = 0; i < sumPurchaseStocks.size(); i++) {
 			System.out.println("We need " + sumPurchaseStocks.get(i).quantity + " of product with id "
 					+ sumPurchaseStocks.get(i).id);
-			Stock.stocks.add(i, sumPurchaseStocks.get(i));
+			Stock.stocks.add(i,sumPurchaseStocks.get(i));
 
 		}
 
 	}
+	/*With this method we refresh the following lists*/
 
-	/*
-	 * Ξ‘Ξ½Ξ±Ξ½ΞµΟ�Ξ½ΞΏΞ½Ο„Ξ±ΞΉ ΞΏΞΉ Ο€Ξ±Ο�Ξ±ΞΊΞ¬Ο„Ο‰ Ξ»Ξ―ΟƒΟ„ΞµΟ‚ Ξ±Ο†ΞΏΟ�
-	 * Ξ­Ο‡ΞΏΟ…Ξ½ Ξ³Ξ―Ξ½ΞµΞΉ ΞΏΞΉ Ο€Ο�ΞΏΞΌΞ®ΞΈΞµΞΉΞµΟ‚
-	 */
 	public static void refreshLists() {
 		for (int i = 0; i < Order.BlackList.size(); i++) {
 			Order.goodOrders.add(Order.BlackList.get(i));
