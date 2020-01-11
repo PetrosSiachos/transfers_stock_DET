@@ -1,10 +1,22 @@
+/* 
+ * Statistics 
+ * 
+ * 2nd year  
+ * Sargenti Panagiota, Elena Tzerefou
+ */
 package STOCKOVERFLOWPackage;
+
+/* Statistical results for business data
+ * 
+ *  Statistics for Customers 
+ *  Statistics for Orders 
+ *  Statistic for Stocks
+ */
 
 public class Statistics {
 	
-	/*---------------------------------------------------------------------*/
 	
-	/* successful Orders */
+	/* successful Orders: orders that can be placed divided by total */
 	public static double rateofgoodorders() throws Exception {
 		double rate;
 		System.out.println(Order.getGoodOrders().size());
@@ -17,7 +29,7 @@ public class Statistics {
 	
 	/*-------------------Statistics of Class Order-------------------------*/
 	
-	/* 22) CustomerSumOrders || άθροισμα παραγγελιών κάθε πελάτη */
+	/* CustomerSumOrders: Sum of orders for each customer */
 	public static int[] CustomerSumOrders() throws Exception {
 		int [] array = new int [Customer.getCustomers().size()];
 		for (int i  = 0 ; i < array.length ; i++) {
@@ -31,7 +43,7 @@ public class Statistics {
 	}
 	
 	
-	/* 23) Customer with max Orders || πελάτης με τις περισσότερες παραγγελίες*/
+	/* Customer with max Orders: The highest number of orders per customer*/
 	public static String[] CustomerMaxOrders() throws Exception {
 		int max = 0;
 		int k = 0 ;
@@ -54,7 +66,7 @@ public class Statistics {
 	}
 	
 	 	
-	/* 24) Customer with min Orders || πελάτης με τις λιγότερες παραγγελίες*/
+	/* Customer with min Orders: The lowest number of orders per customer */
 	public static String[] CustomerMinOrders() throws Exception {
 		int min = 0;
 		int k = 0 ;
@@ -77,10 +89,10 @@ public class Statistics {
 	}
 	
 	
-	
 	 /*-------------------Statistics of Class Customer-------------------------*/
 	
-	/* 1) AverageCreditworthiness of Customers|| μέση πιστολιπτική ικανότητα πελατών*/
+	/* AverageCreditworthiness of Customers: 
+	 * The average amount that all customers can spend on their purchases*/
 	public static double AverageCreditworthiness() throws Exception {
 		int sum = 0;
 		for (Customer cust : Customer.getCustomers()) {
@@ -89,7 +101,9 @@ public class Statistics {
 		return (double) sum/Customer.getCustomers().size();
 	}
 	
-	 /*2) Customer with max creditworthiness || πελάτης με μέγιστη πιστολιπτική ικανότητα*/
+	 /* Customer with max creditworthiness: 
+	  * The customer who can spend the largest amount 
+	  * on his purchases relative to others*/
 	public static String[] CustomerMaxCreaditworthiness() throws Exception {
 		int cred = 0;
 		int i = 0; 
@@ -109,7 +123,9 @@ public class Statistics {
 	}
 	
 	
-	/* 3) Customer with min creditworthiness || πελάτης με ελάχιστη πιστολιπτική ικανότητα*/
+	/* Customer with min creditworthiness: 
+	 * The customer who can spend the smallest amount
+	 *  on his purchases relative to others*/
 	public static String[] CustomerMinCreaditworthiness() throws Exception {
 		int cred = 0;
 		int i = 0; 
@@ -129,7 +145,8 @@ public class Statistics {
 	}
 	
 	
-	 /*4) Satisfactory average creditworthiness or not || ικανοποιητική μέση πιστολιπτική ικανότητα ή όχι?*/
+	 /* Satisfactory average creditworthiness or not:
+	  * If the average amount Customers can afford for their purchases is satisfactory */
 	public static boolean SatisfactoryAverageCreditworthiness() throws Exception {
 		boolean sat = false;
 		if (Statistics.AverageCreditworthiness() > 70) {
@@ -138,7 +155,8 @@ public class Statistics {
 		return sat;
 	}
 	
-	 /*5) AverageYears_of_cooperation of Customers|| μέση τιμή χρόνων συνεργασίας με πελάτες*/
+	 /* AverageYears_of_cooperation of Customers: 
+	  * The average time of business cooperation with customers*/
 	public static double AverageYears_of_cooperation() throws Exception {
 		int sum = 0;
 		for (Customer cust : Customer.getCustomers()) {
@@ -147,7 +165,8 @@ public class Statistics {
 		return (double) sum/Customer.getCustomers().size();
 	}
 	
-	/*6) Customer with max Years_of_cooperation || πελάτης με μέγιστη τιμή χρόνων συνεργασίας*/
+	/* Customer with max Years_of_cooperation: 
+	 * Customer with maximum cooperation time value*/
 	public static String[] CustomerMaxYears_of_cooperation() throws Exception {
 		int years = 0;
 		int i = 0; 
@@ -167,7 +186,8 @@ public class Statistics {
 	}
 	
 	
-	/* 7) Customer with min Years_of_cooperation || πελάτης με ελάχιστη τιμή χρόνων συνεργασίας*/
+	/* Customer with min Years_of_cooperation:
+	 * Customer with minimum cooperation time value*/
 	public static String[] CustomerMinYears_of_cooperation() throws Exception {
 		int years = 100;
 		int i = 0; 
@@ -186,7 +206,8 @@ public class Statistics {
 		return array;
 	}
 
-	/* 8) AveragePercent_of_stock of Customers|| μέσο ποσοστό μετοχών*/
+	/* AveragePercent_of_stock of Customers: 
+	 * The average percentage of shares that customers have in business*/
 	public static double AveragePercent_of_stock() throws Exception {
 		double sum = 0;
 		for (Customer cust : Customer.getCustomers()) {
@@ -195,7 +216,8 @@ public class Statistics {
 		return (double) sum/Customer.getCustomers().size();
 	}
 	
-	/* 9) Customer with max Percent_of_stock || πελάτης με τις περισσότερες μετοχές*/
+	/* Customer with max Percent_of_stock:
+	 * Customer with most shares in the business*/
 	public static String[] CustomerMaxPercent_of_stock() throws Exception {
 		double stock = 0;
 		int i = 0; 
@@ -214,7 +236,8 @@ public class Statistics {
 		return array;
 	}
 	
-	 /*10) Customer with min Percent_of_stock || πελάτης με τις λιγότερες μετοχές*/
+	 /* Customer with min Percent_of_stock: 
+	  * Customer with the fewest shares in the business*/
 	public static String[] CustomerMinPercent_of_stock() throws Exception {
 		double stock = 1000.0;
 		int i = 0; 
@@ -233,7 +256,7 @@ public class Statistics {
 		return array;
 	}
 	
-	 /*11) Array of Value of customers || λίστα με αξία πελατών*/
+	 /* Array of Value of customers */
 	public static double[] ValueOfCustomers() throws Exception {
 		int i = 0;
 		double [] array = new double [Customer.getCustomers().size()];
@@ -247,7 +270,7 @@ public class Statistics {
 		return array;
 	}
 	
-	 /*12) Customer with max value || πιο χρήσιμος πελάτης*/
+	 /* Customer with max value */
 	public static String[] CustomerMostValuable() throws Exception {
 		double MaxValue = 0;
 		int i = 0; 
@@ -269,7 +292,7 @@ public class Statistics {
 		return array2;
 	}
 	
-	 /*13) Customer with min value || λιγότερο χρήσιμος πελάτης*/
+	 /* Customer with min value */
 	public static String[] CustomerLessValuable() throws Exception {
 		double MinValue = 0;
 		int i = 0; 
@@ -291,7 +314,9 @@ public class Statistics {
 		return array2;
 	}
 	
-	/* 14) HealthyDoingBusiness: if 60% of customers have creditworthiness above 0.6 then we are ok/else not || αν το 60% των πελατών έχουν πιστοληπτική ικανότητα πάνω από 0.6 είμαστε καλά*/
+	/* HealthyDoingBusiness:
+	 *  if 60% of customers have creditworthiness above 0.6
+	 *  then we are ok/else not */
 	public static boolean HealthyDoingBusiness() throws Exception {
 		int count = 0;
 		for(Customer cust : Customer.getCustomers()) {
@@ -308,13 +333,15 @@ public class Statistics {
 	
 	/* -----------------------------------------O r d e r s-------------------------------------------- */
 
-	/* Rate of failed orders */
+	/* Rate of failed orders: 
+	 * Orders that can not be placed divided by total */
 	public static double rateofblackorders() throws Exception {
 		double rate;
 		rate = ((double)Order.getBlackList().size())/((double)Order.getOrders().size());
 		return rate;
 	}
 	
+	/* Popular product: The product id that has the most deals on orders */
 	public static int popularpr() throws Exception {
 		int k[] = new int [Stock.getStocks().size()];
 		int id = 0;
@@ -348,7 +375,8 @@ public class Statistics {
 		return id;
 	}
 	
-	/* The product that has the least amount of orders */
+	/* Not popular product: 
+	 * The product id that has the least amount of orders */
 	public static int notpoppr() throws Exception {
 		int id = 0;
 		int min = 100000;
@@ -382,13 +410,25 @@ public class Statistics {
 		return id;
 	}
 	
-	/* Product with the highest income */
+	/* maxinpr: Product with the highest income */
 	public static int maxincpr() throws Exception {
 		double a[] = new double[Stock.getStocks().size()];
 		int id = 0;
 		for (int i = 0; i < Order.getOrders().size(); i++) {
 			for (int j = 0; j < Stock.getStocks().size(); j++ ) {
 				if (Order.getOrders().get(i).idproduct1 == Stock.getStocks().get(j).id) {
+					a[j] = a[j] + Stock.getStocks().get(j).price;
+				}
+				if (Order.getOrders().get(i).idproduct2 == Stock.getStocks().get(j).id) {
+					a[j] = a[j] + Stock.getStocks().get(j).price;
+				}
+				if (Order.getOrders().get(i).idproduct3 == Stock.getStocks().get(j).id) {
+					a[j] = a[j] + Stock.getStocks().get(j).price;
+				}
+				if (Order.getOrders().get(i).idproduct4 == Stock.getStocks().get(j).id) {
+					a[j] = a[j] + Stock.getStocks().get(j).price;
+				}
+				if (Order.getOrders().get(i).idproduct5 == Stock.getStocks().get(j).id) {
 					a[j] = a[j] + Stock.getStocks().get(j).price;
 				}
 			}
@@ -403,7 +443,7 @@ public class Statistics {
 		return id;
 	}
 	
-	/* Product with the lowest income */
+	/* mininpr: Product with the lowest income */
 	public static int minincpr() throws Exception {
 		int id = 0;
 		double a[] = new double[Stock.getStocks().size()];
@@ -438,7 +478,7 @@ public class Statistics {
 
 
 	/* -----------------------------------------C u s t o m e r s-------------------------------------------- */
-	/* The Customer who haw the most orders */
+	/* Popular Customer: The Customer who has the most orders */
 	public static int popcustomer() throws Exception {
 		int idcust = 0;
 		int a[] = new int[Customer.getCustomers().size()];
@@ -508,4 +548,3 @@ public class Statistics {
 	
 
 }
-
