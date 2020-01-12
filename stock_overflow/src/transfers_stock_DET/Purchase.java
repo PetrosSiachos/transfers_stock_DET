@@ -1,5 +1,6 @@
-package transfers_stock_DET;
 import java.util.ArrayList;
+
+import java.util.Collections;
 
 public class Purchase {
 
@@ -7,6 +8,7 @@ public class Purchase {
 	static ArrayList<Stock> sumPurchaseStocks = new ArrayList<Stock>();
 	static ArrayList<Integer> quantities = new ArrayList<Integer>();
 	static ArrayList<String> messages = new ArrayList<String>();
+	static ArrayList<Double> averages = new ArrayList<Double>();
 
 	/*
 	 * With this method we create a list, where the orders have been divided in
@@ -96,8 +98,52 @@ public class Purchase {
 		for (int i = 0; i < Order.getBlackList().size(); i++) {
 			Order.getGoodOrders().add(Order.getBlackList().get(i));
 			Order.getBlackList().remove(i);
+
 		}
 
 	}
 
+	/*
+	 * With this method we find the maximum quantity that is required from the
+	 * supplier
+	 */
+	public static Stock maximum(ArrayList<Stock> sumPurchaseStocks) {
+		int max = sumPurchaseStocks.get(0).stock;
+		for (int i = 0; i < sumPurchaseStocks.size(); i++) {
+			if (sumPurchaseStocks.get(i).stock > max) {
+				max = sumPurchaseStocks.get(i).stock;
+			}
+		}
+		return sumPurchaseStocks.get(sumPurchaseStocks.indexOf(max));
+	}
+
+	/*
+	 * With this method we find the minimum quantity that is required from the
+	 * supplier
+	 */
+	public static Stock minimum(ArrayList<Stock> sumPurchaseStocks) {
+		int min = sumPurchaseStocks.get(0).stock;
+		for (int i = 0; i < sumPurchaseStocks.size(); i++) {
+			if (sumPurchaseStocks.get(i).stock < min) {
+				min = sumPurchaseStocks.get(i).stock;
+			}
+		}
+		return sumPurchaseStocks.get(sumPurchaseStocks.indexOf(min));
+	}
+
+	public static ArrayList<Double> sum(ArrayList<Stock> sumPurchaseStocks) {
+		double avg = 0;
+		int sum = 0;
+		for (int i = 0; i < sumPurchaseStocks.size(); i++) {
+			sum = sum + sumPurchaseStocks.get(i).stock;
+		}
+		if (sum > 0) {
+			for (int i = 0; i < sumPurchaseStocks.size(); i++) {
+				avg = (sumPurchaseStocks.get(i).stock / sum) * 100;
+				averages.add(i + 1, avg);
+			}
+		}
+		return averages;
+
+	}
 }
