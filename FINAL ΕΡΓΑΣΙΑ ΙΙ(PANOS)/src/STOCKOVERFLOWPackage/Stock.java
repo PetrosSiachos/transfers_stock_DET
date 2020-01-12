@@ -1,23 +1,44 @@
+/*
+ * VolumeSet
+ * 
+ * Copyright 2019
+ */
 package STOCKOVERFLOWPackage;
 
 import java.util.ArrayList;
 import java.sql.*;
-
+/**
+ * Class Stock is being connected with database, with the table Stocks and
+ * create a List with the products which our ERP sells.
+ * 
+ * @authors Panagiotis Petropoulos, Elena Tzerefou, Panagiota Sargenti
+ */
 public class Stock {
-	
+	/** The id of product */
 	Integer id;
+	/** the name of product */
 	String name;
+	/** the description of product */
 	String description;
+	/** the volume of product */
 	Integer volume;
+	/** the Quantity that our ERP */
 	Integer minQuantity;
+	/** the stock of the product */
 	Integer stock;
+	/** the price of the product */
 	Float price;
+	/** how much product we want - it is correlated with blacklist */
 	Integer need;
 	
-	//constructor that constructs a stock for Stock
-	
+ /** default constructor */
 	public Stock() {}
-	
+	/** constructor that helps in class Order to create a list with 
+	 * products we needs to buy
+	 * @param id
+	 * @param name
+	 * @param need
+	 */
 	public Stock(Integer id, String name, Integer need) {
 		this.id = id;
 		this.name = name;
@@ -103,7 +124,10 @@ public class Stock {
 	public void setPrice(Float price) {
 		this.price = price;
 	}
-
+	/**
+	 * this method is being connected with the database and creates and returns a
+	 * list with products that our ERP sell
+	 */
 	public static ArrayList<Stock> getStocks() throws Exception {
 		Connection con = null;
 		

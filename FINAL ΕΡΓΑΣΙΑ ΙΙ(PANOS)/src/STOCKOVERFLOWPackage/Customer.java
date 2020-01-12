@@ -11,12 +11,13 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 /**
- * Class Customer is being connected with database, with the table Customers
- * and create a List with the customers who have done an order until now. 
- * @authors Panagiotis Petropoulos, 
+ * Class Customer is being connected with database, with the table Customers and
+ * create a List with the customers who have done an order until now.
+ * 
+ * @authors Panagiotis Petropoulos, Eugenia Fourla
  */
 public class Customer {
-	
+
 	Integer idcustomer;
 	String namecustomer;
 	String phone;
@@ -41,7 +42,7 @@ public class Customer {
 		this.address = address;
 		/** the years which a customer has a cooperation (buys products) with our ERP */
 		this.years_of_cooperation = years_of_cooperation;
-		/** The percent of stock that customer has in our ERP*/
+		/** The percent of stock that customer has in our ERP */
 		this.percent_of_stock = percent_of_stock;
 		/** the creditworthiness of customer */
 		this.creditworthiness = creaditworthiness;
@@ -102,7 +103,11 @@ public class Customer {
 	public void setCreditworthiness(Integer creditworthiness) {
 		this.creditworthiness = creditworthiness;
 	}
-/** this method is being connected with the database and creates and returns a list with customers*/
+
+	/**
+	 * this method is being connected with the database and creates and returns a
+	 * list with customers
+	 */
 	public static ArrayList<Customer> getCustomers() throws Exception {
 		Connection con = null;
 
