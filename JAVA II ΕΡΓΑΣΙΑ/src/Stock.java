@@ -1,35 +1,29 @@
 import java.util.ArrayList;
 public class Stock {
-	int id; 
-	static int counter = 1;
+	int id;
+	String name;
+	String description;
+	int volume;
+	int minQuantity;
+	int stock;
 	double price;
-	int quantity;
 	static ArrayList<Stock> stocks = new ArrayList<Stock>(); // an arrayList of all stocks
-	int minQuantity; // minimun quantity of each product or stock
-	
 	//constructor that constructs a stock for Stock
-	public Stock(double price, int quantity, int minQuantity) {
+	public Stock(int id, String name, String description, int volume, int minQuantity, int stock, double price) {
 		super();
-		this.id = counter++;
-		this.price = price;
-		this.quantity = quantity;
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.volume = volume;
 		this.minQuantity = minQuantity;
+		this.stock = stock;
+		this.price = price;
 		checkMinQuantity();
 		// if quantity given is smaller than minQuantity then quantity=minQuantity!
 		// In order to create a stock we are going to set quantity to a specific amount = minQuantity
 		//LATER, IF IT GETS LOWER THAN MIN WE MAKE A PUCHASE AND USE METHOD "checkMinQuantity"!!!!! 
 		stocks.add(this);
 	}
-	
-//constructor that constructs a stock for Order
-		public Stock(int id, double price, int quantity, int minQuantity) {
-			super();
-			this.id = id;
-			this.price = price;
-			this.quantity = quantity;
-			this.minQuantity = minQuantity;
-			checkMinQuantity();
-		}
 //we have a method that checks if quantity is smaller than minQuantity.Is this situation, quantity=minQuantity
 		
 //prints all elements of ArrayList stocks
@@ -44,8 +38,8 @@ public class Stock {
 		int max = 0;
 		int id = 0;
 		for (int i = 0; i < stocks.size(); i++) {
-			if (stocks.get(i).quantity > max) {
-				max = stocks.get(i).quantity;
+			if (stocks.get(i).stock > max) {
+				max = stocks.get(i).stock;
 				id = stocks.get(i).id;
 			}
 		}
@@ -57,8 +51,8 @@ public class Stock {
 		int min = 1000000000;
 		int id = 0;
 		for (int i = 0; i < stocks.size(); i++) {
-			if (stocks.get(i).quantity < min) {
-				min= stocks.get(i).quantity;
+			if (stocks.get(i).stock < min) {
+				min= stocks.get(i).stock;
 				id = stocks.get(i).id;
 			}
 		}
@@ -67,14 +61,17 @@ public class Stock {
 	
 // checks if quantity given is smaller than minQuantity then sets quantity=minQuantity!
 	public void checkMinQuantity() {
-		if (this.quantity < minQuantity) {
-			this.quantity = minQuantity;
+		if (this.stock < minQuantity) {
+			this.stock = minQuantity;
 			//SOS!!! CREATE A PURCHASE WITH QUANTITY = minQuantity - this.quantity;
 		}
 	}
 
 	@Override
 	public String toString() {
-		return "Stock [id=" + id + ", price=" + price + ", quantity=" + quantity + ", minQuantity=" + minQuantity + "]";
+		return "Stock [id=" + id + ", name=" + name + ", description=" + description + ", volume=" + volume
+				+ ", minQuantity=" + minQuantity + ", stock=" + stock + ", price=" + price + "]";
 	}
 }
+
+	

@@ -1,6 +1,7 @@
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane ;
+
 public class Main {
 	public static void main (String [] args) throws IllegalAccessException, InstantiationException, ClassNotFoundException, SQLException {
 		ConnectMySQL.now();
@@ -15,3 +16,4 @@ public class Main {
 		JOptionPane.showMessageDialog(null,"the average number of products is:"+ Order.printAverageNumberOfProducts());
 	}		
 }	
+
