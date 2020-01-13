@@ -1,5 +1,5 @@
-/*
- * VolumeSet
+/**
+ * Order
  * 
  * Copyright 2019
  */
@@ -7,12 +7,14 @@ package STOCKOVERFLOWPackage;
 
 import java.util.ArrayList;
 import java.sql.*;
+
 /**
  * Class Order is being connected with database, with the table Orders and
  * creates a List with the total Orders, a list with orders that we can satisfy
- * (we have an available stock that is bigger than the quantity which the customer wants)
- * and a list with orders that we cannot satisfy 
- * ( we do not have an available stock that is bigger than the quantity which the customer wants
+ * (we have an available stock that is bigger than the quantity which the
+ * customer wants) and a list with orders that we cannot satisfy ( we do not
+ * have an available stock that is bigger than the quantity which the customer
+ * wants
  * 
  * @authors Panagiotis Petropoulos, Stamatios Liakos
  */
@@ -51,14 +53,16 @@ public class Order {
 	Float price5;
 	Integer a;
 	Integer b;
- 
-	/** default constructor */
-	public Order() {}
 
-	public Order(Integer idorder, Integer idcustomer, String namecustomer, String date_of_order, Integer idproduct1, String nameproduct1, Integer quantity1, Float price1,
-			Integer idproduct2, String nameproduct2, Integer quantity2, Float price2, Integer idproduct3,
-			String nameproduct3, Integer quantity3, Float price3, Integer idproduct4, String nameproduct4,
-			Integer quantity4, Float price4, Integer idproduct5, String nameproduct5, Integer quantity5, Float price5) {
+	/** default constructor */
+	public Order() {
+	}
+
+	public Order(Integer idorder, Integer idcustomer, String namecustomer, String date_of_order, Integer idproduct1,
+			String nameproduct1, Integer quantity1, Float price1, Integer idproduct2, String nameproduct2,
+			Integer quantity2, Float price2, Integer idproduct3, String nameproduct3, Integer quantity3, Float price3,
+			Integer idproduct4, String nameproduct4, Integer quantity4, Float price4, Integer idproduct5,
+			String nameproduct5, Integer quantity5, Float price5) {
 		super();
 		this.idorder = idorder;
 		this.idcustomer = idcustomer;
@@ -85,7 +89,8 @@ public class Order {
 		this.quantity5 = quantity5;
 		this.price5 = price5;
 	}
- /** methods get,set for our variables*/
+
+	/** methods get,set for our variables */
 	public Integer getIdorder() {
 		return idorder;
 	}
@@ -117,7 +122,7 @@ public class Order {
 	public void setDate_of_order(String date_of_order) {
 		this.date_of_order = date_of_order;
 	}
-	
+
 	public Integer getIdproduct1() {
 		return idproduct1;
 	}
@@ -277,150 +282,142 @@ public class Order {
 	public void setPrice5(Float price5) {
 		this.price5 = price5;
 	}
-	/**this method is being connected with the database and creates and returns a
-	 * list with orders*/
+
+	/**
+	 * this method is being connected with the database and creates and returns a
+	 * list with orders
+	 */
 	public static ArrayList<Order> getOrders() throws Exception {
 		Connection con = null;
 
 		/*
-		* Builds the sql query
-		*/
+		 * Builds the sql query
+		 */
 		String sql = "SELECT * FROM Orders ";
 
-		/*if (orderByColumn != null && orderByDirection != null) {
-			sql += " ORDER BY " + orderByColumn + " " + orderByDirection;
-		}*/
+		/*
+		 * if (orderByColumn != null && orderByDirection != null) { sql += " ORDER BY "
+		 * + orderByColumn + " " + orderByDirection; }
+		 */
 
 		DB db = new DB();
-		ArrayList<Order> orders =  new ArrayList<Order>();
+		ArrayList<Order> orders = new ArrayList<Order>();
 
 		try {
-			
+
 			// open connection and get Connection object
 			con = db.getConnection();
 
 			PreparedStatement stmt = con.prepareStatement(sql);
 
-			// execute the SQL statement (QUERY - SELECT) and get the results in a ResultSet)
-			
+			// execute the SQL statement (QUERY - SELECT) and get the results in a
+			// ResultSet)
+
 			ResultSet rs3 = stmt.executeQuery();
 			while (rs3.next()) {
-				Order st = new Order( Integer.parseInt(rs3.getString("IDORDER")),
-				Integer.parseInt(rs3.getString("IDCUSTOMER")),
-				rs3.getString("NAMECUSTOMER"),
-				rs3.getString("DATE_OF_ORDER"),
-				Integer.parseInt(rs3.getString("IDPRODUCT1")),
-				rs3.getString("NAMEPRODUCT1"),
-				Integer.parseInt(rs3.getString("QUANTITY1")),
-				Float.parseFloat(rs3.getString("PRICE1")),
-				Integer.parseInt(rs3.getString("IDPRODUCT2")),
-				rs3.getString("NAMEPRODUCT2"),
-				Integer.parseInt(rs3.getString("QUANTITY2")),
-				Float.parseFloat(rs3.getString("PRICE2")),
-				Integer.parseInt(rs3.getString("IDPRODUCT3")),
-				rs3.getString("NAMEPRODUCT3"),
-				Integer.parseInt(rs3.getString("QUANTITY3")),
-				Float.parseFloat(rs3.getString("PRICE3")),
-				Integer.parseInt(rs3.getString("IDPRODUCT4")),
-				rs3.getString("NAMEPRODUCT4"),
-				Integer.parseInt(rs3.getString("QUANTITY4")),
-				Float.parseFloat(rs3.getString("PRICE4")),
-				Integer.parseInt(rs3.getString("IDPRODUCT5")),
-				rs3.getString("NAMEPRODUCT5"),
-				Integer.parseInt(rs3.getString("QUANTITY5")),
-				Float.parseFloat(rs3.getString("PRICE5")));
-				
+				Order st = new Order(Integer.parseInt(rs3.getString("IDORDER")),
+						Integer.parseInt(rs3.getString("IDCUSTOMER")), rs3.getString("NAMECUSTOMER"),
+						rs3.getString("DATE_OF_ORDER"), Integer.parseInt(rs3.getString("IDPRODUCT1")),
+						rs3.getString("NAMEPRODUCT1"), Integer.parseInt(rs3.getString("QUANTITY1")),
+						Float.parseFloat(rs3.getString("PRICE1")), Integer.parseInt(rs3.getString("IDPRODUCT2")),
+						rs3.getString("NAMEPRODUCT2"), Integer.parseInt(rs3.getString("QUANTITY2")),
+						Float.parseFloat(rs3.getString("PRICE2")), Integer.parseInt(rs3.getString("IDPRODUCT3")),
+						rs3.getString("NAMEPRODUCT3"), Integer.parseInt(rs3.getString("QUANTITY3")),
+						Float.parseFloat(rs3.getString("PRICE3")), Integer.parseInt(rs3.getString("IDPRODUCT4")),
+						rs3.getString("NAMEPRODUCT4"), Integer.parseInt(rs3.getString("QUANTITY4")),
+						Float.parseFloat(rs3.getString("PRICE4")), Integer.parseInt(rs3.getString("IDPRODUCT5")),
+						rs3.getString("NAMEPRODUCT5"), Integer.parseInt(rs3.getString("QUANTITY5")),
+						Float.parseFloat(rs3.getString("PRICE5")));
+
 				orders.add(st);
 			}
 
- 			rs3.close(); //closing ResultSet
+			rs3.close(); // closing ResultSet
 			stmt.close();
-			db.close();//closing PreparedStatement
+			db.close();// closing PreparedStatement
 			return orders;
 		} catch (Exception e) {
 			throw new Exception(e.getMessage());
 		} finally {
-			if(con != null) // if connection is still open, then close.
+			if (con != null) // if connection is still open, then close.
 				con.close();
-			}
+		}
 	}
-	/**this method is being connected with the database and creates and returns a
-	 * list with orders that cannot be satisfied, we do not have the
-	 * available stock*/
+
+	/**
+	 * this method is being connected with the database and creates and returns a
+	 * list with orders that cannot be satisfied, we do not have the available stock
+	 */
 	public static ArrayList<Order> getBlackList() throws Exception {
 		Connection con = null;
 
 		/*
-		* Builds the sql query
-		*/
-		
+		 * Builds the sql query
+		 */
+
 		String sql = "SELECT * FROM Orders ";
 
-		/*if (orderByColumn != null && orderByDirection != null) {
-			sql += " ORDER BY " + orderByColumn + " " + orderByDirection;
-		}*/
+		/*
+		 * if (orderByColumn != null && orderByDirection != null) { sql += " ORDER BY "
+		 * + orderByColumn + " " + orderByDirection; }
+		 */
 
 		DB db = new DB();
-		ArrayList<Order> BlackList =  new ArrayList<Order>();
+		ArrayList<Order> BlackList = new ArrayList<Order>();
 		try {
-			
+
 			// open connection and get Connection object
-			
+
 			con = db.getConnection();
 			PreparedStatement stmt = con.prepareStatement(sql);
 
-			// execute the SQL statement (QUERY - SELECT) and get the results in a ResultSet)
+			// execute the SQL statement (QUERY - SELECT) and get the results in a
+			// ResultSet)
 			ResultSet rs3 = stmt.executeQuery();
 
 			while (rs3.next()) {
-				Order st = new Order( Integer.parseInt(rs3.getString("IDORDER")),
-				Integer.parseInt(rs3.getString("IDCUSTOMER")),
-				rs3.getString("NAMECUSTOMER"),
-				rs3.getString("DATE_OF_ORDER"),
-				Integer.parseInt(rs3.getString("IDPRODUCT1")),
-				rs3.getString("NAMEPRODUCT1"),
-				Integer.parseInt(rs3.getString("QUANTITY1")),
-				Float.parseFloat(rs3.getString("PRICE1")),
-				Integer.parseInt(rs3.getString("IDPRODUCT2")),
-				rs3.getString("NAMEPRODUCT2"),
-				Integer.parseInt(rs3.getString("QUANTITY2")),
-				Float.parseFloat(rs3.getString("PRICE2")),
-				Integer.parseInt(rs3.getString("IDPRODUCT3")),
-				rs3.getString("NAMEPRODUCT3"),
-				Integer.parseInt(rs3.getString("QUANTITY3")),
-				Float.parseFloat(rs3.getString("PRICE3")),
-				Integer.parseInt(rs3.getString("IDPRODUCT4")),
-				rs3.getString("NAMEPRODUCT4"),
-				Integer.parseInt(rs3.getString("QUANTITY4")),
-				Float.parseFloat(rs3.getString("PRICE4")),
-				Integer.parseInt(rs3.getString("IDPRODUCT5")),
-				rs3.getString("NAMEPRODUCT5"),
-				Integer.parseInt(rs3.getString("QUANTITY5")),
-				Float.parseFloat(rs3.getString("PRICE5")));
+				Order st = new Order(Integer.parseInt(rs3.getString("IDORDER")),
+						Integer.parseInt(rs3.getString("IDCUSTOMER")), rs3.getString("NAMECUSTOMER"),
+						rs3.getString("DATE_OF_ORDER"), Integer.parseInt(rs3.getString("IDPRODUCT1")),
+						rs3.getString("NAMEPRODUCT1"), Integer.parseInt(rs3.getString("QUANTITY1")),
+						Float.parseFloat(rs3.getString("PRICE1")), Integer.parseInt(rs3.getString("IDPRODUCT2")),
+						rs3.getString("NAMEPRODUCT2"), Integer.parseInt(rs3.getString("QUANTITY2")),
+						Float.parseFloat(rs3.getString("PRICE2")), Integer.parseInt(rs3.getString("IDPRODUCT3")),
+						rs3.getString("NAMEPRODUCT3"), Integer.parseInt(rs3.getString("QUANTITY3")),
+						Float.parseFloat(rs3.getString("PRICE3")), Integer.parseInt(rs3.getString("IDPRODUCT4")),
+						rs3.getString("NAMEPRODUCT4"), Integer.parseInt(rs3.getString("QUANTITY4")),
+						Float.parseFloat(rs3.getString("PRICE4")), Integer.parseInt(rs3.getString("IDPRODUCT5")),
+						rs3.getString("NAMEPRODUCT5"), Integer.parseInt(rs3.getString("QUANTITY5")),
+						Float.parseFloat(rs3.getString("PRICE5")));
 				boolean Flag = false;
 				for (int w = 0; w < Stock.getStocks().size(); w++) {
 					if (Integer.parseInt(rs3.getString("IDPRODUCT1")) == Stock.getStocks().get(w).id) {
-						if (Integer.parseInt(rs3.getString("QUANTITY1")) > Stock.getStocks().get(w).stock -  Stock.getStocks().get(w).minQuantity) {
+						if (Integer.parseInt(rs3.getString("QUANTITY1")) > Stock.getStocks().get(w).stock
+								- Stock.getStocks().get(w).minQuantity) {
 							Flag = true;
 						}
 					}
 					if (Integer.parseInt(rs3.getString("IDPRODUCT2")) == Stock.getStocks().get(w).id) {
-						if (Integer.parseInt(rs3.getString("QUANTITY2")) > Stock.getStocks().get(w).stock -  Stock.getStocks().get(w).minQuantity) {
+						if (Integer.parseInt(rs3.getString("QUANTITY2")) > Stock.getStocks().get(w).stock
+								- Stock.getStocks().get(w).minQuantity) {
 							Flag = true;
 						}
 					}
 					if (Integer.parseInt(rs3.getString("IDPRODUCT3")) == Stock.getStocks().get(w).id) {
-						if (Integer.parseInt(rs3.getString("QUANTITY3")) > Stock.getStocks().get(w).stock -  Stock.getStocks().get(w).minQuantity) {
+						if (Integer.parseInt(rs3.getString("QUANTITY3")) > Stock.getStocks().get(w).stock
+								- Stock.getStocks().get(w).minQuantity) {
 							Flag = true;
 						}
 					}
 					if (Integer.parseInt(rs3.getString("IDPRODUCT4")) == Stock.getStocks().get(w).id) {
-						if (Integer.parseInt(rs3.getString("QUANTITY4")) > Stock.getStocks().get(w).stock -  Stock.getStocks().get(w).minQuantity) {
+						if (Integer.parseInt(rs3.getString("QUANTITY4")) > Stock.getStocks().get(w).stock
+								- Stock.getStocks().get(w).minQuantity) {
 							Flag = true;
 						}
 					}
 					if (Integer.parseInt(rs3.getString("IDPRODUCT5")) == Stock.getStocks().get(w).id) {
-						if (Integer.parseInt(rs3.getString("QUANTITY5")) > Stock.getStocks().get(w).stock -  Stock.getStocks().get(w).minQuantity) {
+						if (Integer.parseInt(rs3.getString("QUANTITY5")) > Stock.getStocks().get(w).stock
+								- Stock.getStocks().get(w).minQuantity) {
 							Flag = true;
 						}
 					}
@@ -429,19 +426,22 @@ public class Order {
 					BlackList.add(st);
 				}
 			}
- 			rs3.close(); //closing ResultSet
+			rs3.close(); // closing ResultSet
 			stmt.close();
-			db.close();//closing PreparedStatement
+			db.close();// closing PreparedStatement
 			return BlackList;
 		} catch (Exception e) {
 			throw new Exception(e.getMessage());
 		} finally {
-			if(con != null) // if connection is still open, then close.
+			if (con != null) // if connection is still open, then close.
 				con.close();
 		}
 	}
-	/** this method helps me find the difference in quantity 
-	 * between the orders and the available stock .
+
+	/**
+	 * this method helps me find the difference in quantity between the orders and
+	 * the available stock .
+	 * 
 	 * @return
 	 * @throws Exception
 	 */
@@ -449,145 +449,158 @@ public class Order {
 		Connection con = null;
 
 		/*
-		* Builds the sql query
-		*/
-		
+		 * Builds the sql query
+		 */
+
 		String sql = "SELECT * FROM Orders ";
 
-		/*if (orderByColumn != null && orderByDirection != null) {
-			sql += " ORDER BY " + orderByColumn + " " + orderByDirection;
-		}*/
+		/*
+		 * if (orderByColumn != null && orderByDirection != null) { sql += " ORDER BY "
+		 * + orderByColumn + " " + orderByDirection; }
+		 */
 
 		DB db = new DB();
-		
+
 		ArrayList<Stock> a = new ArrayList<Stock>();
-		
+
 		try {
-			
+
 			// open connection and get Connection object
 			con = db.getConnection();
 
 			PreparedStatement stmt = con.prepareStatement(sql);
 
-			// execute the SQL statement (QUERY - SELECT) and get the results in a ResultSet)
+			// execute the SQL statement (QUERY - SELECT) and get the results in a
+			// ResultSet)
 			ResultSet rs3 = stmt.executeQuery();
 
 			while (rs3.next()) {
-				
+
 				for (int w = 0; w < Stock.getStocks().size(); w++) {
 					if (Integer.parseInt(rs3.getString("IDPRODUCT1")) == Stock.getStocks().get(w).id) {
-						if (Integer.parseInt(rs3.getString("QUANTITY1")) > Stock.getStocks().get(w).stock -  Stock.getStocks().get(w).minQuantity) {
-							a.add( new Stock (Integer.parseInt(rs3.getString("IDPRODUCT1")), rs3.getString("NAMEPRODUCT1"), Integer.parseInt(rs3.getString("QUANTITY1"))-Stock.getStocks().get(w).stock + Stock.getStocks().get(w).minQuantity));		
+						if (Integer.parseInt(rs3.getString("QUANTITY1")) > Stock.getStocks().get(w).stock
+								- Stock.getStocks().get(w).minQuantity) {
+							a.add(new Stock(Integer.parseInt(rs3.getString("IDPRODUCT1")),
+									rs3.getString("NAMEPRODUCT1"), Integer.parseInt(rs3.getString("QUANTITY1"))
+											- Stock.getStocks().get(w).stock + Stock.getStocks().get(w).minQuantity));
 						}
 					}
 					if (Integer.parseInt(rs3.getString("IDPRODUCT2")) == Stock.getStocks().get(w).id) {
-						if (Integer.parseInt(rs3.getString("QUANTITY2")) > Stock.getStocks().get(w).stock -  Stock.getStocks().get(w).minQuantity) {
-							a.add( new Stock (Integer.parseInt(rs3.getString("IDPRODUCT2")), rs3.getString("NAMEPRODUCT2"), Integer.parseInt(rs3.getString("QUANTITY2"))-Stock.getStocks().get(w).stock + Stock.getStocks().get(w).minQuantity));		
+						if (Integer.parseInt(rs3.getString("QUANTITY2")) > Stock.getStocks().get(w).stock
+								- Stock.getStocks().get(w).minQuantity) {
+							a.add(new Stock(Integer.parseInt(rs3.getString("IDPRODUCT2")),
+									rs3.getString("NAMEPRODUCT2"), Integer.parseInt(rs3.getString("QUANTITY2"))
+											- Stock.getStocks().get(w).stock + Stock.getStocks().get(w).minQuantity));
 						}
 					}
 					if (Integer.parseInt(rs3.getString("IDPRODUCT3")) == Stock.getStocks().get(w).id) {
-						if (Integer.parseInt(rs3.getString("QUANTITY3")) > Stock.getStocks().get(w).stock -  Stock.getStocks().get(w).minQuantity) {
-							a.add( new Stock (Integer.parseInt(rs3.getString("IDPRODUCT3")), rs3.getString("NAMEPRODUCT3"), Integer.parseInt(rs3.getString("QUANTITY3"))-Stock.getStocks().get(w).stock + Stock.getStocks().get(w).minQuantity));		
+						if (Integer.parseInt(rs3.getString("QUANTITY3")) > Stock.getStocks().get(w).stock
+								- Stock.getStocks().get(w).minQuantity) {
+							a.add(new Stock(Integer.parseInt(rs3.getString("IDPRODUCT3")),
+									rs3.getString("NAMEPRODUCT3"), Integer.parseInt(rs3.getString("QUANTITY3"))
+											- Stock.getStocks().get(w).stock + Stock.getStocks().get(w).minQuantity));
 						}
 					}
 					if (Integer.parseInt(rs3.getString("IDPRODUCT4")) == Stock.getStocks().get(w).id) {
-						if (Integer.parseInt(rs3.getString("QUANTITY4")) > Stock.getStocks().get(w).stock -  Stock.getStocks().get(w).minQuantity) {
-							a.add( new Stock (Integer.parseInt(rs3.getString("IDPRODUCT4")), rs3.getString("NAMEPRODUCT4"), Integer.parseInt(rs3.getString("QUANTITY4"))-Stock.getStocks().get(w).stock + Stock.getStocks().get(w).minQuantity));		
+						if (Integer.parseInt(rs3.getString("QUANTITY4")) > Stock.getStocks().get(w).stock
+								- Stock.getStocks().get(w).minQuantity) {
+							a.add(new Stock(Integer.parseInt(rs3.getString("IDPRODUCT4")),
+									rs3.getString("NAMEPRODUCT4"), Integer.parseInt(rs3.getString("QUANTITY4"))
+											- Stock.getStocks().get(w).stock + Stock.getStocks().get(w).minQuantity));
 						}
 					}
 					if (Integer.parseInt(rs3.getString("IDPRODUCT5")) == Stock.getStocks().get(w).id) {
-						if (Integer.parseInt(rs3.getString("QUANTITY5")) > Stock.getStocks().get(w).stock -  Stock.getStocks().get(w).minQuantity) {
-							a.add( new Stock (Integer.parseInt(rs3.getString("IDPRODUCT5")), rs3.getString("NAMEPRODUCT5"), Integer.parseInt(rs3.getString("QUANTITY5"))-Stock.getStocks().get(w).stock + Stock.getStocks().get(w).minQuantity));		
+						if (Integer.parseInt(rs3.getString("QUANTITY5")) > Stock.getStocks().get(w).stock
+								- Stock.getStocks().get(w).minQuantity) {
+							a.add(new Stock(Integer.parseInt(rs3.getString("IDPRODUCT5")),
+									rs3.getString("NAMEPRODUCT5"), Integer.parseInt(rs3.getString("QUANTITY5"))
+											- Stock.getStocks().get(w).stock + Stock.getStocks().get(w).minQuantity));
 						}
 					}
 				}
 			}
- 			rs3.close(); //closing ResultSet
+			rs3.close(); // closing ResultSet
 			stmt.close();
-			db.close();//closing PreparedStatement
+			db.close();// closing PreparedStatement
 			return a;
 		} catch (Exception e) {
-				throw new Exception(e.getMessage());
+			throw new Exception(e.getMessage());
 		} finally {
-			if(con != null) // if connection is still open, then close.
-			con.close();
+			if (con != null) // if connection is still open, then close.
+				con.close();
 		}
 	}
-	
+
 	public static ArrayList<Order> getGoodOrders() throws Exception {
 		Connection con = null;
 
 		/*
-		* Builds the sql query
-		*/
-		
+		 * Builds the sql query
+		 */
+
 		String sql = "SELECT * FROM Orders ";
 
-		/*if (orderByColumn != null && orderByDirection != null) {
-			sql += " ORDER BY " + orderByColumn + " " + orderByDirection;
-		}*/
+		/*
+		 * if (orderByColumn != null && orderByDirection != null) { sql += " ORDER BY "
+		 * + orderByColumn + " " + orderByDirection; }
+		 */
 
 		DB db = new DB();
-		ArrayList<Order> GoodOrders =  new ArrayList<Order>();
+		ArrayList<Order> GoodOrders = new ArrayList<Order>();
 
 		try {
-			
+
 			// open connection and get Connection object
 			con = db.getConnection();
 			PreparedStatement stmt = con.prepareStatement(sql);
 
-			// execute the SQL statement (QUERY - SELECT) and get the results in a ResultSet)
+			// execute the SQL statement (QUERY - SELECT) and get the results in a
+			// ResultSet)
 			ResultSet rs3 = stmt.executeQuery();
 			while (rs3.next()) {
-				
-				Order st = new Order( Integer.parseInt(rs3.getString("IDORDER")),
-				Integer.parseInt(rs3.getString("IDCUSTOMER")),
-				rs3.getString("NAMECUSTOMER"),
-				rs3.getString("DATE_OF_ORDER"),
-				Integer.parseInt(rs3.getString("IDPRODUCT1")),
-				rs3.getString("NAMEPRODUCT1"),
-				Integer.parseInt(rs3.getString("QUANTITY1")),
-				Float.parseFloat(rs3.getString("PRICE1")),
-				Integer.parseInt(rs3.getString("IDPRODUCT2")),
-				rs3.getString("NAMEPRODUCT2"),
-				Integer.parseInt(rs3.getString("QUANTITY2")),
-				Float.parseFloat(rs3.getString("PRICE2")),
-				Integer.parseInt(rs3.getString("IDPRODUCT3")),
-				rs3.getString("NAMEPRODUCT3"),
-				Integer.parseInt(rs3.getString("QUANTITY3")),
-				Float.parseFloat(rs3.getString("PRICE3")),
-				Integer.parseInt(rs3.getString("IDPRODUCT4")),
-				rs3.getString("NAMEPRODUCT4"),
-				Integer.parseInt(rs3.getString("QUANTITY4")),
-				Float.parseFloat(rs3.getString("PRICE4")),
-				Integer.parseInt(rs3.getString("IDPRODUCT5")),
-				rs3.getString("NAMEPRODUCT5"),
-				Integer.parseInt(rs3.getString("QUANTITY5")),
-				Float.parseFloat(rs3.getString("PRICE5")));
+
+				Order st = new Order(Integer.parseInt(rs3.getString("IDORDER")),
+						Integer.parseInt(rs3.getString("IDCUSTOMER")), rs3.getString("NAMECUSTOMER"),
+						rs3.getString("DATE_OF_ORDER"), Integer.parseInt(rs3.getString("IDPRODUCT1")),
+						rs3.getString("NAMEPRODUCT1"), Integer.parseInt(rs3.getString("QUANTITY1")),
+						Float.parseFloat(rs3.getString("PRICE1")), Integer.parseInt(rs3.getString("IDPRODUCT2")),
+						rs3.getString("NAMEPRODUCT2"), Integer.parseInt(rs3.getString("QUANTITY2")),
+						Float.parseFloat(rs3.getString("PRICE2")), Integer.parseInt(rs3.getString("IDPRODUCT3")),
+						rs3.getString("NAMEPRODUCT3"), Integer.parseInt(rs3.getString("QUANTITY3")),
+						Float.parseFloat(rs3.getString("PRICE3")), Integer.parseInt(rs3.getString("IDPRODUCT4")),
+						rs3.getString("NAMEPRODUCT4"), Integer.parseInt(rs3.getString("QUANTITY4")),
+						Float.parseFloat(rs3.getString("PRICE4")), Integer.parseInt(rs3.getString("IDPRODUCT5")),
+						rs3.getString("NAMEPRODUCT5"), Integer.parseInt(rs3.getString("QUANTITY5")),
+						Float.parseFloat(rs3.getString("PRICE5")));
 				boolean Flag = false;
 				for (int w = 0; w < Stock.getStocks().size(); w++) {
 					if (Integer.parseInt(rs3.getString("IDPRODUCT1")) == Stock.getStocks().get(w).id) {
-						if (Integer.parseInt(rs3.getString("QUANTITY1")) > Stock.getStocks().get(w).stock -  Stock.getStocks().get(w).minQuantity) {
-							Flag = true;	
+						if (Integer.parseInt(rs3.getString("QUANTITY1")) > Stock.getStocks().get(w).stock
+								- Stock.getStocks().get(w).minQuantity) {
+							Flag = true;
 						}
 					}
 					if (Integer.parseInt(rs3.getString("IDPRODUCT2")) == Stock.getStocks().get(w).id) {
-						if (Integer.parseInt(rs3.getString("QUANTITY2")) > Stock.getStocks().get(w).stock -  Stock.getStocks().get(w).minQuantity) {
+						if (Integer.parseInt(rs3.getString("QUANTITY2")) > Stock.getStocks().get(w).stock
+								- Stock.getStocks().get(w).minQuantity) {
 							Flag = true;
 						}
 					}
 					if (Integer.parseInt(rs3.getString("IDPRODUCT3")) == Stock.getStocks().get(w).id) {
-						if (Integer.parseInt(rs3.getString("QUANTITY3")) > Stock.getStocks().get(w).stock -  Stock.getStocks().get(w).minQuantity) {
+						if (Integer.parseInt(rs3.getString("QUANTITY3")) > Stock.getStocks().get(w).stock
+								- Stock.getStocks().get(w).minQuantity) {
 							Flag = true;
 						}
 					}
 					if (Integer.parseInt(rs3.getString("IDPRODUCT4")) == Stock.getStocks().get(w).id) {
-						if (Integer.parseInt(rs3.getString("QUANTITY4")) > Stock.getStocks().get(w).stock -  Stock.getStocks().get(w).minQuantity) {
+						if (Integer.parseInt(rs3.getString("QUANTITY4")) > Stock.getStocks().get(w).stock
+								- Stock.getStocks().get(w).minQuantity) {
 							Flag = true;
 						}
 					}
 					if (Integer.parseInt(rs3.getString("IDPRODUCT5")) == Stock.getStocks().get(w).id) {
-						if (Integer.parseInt(rs3.getString("QUANTITY5")) > Stock.getStocks().get(w).stock -  Stock.getStocks().get(w).minQuantity) {
+						if (Integer.parseInt(rs3.getString("QUANTITY5")) > Stock.getStocks().get(w).stock
+								- Stock.getStocks().get(w).minQuantity) {
 							Flag = true;
 						}
 					}
@@ -596,33 +609,34 @@ public class Order {
 					GoodOrders.add(st);
 				}
 			}
-			
- 			rs3.close(); //closing ResultSet
+
+			rs3.close(); // closing ResultSet
 			stmt.close();
-			db.close();//closing PreparedStatement
+			db.close();// closing PreparedStatement
 			return GoodOrders;
 		} catch (Exception e) {
 			throw new Exception(e.getMessage());
 		} finally {
-			if(con != null) { // if connection is still open, then close.
+			if (con != null) { // if connection is still open, then close.
 				con.close();
 			}
 		}
 	}
-	/** this method is helped from method getA() and finds
-	 *  how much product we need from every product to satisfy 
-	 *  the blacklist 
-	 
+
+	/**
+	 * this method is helped from method getA() and finds how much product we need
+	 * from every product to satisfy the blacklist
+	 * 
 	 * @param a
 	 * @return
 	 */
 	public static ArrayList<Stock> getNeedProduct(ArrayList<Stock> a) {
-		ArrayList<Stock> NeedProduct =  new ArrayList<Stock>();
-		int	count;
-		for (int i = 0 ; i < a.size() ; i++) {
+		ArrayList<Stock> NeedProduct = new ArrayList<Stock>();
+		int count;
+		for (int i = 0; i < a.size(); i++) {
 			count = 0;
-			for (int x =0 ; x < a.size() ; x++) {
-				if ( a.get(i).id == a.get(x).id) {
+			for (int x = 0; x < a.size(); x++) {
+				if (a.get(i).id == a.get(x).id) {
 					count = count + a.get(x).need;
 				}
 			}

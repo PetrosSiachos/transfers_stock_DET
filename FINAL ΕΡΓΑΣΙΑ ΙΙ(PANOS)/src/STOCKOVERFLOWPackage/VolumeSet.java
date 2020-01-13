@@ -1,4 +1,4 @@
-/*
+/**
  * VolumeSet
  * 
  * Copyright 2020
@@ -7,9 +7,6 @@
 package STOCKOVERFLOWPackage;
 
 import java.util.ArrayList;
-
-
-
 
 /**
  * Calculates the volume of each order and places the orders on the appropriate
@@ -169,8 +166,8 @@ public class VolumeSet {
 	 * @throws Exception
 	 */
 	public static int[][] returnFinal() throws Exception {
-		int [][] finalRoutes = new int[numRoutes][Order.getOrders().size() + 3];
-			try {
+		int[][] finalRoutes = new int[numRoutes][Order.getOrders().size() + 3];
+		try {
 			finalRoutes = OptimalPlacement.bestFit(sortArrayOfOrders, numRoutes, CAPACITY_OF_ROUTE,
 					Order.getOrders().size() + 3);
 		} catch (Exception e) {
