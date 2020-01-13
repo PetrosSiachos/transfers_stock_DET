@@ -8,11 +8,9 @@ import javax.swing.*;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
-		Purchase.finalQuantities(); 
-		VolumeSet.returnFinal();
-		
 		for(;;) {
     		int l = 0;
+    		/** menu */
     		do {
     			String  y = JOptionPane.showInputDialog(null, "Press: " + " 1 : to make an order " + " or "
     					+ " 2 : to control the apotheke");

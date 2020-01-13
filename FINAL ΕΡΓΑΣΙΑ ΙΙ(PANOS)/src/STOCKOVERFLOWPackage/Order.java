@@ -440,7 +440,11 @@ public class Order {
 				con.close();
 		}
 	}
-	
+	/** this method helps me find the difference in quantity 
+	 * between the orders and the available stock .
+	 * @return
+	 * @throws Exception
+	 */
 	public static ArrayList<Stock> getA() throws Exception {
 		Connection con = null;
 
@@ -473,27 +477,27 @@ public class Order {
 				for (int w = 0; w < Stock.getStocks().size(); w++) {
 					if (Integer.parseInt(rs3.getString("IDPRODUCT1")) == Stock.getStocks().get(w).id) {
 						if (Integer.parseInt(rs3.getString("QUANTITY1")) > Stock.getStocks().get(w).stock -  Stock.getStocks().get(w).minQuantity) {
-							a.add( new Stock (Integer.parseInt(rs3.getString("IDPRODUCT1")), rs3.getString("NAMEPRODUCT2"), Integer.parseInt(rs3.getString("QUANTITY2"))-Stock.getStocks().get(w).stock + Stock.getStocks().get(w).minQuantity));		
+							a.add( new Stock (Integer.parseInt(rs3.getString("IDPRODUCT1")), rs3.getString("NAMEPRODUCT1"), Integer.parseInt(rs3.getString("QUANTITY1"))-Stock.getStocks().get(w).stock + Stock.getStocks().get(w).minQuantity));		
 						}
 					}
 					if (Integer.parseInt(rs3.getString("IDPRODUCT2")) == Stock.getStocks().get(w).id) {
 						if (Integer.parseInt(rs3.getString("QUANTITY2")) > Stock.getStocks().get(w).stock -  Stock.getStocks().get(w).minQuantity) {
-							a.add( new Stock (Integer.parseInt(rs3.getString("IDPRODUCT1")), rs3.getString("NAMEPRODUCT2"), Integer.parseInt(rs3.getString("QUANTITY2"))-Stock.getStocks().get(w).stock + Stock.getStocks().get(w).minQuantity));		
+							a.add( new Stock (Integer.parseInt(rs3.getString("IDPRODUCT2")), rs3.getString("NAMEPRODUCT2"), Integer.parseInt(rs3.getString("QUANTITY2"))-Stock.getStocks().get(w).stock + Stock.getStocks().get(w).minQuantity));		
 						}
 					}
 					if (Integer.parseInt(rs3.getString("IDPRODUCT3")) == Stock.getStocks().get(w).id) {
 						if (Integer.parseInt(rs3.getString("QUANTITY3")) > Stock.getStocks().get(w).stock -  Stock.getStocks().get(w).minQuantity) {
-							a.add( new Stock (Integer.parseInt(rs3.getString("IDPRODUCT1")), rs3.getString("NAMEPRODUCT2"), Integer.parseInt(rs3.getString("QUANTITY2"))-Stock.getStocks().get(w).stock + Stock.getStocks().get(w).minQuantity));		
+							a.add( new Stock (Integer.parseInt(rs3.getString("IDPRODUCT3")), rs3.getString("NAMEPRODUCT3"), Integer.parseInt(rs3.getString("QUANTITY3"))-Stock.getStocks().get(w).stock + Stock.getStocks().get(w).minQuantity));		
 						}
 					}
 					if (Integer.parseInt(rs3.getString("IDPRODUCT4")) == Stock.getStocks().get(w).id) {
 						if (Integer.parseInt(rs3.getString("QUANTITY4")) > Stock.getStocks().get(w).stock -  Stock.getStocks().get(w).minQuantity) {
-							a.add( new Stock (Integer.parseInt(rs3.getString("IDPRODUCT1")), rs3.getString("NAMEPRODUCT2"), Integer.parseInt(rs3.getString("QUANTITY2"))-Stock.getStocks().get(w).stock + Stock.getStocks().get(w).minQuantity));		
+							a.add( new Stock (Integer.parseInt(rs3.getString("IDPRODUCT4")), rs3.getString("NAMEPRODUCT4"), Integer.parseInt(rs3.getString("QUANTITY4"))-Stock.getStocks().get(w).stock + Stock.getStocks().get(w).minQuantity));		
 						}
 					}
 					if (Integer.parseInt(rs3.getString("IDPRODUCT5")) == Stock.getStocks().get(w).id) {
 						if (Integer.parseInt(rs3.getString("QUANTITY5")) > Stock.getStocks().get(w).stock -  Stock.getStocks().get(w).minQuantity) {
-							a.add( new Stock (Integer.parseInt(rs3.getString("IDPRODUCT1")), rs3.getString("NAMEPRODUCT2"), Integer.parseInt(rs3.getString("QUANTITY2"))-Stock.getStocks().get(w).stock + Stock.getStocks().get(w).minQuantity));		
+							a.add( new Stock (Integer.parseInt(rs3.getString("IDPRODUCT5")), rs3.getString("NAMEPRODUCT5"), Integer.parseInt(rs3.getString("QUANTITY5"))-Stock.getStocks().get(w).stock + Stock.getStocks().get(w).minQuantity));		
 						}
 					}
 				}
@@ -605,7 +609,13 @@ public class Order {
 			}
 		}
 	}
-	
+	/** this method is helped from method getA() and finds
+	 *  how much product we need from every product to satisfy 
+	 *  the blacklist 
+	 
+	 * @param a
+	 * @return
+	 */
 	public static ArrayList<Stock> getNeedProduct(ArrayList<Stock> a) {
 		ArrayList<Stock> NeedProduct =  new ArrayList<Stock>();
 		int	count;
