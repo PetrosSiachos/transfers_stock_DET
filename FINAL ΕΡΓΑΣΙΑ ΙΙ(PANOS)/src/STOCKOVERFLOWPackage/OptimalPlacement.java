@@ -38,7 +38,8 @@ public class OptimalPlacement {
 
 		int[][] bppArray = new int[numberOfRoutes][k]; // The array with the customers that will be satisfied by each
 										   			   // route
-		int rem[] = new int[numberOfRoutes]; // Create an array to store the remaining space of routes
+		int rem[] = new int[numberOfRoutes]; 
+		// Create an array to store the remaining space of routes
 		bppArray[0][2] = sortedOrders[0][1]; // The first order will be placed in the first route
 		bppArray[0][0] = 1;
 		rem[0] = c - sortedOrders[0][0]; 

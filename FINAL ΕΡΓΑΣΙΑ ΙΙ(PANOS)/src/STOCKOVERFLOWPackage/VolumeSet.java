@@ -7,9 +7,9 @@
 package STOCKOVERFLOWPackage;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-import javax.swing.JOptionPane;
+
+
 
 /**
  * Calculates the volume of each order and places the orders on the appropriate
@@ -133,6 +133,7 @@ public class VolumeSet {
 			VolumeSet c = new VolumeSet(sumVolume, idcust);
 			volumes.add(c); // Add the specific order (object c) in the ArrayList volumes
 		}
+		System.out.println(volumes.size());
 		sortArrayOfOrders = new int[volumes.size() / 2][2];
 		counter = 0;
 		while (counter < sortArrayOfOrders.length) {
@@ -168,8 +169,8 @@ public class VolumeSet {
 	 * @throws Exception
 	 */
 	public static int[][] returnFinal() throws Exception {
-		int finalRoutes[][] = new int[numRoutes][Order.getOrders().size() + 3];
-		try {
+		int [][] finalRoutes = new int[numRoutes][Order.getOrders().size() + 3];
+			try {
 			finalRoutes = OptimalPlacement.bestFit(sortArrayOfOrders, numRoutes, CAPACITY_OF_ROUTE,
 					Order.getOrders().size() + 3);
 		} catch (Exception e) {
@@ -202,27 +203,4 @@ public class VolumeSet {
 		return results;
 	}
 
-	public static void main(String[] args) throws Exception {
-		
-		VolumeSet k1 = new VolumeSet();
-		int[][] a1 = k1.sortOrders();
-		for (int i = 0; i < a1.length; i++) {
-			System.out.println(a1[i][0]);
-			System.out.println(a1[i][1]);
-		}
-
-		
-
-		String[] a4 = printRoutes();
-		for (int i = 0; i < a4.length; i++) {
-			System.out.println(a4[i]);
-		}
-		 OptimumRoute k2 = new OptimumRoute(); 
-		 String[] a3 = OptimumRoute.implementTheVRP();
-		 for (int i = 0; i < a3.length; i++) { 
-			 System.out.println(a3[i]); 
-		 }
-
-		Drawing.drawRoutes("Routes");
-	}
 }

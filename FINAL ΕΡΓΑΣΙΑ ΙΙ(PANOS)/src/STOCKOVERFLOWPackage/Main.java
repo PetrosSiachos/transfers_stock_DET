@@ -8,6 +8,9 @@ import javax.swing.*;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
+		Purchase.finalQuantities(); 
+		VolumeSet.returnFinal();
+		
 		for(;;) {
     		int l = 0;
     		do {
