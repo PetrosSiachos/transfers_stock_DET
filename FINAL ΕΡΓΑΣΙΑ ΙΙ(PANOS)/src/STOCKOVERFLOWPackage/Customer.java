@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  * Class Customer is being connected with database, with the table Customers and
- * create a List with the customers who have done an order until now.
+ * creates a List with the customers who have done an order until now.
  * 
  * @authors Panagiotis Petropoulos, Eugenia Fourla
  */

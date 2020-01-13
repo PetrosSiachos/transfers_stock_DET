@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.sql.*;
 /**
  * Class Stock is being connected with database, with the table Stocks and
- * create a List with the products which our ERP sells.
+ * creates a List with the products which our ERP sells.
  * 
  * @authors Panagiotis Petropoulos, Elena Tzerefou, Panagiota Sargenti
  */

@@ -1,16 +1,37 @@
+/*
+ * VolumeSet
+ * 
+ * Copyright 2019
+ */
 package STOCKOVERFLOWPackage;
 
 import java.util.ArrayList;
 import java.sql.*;
-
+/**
+ * Class Order is being connected with database, with the table Orders and
+ * creates a List with the total Orders, a list with orders that we can satisfy
+ * (we have an available stock that is bigger than the quantity which the customer wants)
+ * and a list with orders that we cannot satisfy 
+ * ( we do not have an available stock that is bigger than the quantity which the customer wants
+ * 
+ * @authors Panagiotis Petropoulos, Stamatios Liakos
+ */
 public class Order {
+	/** the id of order */
 	Integer idorder;
+	/** the id of customer */
 	Integer idcustomer;
+	/** the name of customer */
 	String namecustomer;
+	/** the date of order */
 	String date_of_order;
+	/** the id of the first product */
 	Integer idproduct1;
+	/** the name of the first product */
 	String nameproduct1;
+	/** the quantity of the first product */
 	Integer quantity1;
+	/** the price of the first product */
 	Float price1;
 	Integer idproduct2;
 	String nameproduct2;
@@ -30,7 +51,8 @@ public class Order {
 	Float price5;
 	Integer a;
 	Integer b;
-
+ 
+	/** default constructor */
 	public Order() {}
 
 	public Order(Integer idorder, Integer idcustomer, String namecustomer, String date_of_order, Integer idproduct1, String nameproduct1, Integer quantity1, Float price1,
@@ -63,7 +85,7 @@ public class Order {
 		this.quantity5 = quantity5;
 		this.price5 = price5;
 	}
-
+ /** methods get,set for our variables*/
 	public Integer getIdorder() {
 		return idorder;
 	}
@@ -255,7 +277,8 @@ public class Order {
 	public void setPrice5(Float price5) {
 		this.price5 = price5;
 	}
-	
+	/**this method is being connected with the database and creates and returns a
+	 * list with orders*/
 	public static ArrayList<Order> getOrders() throws Exception {
 		Connection con = null;
 
@@ -321,7 +344,9 @@ public class Order {
 				con.close();
 			}
 	}
-
+	/**this method is being connected with the database and creates and returns a
+	 * list with orders that cannot be satisfied, we do not have the
+	 * available stock*/
 	public static ArrayList<Order> getBlackList() throws Exception {
 		Connection con = null;
 

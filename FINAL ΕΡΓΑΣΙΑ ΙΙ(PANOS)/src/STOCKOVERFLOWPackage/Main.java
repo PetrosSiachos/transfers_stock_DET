@@ -8,13 +8,6 @@ import javax.swing.*;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
-		VolumeSet q = new VolumeSet();
-		int [][] b = q.sortOrders();
-		for (int l = 0 ; l < b.length ; l++ ) {
-			System.out.println(b[l][0]);
-			System.out.println(b[l][1]);
-		}
-		System.out.println(q.sortOrders());
 		for(;;) {
     		int l = 0;
     		do {
