@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="img/erp.png">
+
+  <title>Our ERP</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/agency.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">STOCK OVERFLOW</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#Manual">Manual</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="masthead">
+    <div class="container">
+      <div class="intro-text">
+        <div class="intro-lead-in">Welcome To Our ERP!</div>
+        <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#Manual">Tell Me More</a><a class="btn btn-info btn-xl text-uppercase js-scroll-trigger" href="#services">Run the App!</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Services -->
+  
+  <section class="page-section" id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Services</h2>
+          <h3 class="section-subheading text-muted">Παρακάτω επέλεξε υπηρεσίες...</h3>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-4">
+		<form class="form-horizontal" method="POST" action="dashboard_customers.jsp">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+             <i class="fa fa-tasks fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Πελάτες και παραγγελίες</h4>
+		  <div class="checkbox">
+							<label>
+							 <br> <input type="checkbox" name="customers" value="true"> Customers
+							 <br> <input type="checkbox" name="NeedProduct" value="true"> Need Product
+							  
+							</label>
+						  </div>
+          <p class="text-muted"> </p>
+		  <div class="form-group">
+						
+						  <button type="submit" class="btn btn-lg btn-success col-md-12"><span class="glyphicon glyphicon-ok"></span> Submit</button> 
+						  <button type="reset" class="btn btn-lg btn-danger col-md-12"><span class="glyphicon glyphicon-remove"></span> Reset</button>
+						
+					  </div>
+					  </form>
+        </div>
+        <div class="col-md-4">
+		<form class="form-horizontal" method="POST" action="dashboard_stock_orders.jsp">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fa fa-th fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Διαχείριση αποθήκης – stock </h4>
+		  <div class="checkbox">
+							<label>
+							 <br> <input type="checkbox" name="stocks" value="true"> stock
+							  <br> <input type="checkbox" name="blacklist" value="true"> blacklist
+							  <br> <input type="checkbox" name="GoodOrders" value="true"> Good Orders
+							 <br> <input type="checkbox" name="Orders" value="true"> Orders
+							</label>
+						  </div>
+          <p class="text-muted"> </p>
+		   <div class="form-group">
+						
+						  <button type="submit" class="btn btn-lg btn-success col-md-12"><span class="glyphicon glyphicon-ok"></span> Submit</button> 
+						  <button type="reset" class="btn btn-lg btn-danger col-md-12"><span class="glyphicon glyphicon-remove"></span> Reset</button>
+						
+					  </div>
+					  </form>
+        </div>
+		<div class="col-md-4">
+		<form class="form-horizontal" method="POST" action="dashboard_stats.jsp">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fa fa-bars fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Στατιστικά στοιχεία</h4>
+					<div class="checkbox">
+							<label>
+							 <br> <input type="checkbox" name="Averages" value="true"> Averages
+							 <br> <input type="checkbox" name="General" value="true"> General informations
+							  <br> <input type="checkbox" name="info_cust" value="true"> Informations about customers
+							</label>
+						  </div>
+          <p class="text-muted"> </p>
+		   <div class="form-group">
+						
+						  <button type="submit" class="btn btn-lg btn-success col-md-12"><span class="glyphicon glyphicon-ok"></span> Submit</button> 
+						  <button type="reset" class="btn btn-lg btn-danger col-md-12"><span class="glyphicon glyphicon-remove"></span> Reset</button>
+						
+					  </div>
+					  </form>
+        </div>
+        <div class="col-md-12">
+		<form class="form-horizontal" method="POST" action="dashboard_Troutes.jsp">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-truck fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Διανομή και μεταφορά παραγγελιών</h4>
+		  <div class="checkbox">
+							<label>
+							 <br> <input type="checkbox" name="routes_sec" value="true"> Routes
+							 <br> <input type="checkbox" name="routes" value="true"> Way <i class="fas fa-shuttle-van"></i>
+							 </label>
+						  </div>
+          <p class="text-muted"> </p>
+		  
+		   <div class="form-group col-md-12">
+						
+						  <button type="submit" class="btn btn-lg btn-success col-md-12"><span class="glyphicon glyphicon-ok"></span> Submit</button> 
+						  <button type="reset" class="btn btn-lg btn-danger col-md-12"><span class="glyphicon glyphicon-remove"></span> Reset</button>
+						
+					  </div>
+					  </form>
+        </div>
+      </div>
+	
+	  
+					
+    </div>
+  </section>
+  
+
+  <!-- Manual Grid -->
+  <section class="bg-light page-section" id="Manual">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Manual</h2>
+          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+		<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!!</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="page-section" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">About</h2>
+          <h3 class="section-subheading text-muted">Μια γρήγορη ανασκόπηση της εφαρμογής μας...</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="timeline">
+            <li>
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="img/about/index__.png" alt="">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                 <h4 class="subheading">Αρχική σελίδα</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">Στην αρχική σελίδα υπάρχουν όλες οι απαραίτητες πληροφορίες για την ομάδα μας, το μενού της εφαρμογής μας, οδηγός χρήσης της εφαρμογής μας καθώς και όλος ο κώδικας που χρησημοποιήθηκε για την υλοποίηση της εφαρμογής μας</p>
+				  <p>Ο κώδικας που χρησημοποιήθηκε:
+									<br> <a href="/ismgroup28/JAVA II/CODES/index_code.html" target="_blank">index.html</a><p>(Πέτρος Σιάχος)</p>
+									</p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="img/about/dashboard_customers_.png" alt="">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                 <h4 class="subheading">Πελάτες και παραγγελίες</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">Στο κομμάτι Πελάτες και παραγγελίες υπάρχουν δύο επιλογές και ανάλογα αποτελέσματα (Customers, Need Product).</p>
+				  <p>Ο κώδικας που χρησημοποιήθηκε:
+									<br> <a href="/ismgroup28/JAVA II/CODES/dashboard_customers_code.html" target="_blank">dashboard_customers.jsp</a><p>(Πέτρος Σιάχος, Παναγιώτης Πετρόπουλος)</p>
+									<br> <a href="/ismgroup28/JAVA II/CODES/BASH.sql.html" target="_blank">DATA BASE.sql</a><p>(Παναγιώτης Πετρόπουλος, Σταμάτης Λιάκος)</p>
+									<br> <a href="/ismgroup28/JAVA II/CODES/Customer.java" target="_blank">Customer.java</a><p>(Παναγιώτης Πετρόπουλος, Έλενα Τζερεφού, Ευγενία Φουρλά)</p>
+									<br> <a href="/ismgroup28/JAVA II/CODES/Stock.java" target="_blank">Stock.java</a>(Παναγιώτης Πετρόπουλος, Έλενα Τζερεφού, Γιώτα Σαργέντη)</p>
+									</p>
+                </div>
+              </div>
+            </li>
+			<li class="timeline-inverted">
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="img/about/dashboard_stocks_.png" alt="">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                 <h4 class="subheading">Διαχείριση αποθήκης – stock</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">Στο κομμάτι της Διαχείριση αποθήκης και των stocks υπάρχουν τέσσερις επιλογές και ανάλογα αποτελέσματα (stock, blacklist, Good Orders, Orders). </p>
+				  <p>Ο κώδικας που χρησημοποιήθηκε:
+									<br> <a href="/ismgroup28/JAVA II/CODES/dashboard_stock_orders_code.html" target="_blank">dashboard_stock_orders.jsp</a><p>(Πέτρος Σιάχος, Παναγιώτης Πετρόπουλος)</p>
+									<br> <a href="/ismgroup28/JAVA II/CODES/BASH.sql.html" target="_blank">DATA BASE.sql</a><p>(Παναγιώτης Πετρόπουλος, Σταμάτης Λιάκος)</p>
+									<br> <a href="/ismgroup28/JAVA II/CODES/Stock.java" target="_blank">Stock.java</a>(Παναγιώτης Πετρόπουλος, Έλενα Τζερεφού, Γιώτα Σαργέντη)</p>
+									<br> <a href="/ismgroup28/JAVA II/CODES/Order.java" target="_blank">Order.java</a>(Παναγιώτης Πετρόπουλος, Σταμάτης Λιάκος)</p>
+									</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="img/about/dashboard_stats.png" alt="">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                 <h4 class="subheading">Στατιστικά στοιχεία</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">Στο κομμάτι με τα στατιστικά στοιχεία υπάρχουν τρείς επιλογές και ανάλογα αποτελέσματα (Averages, General informations, Informations about customers)</p>
+				  <p>Ο κώδικας που χρησημοποιήθηκε:
+									<br> <a href="/ismgroup28/JAVA II/CODES/dashboard_stats_code.html" target="_blank">dashboard_stats.jsp</a><p>(Πέτρος Σιάχος, Παναγιώτης Πετρόπουλος)</p>
+									<br> <a href="/ismgroup28/JAVA II/CODES/BASH.sql.html" target="_blank">DATA BASE.sql</a><p>(Παναγιώτης Πετρόπουλος, Σταμάτης Λιάκος)</p>
+									<br> <a href="/ismgroup28/JAVA II/CODES/Statistics.java" target="_blank">Statistics.java</a><p>(Έλενα Τζερεφού, Γιώτα Σαργέντη, Ευγενία Φουρλά)</p>
+									
+									</p>
+                </div>
+              </div>
+            </li>
+			<li>
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="img/about/dashboard_Troutes.png" alt="">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+				<h4 class="subheading">Διανομή και μεταφορά παραγγελιών</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">Στο κομμάτι της Διανομής και της μεταφοράς παραγγελιών υπάρχουν δύο επιλογές και ανάλογα αποτελέσματα (Routes, Way). Για την υλοποίηση τους χρησημοποιήθηκαν οι αλγόριθμοι του vehicle routing problem (VRP)και του bin packing problem (BPP)</p>
+				  <p>Ο κώδικας που χρησημοποιήθηκε:
+									<br> <a href="/ismgroup28/JAVA II/CODES/dashboard_Troutes_code.html" target="_blank">dashboard_Troutes.jsp</a><p>(Πέτρος Σιάχος, Παναγιώτης Πετρόπουλος)</p>
+									<br> <a href="/ismgroup28/JAVA II/CODES/BASH.sql.html" target="_blank">DATA BASE.sql</a><p>(Παναγιώτης Πετρόπουλος, Σταμάτης Λιάκος)</p>
+									<br> <a href="/ismgroup28/JAVA II/CODES/VolumeSet.java" target="_blank">VolumeSet.java</a><p>(Μένια Κωνσταντίνου, Πέτρος Σιάχος)</p>
+									<br> <a href="/ismgroup28/JAVA II/CODES/OptimalPlacement.java" target="_blank">OptimalPlacement.java</a><p>(Μένια Κωνσταντίνου, Πέτρος Σιάχος)</p>
+									<br> <a href="/ismgroup28/JAVA II/CODES/OptimumRoute.java" target="_blank">OptimumRoute.java</a><p>(Μένια Κωνσταντίνου)</p>
+									</p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="img/about/error.png" alt="">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="subheading">Κάτι δε πήγε καλά...</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">Σε περίπτωση που κάτι δε πήγε καλά με την εκτέλεση τών sql ερωτημάτων στη βάση δεδομένων(MySQL) εμφανίζεται ανάλογο μήνυμα! Το λάθος σχετίζεται με το session της βάσης δεδομένων.  </p>
+				  <p>Ο κώδικας που χρησημοποιήθηκε:
+									<br> <a href="/ismgroup28/JAVA II/CODES/error_StockOverflow_code.html" target="_blank">error_StockOverflow.jsp</a><p>(Πέτρος Σιάχος)</p>
+									</p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-image">
+                <h4>Be Part
+                  <br>Of Our
+                  <br>Story!</h4>
+              </div>
+            </li>
+			<p>EXTRA κώδικας που χρησημοποιήθηκε:
+									<br> <a href="/ismgroup28/JAVA II/CODES/Main.java" target="_blank">Main.java</a><p>(Παναγιώτης Πετρόπουλος, Σταμάτης Λιάκος)</p>
+									<br> <a href="/ismgroup28/JAVA II/CODES/DB.java" target="_blank">DB.java</a><p>(Πέτρος Σιάχος)</p>
+									</p>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="bg-light page-section" id="team">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+         <!-- Team --> <h3 class="section-subheading text-muted"> </h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="img/team/1.jpg" alt="">
+            <h4>Έλενα Τζερεφού</h4>
+			<p class="text-muted"> </p>
+             <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/lena.tzerefou">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/elena-tzerefou-7ab550176/?originalSubdomain=gr">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="img/team/2.jpg" alt="">
+            <h4>Πέτρος Σιάχος</h4>
+            <p class="text-muted">Leader</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/petros.siahos">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/petros-siachos-76b198195/">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+		<div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="img/team/7.jpg" alt="">
+            <h4>Μένια Κωνσταντίνου</h4>
+            <p class="text-muted"> </p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/people/Μένια-Κωνσταντίνου/100006032439992">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/μένια-κωνσταντίνου-a3b127196/">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+		<div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="img/team/4.jpg" alt="">
+            <h4>Σταμάτης Λιάκος</h4>
+            <p class="text-muted"> </p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/stamatis.liakos">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/stamatios-liakos-08a127196/">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+		<div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="img/team/5.jpg" alt="">
+            <h4>Γιώτα Σαργέντη</h4>
+            <p class="text-muted"> </p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/giota.sargenti">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/παναγιώτα-σαργέντη-910599182/">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+		<div class="col-sm-4">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="img/team/6.jpg" alt="">
+            <h4>Παναγιώτης Πετρόπουλος</h4>
+            <p class="text-muted"> </p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/panayiotis.petropoulos.3">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/panagiotis-petropoulos-0bb11b196/">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="img/team/3.jpg" alt="">
+            <h4>Ευγενία Φουρλά</h4>
+            <p class="text-muted"> </p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/eugenia.fourla.7">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/ευγενια-φουρλα-58b199196/">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <p class="large text-muted">Αποθετήριο στο github: <a href="https://github.com/PetrosSiachos/transfers_stock_DET">κάνε κλίκ εδώ</a></p>
+        </div>
+		<div class="col-lg-8 mx-auto text-center">
+          <p class="large text-muted">Σύνολο commits στο github: </p>
+		  <p class="large text-muted">Μέσος όρος commits ανα άτομο στο github: </p>
+		  <p class="large text-muted">Σύνολο γραμμών κώδικα: 2.215 </p>
+        </div>
+		
+		
+		<div class="col-lg-12 mx-auto text-center">
+		
+          
+			
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal1">
+  καλές πρακτικές
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">  Καλές πρακτικές κώδικα</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+			
+		<br>	<a href="CODES/kales_praktikes3.png" target="_blank">
+  <img src="CODES/kales_praktikes3.png" alt="HTML tutorial" style="width:175px;height:175px;border:0;">
+</a>
+<br>	<a href="CODES/kales_praktikes2.png" target="_blank">
+  <img src="CODES/kales_praktikes2.png" alt="HTML tutorial" style="width:175px;height:175px;border:0;">
+</a>
+<br>	<a href="CODES/kales_praktikes1.png" target="_blank">
+  <img src="CODES/kales_praktikes1.png" alt="HTML tutorial" style="width:175px;height:175px;border:0;">
+</a>
+
+      </div>
+      <div class="modal-footer">
+	    <a>Κάνε κλίκ πάνω στις εικόνες για να τις μεγενθύνεις!</a>
+       
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+		
+		<div class="col-lg-12 mx-auto text-center">
+		
+         
+            
+			
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal2">
+  checkstyle tool
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel2">  checkstyle tool</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		<br>	<a href="CODES/Screenshot (71)1.png" target="_blank">
+  <img src="CODES/Screenshot (71)1.png" alt="HTML tutorial" style="width:175px;height:175px;border:0;">
+</a>
+<br>	<a href="CODES/Screenshot (72)1.png" target="_blank">
+  <img src="CODES/Screenshot (72)1.png" alt="HTML tutorial" style="width:175px;height:175px;border:0;">
+</a>
+<br>	<a href="CODES/Screenshot (74)1.png" target="_blank">
+  <img src="CODES/Screenshot (74)1.png" alt="HTML tutorial" style="width:175px;height:175px;border:0;">
+</a>
+
+
+      </div>
+      <div class="modal-footer">
+	    <a>Κάνε κλίκ πάνω στις εικόνες για να τις μεγενθύνεις!</a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+		<div class="col-lg-12 mx-auto text-center">
+		
+         
+            
+			
+<a href="CODES/classdigram.png" target="_blank" class="btn btn-info" role="button">Class Diagram</a>
+  
+</div>
+
+<div class="col-lg-12 mx-auto text-center">
+       
+            
+			
+<a href="#" target="_blank" class="btn btn-warning" role="button">Τελική παρουσίαση προόδου</a>
+  
+</div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Clients -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-6">
+          <a href="https://www.eclipse.org">
+            <img class="img-fluid d-block mx-auto" src="img/logos/eclipse.png" alt="">
+          </a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <a href="https://github.com">
+            <img class="img-fluid d-block mx-auto" src="img/logos/github.png" alt="">
+          </a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <a href="https://notepad-plus-plus.org">
+            <img class="img-fluid d-block mx-auto" src="img/logos/notepad_.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <a href="https://www.mysql.com">
+            <img class="img-fluid d-block mx-auto" src="img/logos/mysql.jpg" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="col-md-12 col-sm-8">
+                   <img class="img-fluid d-block mx-auto" src="img/logos/det_logo.jpg" alt="">
+          </a>
+        </div>
+
+  
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-4">
+          <span class="copyright">Copyright &copy; Stock Overflow Team 2019</span>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-inline quicklinks">
+            
+			
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3">
+  Terms of Use
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel3">  Terms of Use</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+			<a> Για εκπαιδευτικούς σκοπούς και μόνο στα πλάσια του μαθήματος </a>
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/agency.min.js"></script>
+
+</body>
+
+</html>
