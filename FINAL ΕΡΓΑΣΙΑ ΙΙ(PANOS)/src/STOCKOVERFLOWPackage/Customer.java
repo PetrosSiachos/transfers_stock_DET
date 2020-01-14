@@ -1,7 +1,7 @@
 /**
  * Customer
  * 
- * Copyright 2019
+ * Copyright 2019-2020
  */
 package STOCKOVERFLOWPackage;
 
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * Class Customer is being connected with database, with the table Customers and
  * creates a List with the customers who have done an order until now.
  * 
- * @authors Panagiotis Petropoulos, Eugenia Fourla
+ * @authors Panagiotis Petropoulos, Elena Tzerefou, Eugenia Fourla
  */
 public class Customer {
 

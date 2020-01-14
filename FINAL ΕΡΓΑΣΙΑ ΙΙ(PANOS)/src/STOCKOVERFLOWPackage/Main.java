@@ -8,21 +8,26 @@ package STOCKOVERFLOWPackage;
 /** 
  * Main run our program
  * @authors Panagiotis Petropoulos, Stamatios Liakos
-*/
+/**
+ * Main
+ * 
+ * Copyright 2019-2020
+ */
 import java.awt.Desktop;
 import java.net.URI;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.*;
 
+/**
+ * Class DB creates a connection with the database
+ * 
+ * @authors Panagiotis Petropoulos, Stamatios Liakos
+ */
+
 public class Main {
 
 	public static void main(String[] args) throws Exception {
-		System.out.println(Stock.getStocks().size());
-		System.out.println(Customer.getCustomers().size());
-		System.out.println(Order.getOrders().size());
-		System.out.println(Order.getGoodOrders().size());
-		System.out.println(Order.getBlackList().size());
 
 		for (;;) {
 			int l = 0;

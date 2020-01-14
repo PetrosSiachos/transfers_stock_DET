@@ -1,8 +1,20 @@
+/**
+ * DB
+ * 
+ * Copyright 2019-2020
+ */
+
 package STOCKOVERFLOWPackage;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * Class DB creates a connection with the database
+ * 
+ * @author Petros Siachos
+ */
 public class DB {
 
 	/* Database connection settings, change dbName, dbusername, dbpassword */
@@ -15,8 +27,8 @@ public class DB {
 	private Connection con = null;
 
 	/**
-	 * Establishes a connection with the database, initializes and returns
-	 * the Connection object.
+	 * Establishes a connection with the database, initializes and returns the
+	 * Connection object.
 	 *
 	 * @return Connection, the Connection object
 	 * @throws Exception
@@ -36,31 +48,30 @@ public class DB {
 		}
 
 		/*
-		 * Step 2 -> Establish a connection with the database and initializes
-		 * the Connection object (con)
+		 * Step 2 -> Establish a connection with the database and initializes the
+		 * Connection object (con)
 		 */
 
 		try {
 
-			con = DriverManager.getConnection("jdbc:mysql://"
-				+ dbServer + ":" + dbServerPort + "/" + dbName, dbusername, dbpassword);
+			con = DriverManager.getConnection("jdbc:mysql://" + dbServer + ":" + dbServerPort + "/" + dbName,
+					dbusername, dbpassword);
 
 			// Step 3 -> returns the connection object
-			
+
 			return con;
 
 		} catch (Exception e) {
 
 			// throw Exception if any error occurs
-			throw new Exception("Could not establish connection with the Database Server: "
-				+ e.getMessage());
+			throw new Exception("Could not establish connection with the Database Server: " + e.getMessage());
 		}
 
 	} // End of getConnection
 
 	/**
-	 * Close database connection. It is very important to close the database connection
-	 * after it is used.
+	 * Close database connection. It is very important to close the database
+	 * connection after it is used.
 	 *
 	 * @throws SQLException
 	 */
@@ -74,8 +85,7 @@ public class DB {
 
 		} catch (SQLException e) {
 
-			throw new SQLException("Could not close connection with the Database Server: "
-				+ e.getMessage());
+			throw new SQLException("Could not close connection with the Database Server: " + e.getMessage());
 		}
 
 	}// end of close

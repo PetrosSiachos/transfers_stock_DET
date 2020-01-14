@@ -1,7 +1,8 @@
 /** Statistics 
  * 
- * 2nd year  
- * Sargenti Panagiota, Elena Tzerefou
+ * Copyright 2019-2020
+ *  
+ * @authors Sargenti Panagiota, Elena Tzerefou
  */
 package STOCKOVERFLOWPackage;
 

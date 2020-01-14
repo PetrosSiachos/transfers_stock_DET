@@ -1,12 +1,15 @@
 /**
  * VolumeSet
  * 
- * Copyright 2020
+ * Copyright 2019-2020
  */
 
 package STOCKOVERFLOWPackage;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+
+import javax.swing.JOptionPane;
 
 /**
  * Calculates the volume of each order and places the orders on the appropriate
@@ -21,7 +24,7 @@ public class VolumeSet {
 	/** The total amount of routes */
 	static int numRoutes;
 	/** The maximum capacity of each route */
-	static final int CAPACITY_OF_ROUTE = 1830;
+	static final int CAPACITY_OF_ROUTE = 1900;
 	/** The array that will contain the orders sorted in descending order */
 	static int[][] sortArrayOfOrders;
 	/**
@@ -39,7 +42,7 @@ public class VolumeSet {
 	public VolumeSet(int sumVolume, int idcust) {
 		this.sumVolume = sumVolume;
 		this.idcust = idcust;
-		volumes.add(this);
+
 	}
 
 	public VolumeSet() {
@@ -131,25 +134,25 @@ public class VolumeSet {
 			volumes.add(c); // Add the specific order (object c) in the ArrayList volumes
 		}
 		System.out.println(volumes.size());
-		sortArrayOfOrders = new int[volumes.size() / 2][2];
+		sortArrayOfOrders = new int[volumes.size()][2];
 		counter = 0;
 		while (counter < sortArrayOfOrders.length) {
 			int currentMax = 0;
 			volumes.remove(bi);
 			for (int i = 0; i < volumes.size(); i++) {
-				if (i % 2 == 0) {
-					if (currentMax < volumes.get(i).sumVolume) {
-						currentMax = volumes.get(i).sumVolume;
-						best_i = volumes.get(i).idcust;
-						bi = i;
-					}
+
+				if (currentMax < volumes.get(i).sumVolume) {
+					currentMax = volumes.get(i).sumVolume;
+					best_i = volumes.get(i).idcust;
+					bi = i;
 				}
+
 			}
 			sumVol = sumVol + currentMax; // Calculate the sum of the volume of all orders
 			sortArrayOfOrders[counter][0] = currentMax;
 			sortArrayOfOrders[counter][1] = best_i;
 			counter++;
-			volumes.remove(bi);
+			// volumes.remove(bi);
 		}
 		numRoutes = sumVol / CAPACITY_OF_ROUTE + 1; // Calculate the total amount of routes
 		return sortArrayOfOrders;
@@ -166,7 +169,7 @@ public class VolumeSet {
 	 * @throws Exception
 	 */
 	public static int[][] returnFinal() throws Exception {
-		int[][] finalRoutes = new int[numRoutes][Order.getOrders().size() + 3];
+		int finalRoutes[][] = new int[numRoutes][Order.getOrders().size() + 3];
 		try {
 			finalRoutes = OptimalPlacement.bestFit(sortArrayOfOrders, numRoutes, CAPACITY_OF_ROUTE,
 					Order.getOrders().size() + 3);
@@ -200,4 +203,25 @@ public class VolumeSet {
 		return results;
 	}
 
+	public static void main(String[] args) throws Exception {
+
+		VolumeSet k1 = new VolumeSet();
+		int[][] a1 = k1.sortOrders();
+		for (int i = 0; i < a1.length; i++) {
+			System.out.println(a1[i][0]);
+			System.out.println(a1[i][1]);
+		}
+
+		String[] a4 = printRoutes();
+		for (int i = 0; i < a4.length; i++) {
+			System.out.println(a4[i]);
+		}
+		OptimumRoute k2 = new OptimumRoute();
+		String[] a3 = OptimumRoute.implementTheVRP();
+		for (int i = 0; i < a3.length; i++) {
+			System.out.println(a3[i]);
+		}
+
+		Drawing.drawRoutes("Routes");
+	}
 }
