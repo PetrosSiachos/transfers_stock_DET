@@ -1,5 +1,5 @@
 /**
- * DB
+ * class DB
  * 
  * Copyright 2019-2020
  */

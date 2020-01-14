@@ -1,5 +1,5 @@
 /**
- * Customer
+ * class Customer
  * 
  * Copyright 2019-2020
  */

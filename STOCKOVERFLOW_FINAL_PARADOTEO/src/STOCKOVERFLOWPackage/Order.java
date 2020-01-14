@@ -1,5 +1,5 @@
 /**
- * Order
+ * class Order
  * 
  * Copyright 2019-2020
  */

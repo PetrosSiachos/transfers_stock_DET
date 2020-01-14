@@ -1,5 +1,5 @@
 /**
- * Stock
+ * class Stock
  * 
  * Copyright 2019-2020
  */
