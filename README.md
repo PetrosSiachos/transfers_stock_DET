@@ -36,10 +36,21 @@ http://ism.dmst.aueb.gr/ismgroup28/JAVA%20II/index.html
 1.Φτιάχνουμε ένα Java Project.
 2.Φτιάχνουμε στο src το πακέτο STOCKOVERFLOWPackage και μέσα τοποθετούμε τις κλάσεις μας
 3.Πατάμε δεξί κλικ πάνω στο πακέτο STOCKOVERFLOWPackage και επιλέγουμε export-Java-Runnable JAR file
-4.Στο Launch configuration βάζουμε τη main του πακέτου μας και στο export destination βάζουμε τη διεύθυνση που θέλουμε να αποθηκεύσουμε το jar στον υπολογιστη μας και ονομάζουμε το jar.
+4.Στο Launch configuration βάζουμε τη main του πακέτου μας και στο export destination βάζουμε τη διεύθυνση που θέλουμε να αποθηκεύσουμε το jar στον υπολογιστη μας και ονομάζουμε το .jar
 5. Επιλέγουμε την επιλογή Extract required libraries into generated και πατάμε finish.
 
-2ος τρόπος : Από τη γραμμή εντολών
+2ος τρόπος : Eclipse (β τρόπος)
+1.Φτιάχνουμε ένα Java Project.
+2.Φτιάχνουμε στο src το πακέτο STOCKOVERFLOWPackage και μέσα τοποθετούμε τις κλάσεις μας
+3.Πατάμε δεξί κλικ πάνω στο πακέτο STOCKOVERFLOWPackage και επιλέγουμε export-JAVA-JAR file
+4.Επιλέγω Next και στη συνέχεια τικάρω το project που με ενδιαφεέρει και τα .classpath, .project
+5.Ακόμη τικάρω Export generated class files and resources και Export Java source files and resources 
+6.Στο export destination βάζουμε τη διεύθυνση που θέλουμε να αποθηκεύσουμε το jar στον υπολογιστη μας και ονομάζουμε το .jar
+7. Στα options τικάρω μόνο το Compress the contents of the JAR file και επιλέγω Next.
+8.Επιλέγω ξανά Next και στο Select the class of the application entry point :
+Main class: Επιλέγω την εκτέλεση της main που θέλω να εκτελεστεί απο την αντίστοιχη κλάση και επιλέγω Finish.
+
+3ος τρόπος : Από τη γραμμή εντολών
 1.Κατεβάζουμε τις κλάσεις από το github και τις τοποθετούμε σε ένα φάκελο STOCKOVERFLOWPackage
 2.Μπαίνουμε στη γραμμή εντολών (command prompt) και επιλέγω το αντίστοιχο path που με οδηγεί στο φάκελο STOCKOVERFLOWPackage
 3.Εκτελώ javac *.java για να κανω compile όλες τις κλάσεις
