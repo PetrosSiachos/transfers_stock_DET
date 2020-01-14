@@ -1,25 +1,40 @@
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import javax.swing.JOptionPane;
 import java.util.Scanner;
 import java.util.Date;
 import java.util.GregorianCalendar;
 public class Order {
-	int idcust; 
-	static int counter = 1;
-	int location;
-	static int counter2 = 1;
-	int customer; 
-	java.util.Date date;
-	Scanner in = new Scanner(System.in);
+	int idorder; 
+	int idcustomer;
+	String namecustomer; 
+	String date_of_order;
+	int idproduct1;
+	String nameproduct1;
+	int quantity1;
+	double price1;
+	int idproduct2;
+	String nameproduct2;
+	int quantity2;
+	double price2;
+	int idproduct3;
+	String nameproduct3;
+	int quantity3;
+	double price3;
+	int idproduct4;
+	String nameproduct4;
+	int quantity4;
+	double price4;
+	int idproduct5;
+	String nameproduct5;
+	int quantity5;
+	double price5;
 	static int numberofproducts;
 	static int sumproducts = 0;
-	static int numberoforders =0 ;
+	static int numberoforders = 0 ;
 	static int numberofgoodorders = 0;
 	static int numberofBlackList = 0;
 	static String FIND = "FALSE";
 	
-	
-	ArrayList<Stock> order = new ArrayList<Stock>(); // an arrayList of all stocks of an order
 	static ArrayList<Order> orders = new ArrayList<Order>(); // an arrayList of all orders
 	static ArrayList<Order> goodOrders = new ArrayList<Order>(); // an arrayList of all orders that CAN we fulfilled 
 	static ArrayList<Order> BlackList = new ArrayList<Order>(); // an arrayList of all orders that CANT be fulfilled
@@ -27,32 +42,83 @@ public class Order {
 	// SOSSSS numberOfProducts = 2 = banana + orange = NOT 2 bananas
 	static ArrayList<Integer> idproducts =new ArrayList<Integer>();
 	
-	public Order(int customer) {
+	public Order(int idorder, int idcustomer, String namecustomer, String date_of_order, int idproduct1, String nameproduct1, int quantity1, double price1, 
+			int idproduct2, String nameproduct2, int quantity2, double price2, int idproduct3, 
+			String nameproduct3, int quantity3, double price3, int idproduct4, String nameproduct4,
+			int quantity4, double price4, int idproduct5, String nameproduct5, int quantity5, double price5) { 
 		super();
-		this.idcust = counter++;
-		this.location = counter2++;
-		this.customer = customer;
-		this.date = setDate();
+		this.idorder = idorder;
+		this.idcustomer = idcustomer;
+		this.namecustomer = namecustomer;
+		this.date_of_order = date_of_order;
 		numberoforders++;//metraw paraggelies
-		do {
-			String fn = JOptionPane.showInputDialog("Please tell me how many products do you want to buy:");
-			numberofproducts = Integer.parseInt(fn);
-			
-			//mou dinei o xrhsths posa thelei na agorasei
-			if (numberofproducts > Stock.stocks.size()) {
-				System.out.println(" Please buy until: " + (Stock.stocks.size()) + " products ");//tou vazo periorismo mexri osa exw sta stocks
-			}
-		} while (numberofproducts > Stock.stocks.size());
-		
-			this.order = setOrder();
-			JOptionPane.showMessageDialog(null,this.order);
+		this.idproduct1 = idproduct1;
+		this.nameproduct1 = nameproduct1;
+		this.quantity1 = quantity1;
+		this.price1 = price1;
+		this.idproduct2 = idproduct2;
+		this.nameproduct2 = nameproduct2;
+		this.quantity2 = quantity2;
+		this.price2 = price2;
+		this.idproduct3 = idproduct3;
+		this.nameproduct3 = nameproduct3;
+		this.quantity3 = quantity3;
+		this.price3 = price3;
+		this.idproduct4 = idproduct4;
+		this.nameproduct4 = nameproduct4;
+		this.quantity4 = quantity4;
+		this.price4 = price4;
+		this.idproduct5 = idproduct5;
+		this.nameproduct5 = nameproduct5;
+		this.quantity5 = quantity5;
+		this.price5 = price5;
+		orders.add(this);
+		JOptionPane.showMessageDialog(null,"Lets see the orders for today:");
+		JOptionPane.showMessageDialog(null,this);
 			FIND = "FALSE";
-		for (int y = 0 ; y < order.size() ; y++) {
+		for (int y = 0 ; y < orders.size() ; y++) {
 		for(int i = 0; i < Stock.stocks.size() ; i++) {
-			if (order.get(y).id == Stock.stocks.get(i).id) {
-				if (order.get(y).quantity > Stock.stocks.get(i).quantity) {
+			if (orders.get(y).idproduct1 == Stock.stocks.get(i).id) {
+				if (orders.get(y).quantity1 > Stock.stocks.get(i).stock) {
+					BlackList.add(this);//VAZO OLH THN PARAGGELIA ME OLA TA STOIXEIA STHN KATHGORIA BLACKLIST
+					numberofBlackList++;
+					JOptionPane.showMessageDialog(null,"We need more of this product me id: " +  orders.get(y).idproduct1);
+					break;
+				//Estw oti o xrhsths thelei na agorasei 3 proionta.Vlepo an kapoio apo ayta yparxei eleima.tote Olh h paraggelia tha bei blacklist
+				} 
+			}
+			if (orders.get(y).idproduct2 == Stock.stocks.get(i).id) {
+				if (orders.get(y).quantity2 > Stock.stocks.get(i).stock) {
 					FIND = "TRUE";
-					JOptionPane.showMessageDialog(null,"We need more of this product me id: " +  order.get(y).id );
+					BlackList.add(this);//VAZO OLH THN PARAGGELIA ME OLA TA STOIXEIA STHN KATHGORIA BLACKLIST
+					numberofBlackList++;
+					JOptionPane.showMessageDialog(null,"We need more of this product me id: " +  orders.get(y).idproduct1);
+				//Estw oti o xrhsths thelei na agorasei 3 proionta.Vlepo an kapoio apo ayta yparxei eleima.tote Olh h paraggelia tha bei blacklist
+				} 
+			}
+			if (orders.get(y).idproduct3 == Stock.stocks.get(i).id) {
+				if (orders.get(y).quantity3 > Stock.stocks.get(i).stock) {
+					BlackList.add(this);//VAZO OLH THN PARAGGELIA ME OLA TA STOIXEIA STHN KATHGORIA BLACKLIST
+					numberofBlackList++;
+					JOptionPane.showMessageDialog(null,"We need more of this product me id: " +  orders.get(y).idproduct1);
+				//Estw oti o xrhsths thelei na agorasei 3 proionta.Vlepo an kapoio apo ayta yparxei eleima.tote Olh h paraggelia tha bei blacklist
+				} 
+			}
+			if (orders.get(y).idproduct4 == Stock.stocks.get(i).id) {
+				if (orders.get(y).quantity4 > Stock.stocks.get(i).stock) {
+					FIND = "TRUE";
+					BlackList.add(this);//VAZO OLH THN PARAGGELIA ME OLA TA STOIXEIA STHN KATHGORIA BLACKLIST
+					numberofBlackList++;
+					JOptionPane.showMessageDialog(null,"We need more of this product me id: " +  orders.get(y).idproduct1);
+				//Estw oti o xrhsths thelei na agorasei 3 proionta.Vlepo an kapoio apo ayta yparxei eleima.tote Olh h paraggelia tha bei blacklist
+				} 
+			}
+			if (orders.get(y).idproduct5 == Stock.stocks.get(i).id) {
+				if (orders.get(y).quantity5 > Stock.stocks.get(i).stock) {
+					FIND = "TRUE";
+					BlackList.add(this);//VAZO OLH THN PARAGGELIA ME OLA TA STOIXEIA STHN KATHGORIA BLACKLIST
+					numberofBlackList++;
+					JOptionPane.showMessageDialog(null,"We need more of this product me id: " +  orders.get(y).idproduct1);
 				//Estw oti o xrhsths thelei na agorasei 3 proionta.Vlepo an kapoio apo ayta yparxei eleima.tote Olh h paraggelia tha bei blacklist
 				} 
 			}
@@ -61,15 +127,51 @@ public class Order {
 	
 		if (FIND.equals("FALSE")){
 			goodOrders.add(this);//VAZO OLH THN PARAGGELIA ME OLA TA STOIXEIA STHN KATHGORIA GOOD
-		for (int y = 0 ; y < order.size() ; y++) {
+		for (int y = 0 ; y < orders.size() ; y++) {
 			for(int i = 0; i < Stock.stocks.size() ; i++){
-			if (order.get(y).id == Stock.stocks.get(i).id) {
-				JOptionPane.showMessageDialog(null,"FOR " +  order.get(y));
+			if (orders.get(y).idproduct1 == Stock.stocks.get(i).id) {
+				JOptionPane.showMessageDialog(null,"FOR " +  orders.get(y).nameproduct1);
 				JOptionPane.showMessageDialog(null,"Before");
-				JOptionPane.showMessageDialog(null,Stock.stocks.get(i).quantity);
-		Stock.stocks.get(i).quantity = Stock.stocks.get(i).quantity - order.get(y).quantity ;
+				JOptionPane.showMessageDialog(null,Stock.stocks.get(i).stock);
+		Stock.stocks.get(i).stock = Stock.stocks.get(i).stock- orders.get(y).quantity1 ;
 		JOptionPane.showMessageDialog(null,"After");
-		JOptionPane.showMessageDialog(null,Stock.stocks.get(i).quantity);
+		JOptionPane.showMessageDialog(null,Stock.stocks.get(i).stock);
+		//ENHMERONO TA STOCKS EFOSON DO OTI H PARGGELIA EINAI GOOD
+			}
+			if (orders.get(y).idproduct2 == Stock.stocks.get(i).id) {
+				JOptionPane.showMessageDialog(null,"FOR " +  orders.get(y).nameproduct2);
+				JOptionPane.showMessageDialog(null,"Before");
+				JOptionPane.showMessageDialog(null,Stock.stocks.get(i).stock);
+		Stock.stocks.get(i).stock = Stock.stocks.get(i).stock- orders.get(y).quantity2 ;
+		JOptionPane.showMessageDialog(null,"After");
+		JOptionPane.showMessageDialog(null,Stock.stocks.get(i).stock);
+		//ENHMERONO TA STOCKS EFOSON DO OTI H PARGGELIA EINAI GOOD
+			}
+			if (orders.get(y).idproduct3 == Stock.stocks.get(i).id) {
+				JOptionPane.showMessageDialog(null,"FOR " +  orders.get(y).nameproduct3);
+				JOptionPane.showMessageDialog(null,"Before");
+				JOptionPane.showMessageDialog(null,Stock.stocks.get(i).stock);
+		Stock.stocks.get(i).stock = Stock.stocks.get(i).stock- orders.get(y).quantity3 ;
+		JOptionPane.showMessageDialog(null,"After");
+		JOptionPane.showMessageDialog(null,Stock.stocks.get(i).stock);
+		//ENHMERONO TA STOCKS EFOSON DO OTI H PARGGELIA EINAI GOOD
+			}
+			if (orders.get(y).idproduct4 == Stock.stocks.get(i).id) {
+				JOptionPane.showMessageDialog(null,"FOR " +  orders.get(y).nameproduct4);
+				JOptionPane.showMessageDialog(null,"Before");
+				JOptionPane.showMessageDialog(null,Stock.stocks.get(i).stock);
+		Stock.stocks.get(i).stock = Stock.stocks.get(i).stock- orders.get(y).quantity4 ;
+		JOptionPane.showMessageDialog(null,"After");
+		JOptionPane.showMessageDialog(null,Stock.stocks.get(i).stock);
+		//ENHMERONO TA STOCKS EFOSON DO OTI H PARGGELIA EINAI GOOD
+			}
+			if (orders.get(y).idproduct5 == Stock.stocks.get(i).id) {
+				JOptionPane.showMessageDialog(null,"FOR " +  orders.get(y).nameproduct5);
+				JOptionPane.showMessageDialog(null,"Before");
+				JOptionPane.showMessageDialog(null,Stock.stocks.get(i).stock);
+		Stock.stocks.get(i).stock = Stock.stocks.get(i).stock- orders.get(y).quantity5 ;
+		JOptionPane.showMessageDialog(null,"After");
+		JOptionPane.showMessageDialog(null,Stock.stocks.get(i).stock);
 		//ENHMERONO TA STOCKS EFOSON DO OTI H PARGGELIA EINAI GOOD
 			}
 		}
@@ -77,48 +179,11 @@ public class Order {
 		numberofgoodorders++;
 
 		} else {
-		BlackList.add(this);//VAZO OLH THN PARAGGELIA ME OLA TA STOIXEIA STHN KATHGORIA BLACKLIST
-		numberofBlackList++;
+			BlackList.add(this);//VAZO OLH THN PARAGGELIA ME OLA TA STOIXEIA STHN KATHGORIA BLACKLIST
+			numberofBlackList++;
 		}
-		
-		orders.add(this);
 		sumproducts = sumproducts + numberofproducts;
 	}
-	
-
-	// method that fills arrayList order with stocks
-	public ArrayList<Stock> setOrder() {
-		int idpr=0;
-		double price = 0;
-		int quantity;
-		int minQuantity = 0;
-		int l =-1;
-		
-		for (int i = 0 ; i < numberofproducts  ; i ++) {
-			l++;
-					idpr = getRandomIntBetweenRange(1 , Stock.stocks.size() );
-					idproducts.add(i,idpr);
-					//de thelw na dvsei idio id proiontos o idios pelaths opote apaitw na einai diaforetika, to l xrhsimopoieitai opws kai meta
-				quantity = getRandomIntBetweenRange (1 , 10000);// quantity is between 1 and 10000(big number)
-			
-			for (int k = 0 ; k < Stock.stocks.size() ; k++) {// goes through arrayList stocks of Stock and finds the object of the arrayList 
-				if (Stock.stocks.get(k).id == idpr) { //where object.id=id given and sets price= price of object with id
-					
-					price = Stock.stocks.get(k).price;
-					minQuantity = Stock.stocks.get(k).minQuantity;
-					//TO l TO EXW ETSI OSTE SE KATHE PARAGGELIA NA XEKINAEI O PINAKAS ORDER APO TH THESH 0 GIA EYKOLIA MOU;
-					 }
-			}
-			order.add(l,new Stock (idpr , price , quantity , minQuantity ));
-		}
-		return order;
-	}
-
-	// method that sets a random date form january to march of 2019
-	public java.util.Date setDate(){
-		return new GregorianCalendar(2019, getRandomIntBetweenRange(0, 2), getRandomIntBetweenRange(0, 28)).getTime();
-	}
-	
 	// method that creates random numbers from min-max
 	public static int getRandomIntBetweenRange(int min, int max){
 	    int x = (int) ((Math.random()*((max-min)+1))+min);
@@ -151,11 +216,11 @@ public class Order {
 		}
 		return numberofBlackList;
 	}
-		
-	
+
+
 	@Override
 	public String toString() {
-		return "Order [idcust=" + idcust + ", location=" + location + ", customer=" + customer + ", date=" + date + ", order="
-				+ order + "]";
+		return "Order [idorder=" + idorder + ", idcustomer=" + idcustomer + ", namecustomer=" + namecustomer
+				+ ", date_of_order=" + date_of_order + "]";
 	}
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="ergasiaJava/src/|tranfers_stock_DET/src/|stock_overflow/src/transfers_stock_DET/|TryAnt/src/|JAVA II xoris grafiki diepafi/src/|ergasia eksaminou/src/|ΕΡΓΑΣΙΑ ΙΙ/src/|FINAL ΕΡΓΑΣΙΑ ΙΙ(PANOS)/src/|JAVA II Ergasia (xoris grammiki diepafi)/src/|VehicleRoutingProblem/src/|Ergasia2a/src/|transfers_stock_DET/src/|JAVA II ΕΡΓΑΣΙΑ/src/" kind="src" path=""/>
+	<classpathentry kind="src" path="ΕΡΓΑΣΙΑ ΙΙ/src"/>
+	<classpathentry kind="src" path="ergasia eksaminou/src"/>
+	<classpathentry kind="src" path="Ergasia2a/src"/>
+	<classpathentry kind="src" path="ergasiaJava/src"/>
+	<classpathentry kind="src" path="FINAL ΕΡΓΑΣΙΑ ΙΙ(PANOS)/src"/>
+	<classpathentry kind="src" path="JAVA II ΕΡΓΑΣΙΑ/src"/>
+	<classpathentry kind="src" path="JAVA II Ergasia (xoris grammiki diepafi)/src"/>
+	<classpathentry kind="src" path="JAVA II xoris grafiki diepafi/src"/>
+	<classpathentry kind="src" path="stock_overflow/src/transfers_stock_DET"/>
+	<classpathentry kind="src" path="tranfers_stock_DET/src"/>
+	<classpathentry kind="src" path="transfers_stock_DET/src"/>
+	<classpathentry kind="src" path="TryAnt/src"/>
+	<classpathentry kind="src" path="VehicleRoutingProblem/src"/>
+	<classpathentry kind="output" path="ΕΡΓΑΣΙΑ ΙΙ/bin"/>
+</classpath>
