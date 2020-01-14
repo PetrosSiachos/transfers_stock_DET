@@ -30,12 +30,31 @@ http://ism.dmst.aueb.gr/ismgroup28/JAVA%20II/index.html
 2. ένα αρχείο .jar  που θα επεξεργάζεται τη βάση δεδομένων (inserts κτλ-δημιουργία νέων πελατών, παραγγελιών)
 Το .jar δημιουργείται ωσ εξής:
 
-jar cf jar-file input-file(s) ή jar cf myJar.jar myClass.class
 Το δικό μας .jar με όνομα STOCKOVERFLOW.jar δημιουργείται ως εξής:
- 
- 
- 
- Ολόκληρος ο κώδικας που χρησημοποιήσαμε για την υλοποίηση της εφαρμογής μας βρίσκεται στο φάκελο STOCKOVERFLOW_FINAL_PARADOTEO.
- Πιο συγκεκριμένα οι κλάσεις της java μας βρίσκονται στο φάκελο : 
 
-Το Manoual της εφαρμογής μας θα το βρείτε εδώ : http://ism.dmst.aueb.gr/ismgroup28/JAVA%20II/manual_stock_overflow.pdf
+1ος τρόπος : Από το eclipse 
+1.Φτιάχνουμε ένα Java Project.
+2.Φτιάχνουμε στο src το πακέτο STOCKOVERFLOWPackage και μέσα τοποθετούμε τις κλάσεις μας
+3.Πατάμε δεξί κλικ πάνω στο πακέτο STOCKOVERFLOWPackage και επιλέγουμε export-Java-Runnable JAR file
+4.Στο Launch configuration βάζουμε τη main του πακέτου μας και στο export destination βάζουμε τη διεύθυνση που θέλουμε να αποθηκεύσουμε το jar στον υπολογιστη μας και ονομάζουμε το jar.
+5. Επιλέγουμε την επιλογή Extract required libraries into generated και πατάμε finish.
+
+2ος τρόπος : Από τη γραμμή εντολών
+1.Κατεβάζουμε τις κλάσεις από το github και τις τοποθετούμε σε ένα φάκελο STOCKOVERFLOWPackage
+2.Μπαίνουμε στη γραμμή εντολών (command prompt) και επιλέγω το αντίστοιχο path που με οδηγεί στο φάκελο STOCKOVERFLOWPackage
+3.Εκτελώ javac *.java για να κανω compile όλες τις κλάσεις
+4.Δημιουργώ ενα έγγραφο κειμένου με ονομασία manifest, και μεσα γράφω:
+Main-Class: Main
+"Αφήνω κενό"
+5. Το αποθηκέυω στο φάκελο STOCKOVERFLOWPackage
+6. Εκτελώ jar cfm STOCKOVERFLOW.jar manifest.txt *.class
+7.java -jar STOCKOVERFLOW.jar
+
+
+
+Ολόκληρος ο κώδικας που χρησημοποιήσαμε για την υλοποίηση της εφαρμογής μας βρίσκεται στο φάκελο STOCKOVERFLOW_FINAL_PARADOTEO.
+ Πιο συγκεκριμένα οι κλάσεις της java μας βρίσκονται στο φάκελο : STOCKOVERFLOW_FINAL_PARADOTEO/src/STOCKOVERFLOWPackage
+ 
+ Το Manual της εφαρμογής μας θα το βρείτε εδώ : http://ism.dmst.aueb.gr/ismgroup28/JAVA%20II/manual_stock_overflow.pdf
+ 
+ 
