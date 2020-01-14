@@ -24,7 +24,7 @@ public class VolumeSet {
 	/** The total amount of routes */
 	static int numRoutes;
 	/** The maximum capacity of each route */
-	static final int CAPACITY_OF_ROUTE = 1830;
+	static final int CAPACITY_OF_ROUTE = 1900;
 	/** The array that will contain the orders sorted in descending order */
 	static int[][] sortArrayOfOrders;
 	/**
@@ -42,7 +42,7 @@ public class VolumeSet {
 	public VolumeSet(int sumVolume, int idcust) {
 		this.sumVolume = sumVolume;
 		this.idcust = idcust;
-		volumes.add(this);
+	
 	}
 
 	public VolumeSet() {
@@ -133,25 +133,26 @@ public class VolumeSet {
 			VolumeSet c = new VolumeSet(sumVolume, idcust);
 			volumes.add(c); // Add the specific order (object c) in the ArrayList volumes
 		}
-		sortArrayOfOrders = new int[volumes.size() / 2][2];
+		System.out.println(volumes.size());
+		sortArrayOfOrders = new int[volumes.size()][2];
 		counter = 0;
 		while (counter < sortArrayOfOrders.length) {
 			int currentMax = 0;
 			volumes.remove(bi);
 			for (int i = 0; i < volumes.size(); i++) {
-				if (i % 2 == 0) {
+			
 					if (currentMax < volumes.get(i).sumVolume) {
 						currentMax = volumes.get(i).sumVolume;
 						best_i = volumes.get(i).idcust;
 						bi = i;
 					}
-				}
+				
 			}
 			sumVol = sumVol + currentMax; // Calculate the sum of the volume of all orders
 			sortArrayOfOrders[counter][0] = currentMax;
 			sortArrayOfOrders[counter][1] = best_i;
 			counter++;
-			volumes.remove(bi);
+			//volumes.remove(bi);
 		}
 		numRoutes = sumVol / CAPACITY_OF_ROUTE + 1; // Calculate the total amount of routes
 		return sortArrayOfOrders;
@@ -188,8 +189,8 @@ public class VolumeSet {
 	 * @throws Exception
 	 */
 	public static String[] printRoutes() throws Exception {
-		int finalArray[][] = returnFinal();
-
+		
+		int[][] finalArray = returnFinal();
 		String[] results = new String[numRoutes];
 		for (int i = 0; i < numRoutes; i++) {
 			results[i] = "Route" + finalArray[i][0] + ":";
@@ -201,32 +202,5 @@ public class VolumeSet {
 		}
 		return results;
 	}
-
-	public static void main(String[] args) throws Exception {
-		VolumeSet k1 = new VolumeSet();
-		int[][] a1 = k1.sortOrders();
-		for (int i = 0; i < a1.length; i++) {
-			System.out.println(a1[i][0]);
-			System.out.println(a1[i][1]);
-		}
-
-		int[][] a2 = returnFinal();
-		for (int i = 0; i < a2.length; i++) {
-			for (int y = 0; y < a2[i].length; y++) {
-				System.out.println(a2[i][y]);
-			}
-		}
-
-		String[] a4 = printRoutes();
-		for (int i = 0; i < a4.length; i++) {
-			System.out.println(a4[i]);
-		}
-		 OptimumRoute k2 = new OptimumRoute(); 
-		 String[] a3 = OptimumRoute.implementTheVRP();
-		 for (int i = 0; i < a3.length; i++) { 
-			 System.out.println(a3[i]); 
-		 }
-
-		Drawing.drawRoutes("Routes");
-	}
+		
 }
