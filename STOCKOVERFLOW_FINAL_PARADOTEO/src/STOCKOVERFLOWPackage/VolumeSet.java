@@ -202,26 +202,4 @@ public class VolumeSet {
 		}
 		return results;
 	}
-
-	public static void main(String[] args) throws Exception {
-
-		VolumeSet k1 = new VolumeSet();
-		int[][] a1 = k1.sortOrders();
-		for (int i = 0; i < a1.length; i++) {
-			System.out.println(a1[i][0]);
-			System.out.println(a1[i][1]);
-		}
-
-		String[] a4 = printRoutes();
-		for (int i = 0; i < a4.length; i++) {
-			System.out.println(a4[i]);
-		}
-		OptimumRoute k2 = new OptimumRoute();
-		String[] a3 = OptimumRoute.implementTheVRP();
-		for (int i = 0; i < a3.length; i++) {
-			System.out.println(a3[i]);
-		}
-
-		Drawing.drawRoutes("Routes");
-	}
 }
