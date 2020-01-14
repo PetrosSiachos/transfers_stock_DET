@@ -39,7 +39,7 @@ http://ism.dmst.aueb.gr/ismgroup28/JAVA%20II/index.html
 4.Στο Launch configuration βάζουμε τη main του πακέτου μας και στο export destination βάζουμε τη διεύθυνση που θέλουμε να αποθηκεύσουμε το jar στον υπολογιστη μας και ονομάζουμε το .jar
 5. Επιλέγουμε την επιλογή Extract required libraries into generated και πατάμε finish.
 
-2ος τρόπος : Eclipse (β τρόπος)
+2ος τρόπος : Από το Eclipse (β τρόπος)
 1.Φτιάχνουμε ένα Java Project.
 2.Φτιάχνουμε στο src το πακέτο STOCKOVERFLOWPackage και μέσα τοποθετούμε τις κλάσεις μας
 3.Πατάμε δεξί κλικ πάνω στο πακέτο STOCKOVERFLOWPackage και επιλέγουμε export-JAVA-JAR file
